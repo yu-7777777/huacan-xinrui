@@ -48,6 +48,21 @@ CREATE TABLE IF NOT EXISTS archive_search_cache (cache_key TEXT PRIMARY KEY,answ
     def load(self, name):
         return json.loads(gzip.decompress((self.assets / (name+'.bin')).read_bytes()))
 
+    def archive_context(self, body):
+        if body.get('mode') != 'archive':
+            return None
+        storm=self.load('storm-catalog.json')['storms'].get(body.get('stormKey'))
+        code=body.get('regionCode')
+        if not storm or code not in ('cn','hk','mo','tw'):
+            return None
+        region=storm['regions'][code]
+        return {'internationalName':storm['internationalName'],'year':storm['year'],
+                'region':{'cn':'大陆','hk':'香港','mo':'澳门','tw':'台湾地区'}[code],
+                'name':region.get('name',storm['internationalName']),
+                'nameSource':region.get('nameSource',''),'source':region.get('source',''),
+                'warningStatus':region.get('warningStatus',''),'searchScope':region.get('searchScope',''),
+                'warnings':[w for w in region.get('warnings',[]) if w.get('source','').startswith('https://')]}
+
     def handle(self, req, key="", model="deepseek-flash"):
         method = req.get("method", "GET").upper()
         path = req.get("path", "")
@@ -59,7 +74,11 @@ CREATE TABLE IF NOT EXISTS archive_search_cache (cache_key TEXT PRIMARY KEY,answ
         if path == "/api/status":
             return result({"configured":bool(key),"collaboration":True})
         if path == "/api/chat" and method == "POST":
-            return self.chat(body, key, model)
+            response=self.chat(body, key, model)
+            context=self.archive_context(body)
+            if context:
+                response['body']['archiveContext']=context
+            return response
         if path == "/api/cards" and method == "POST":
             if body.get("festival") not in {"spring","lantern","qingming","dragon","qixi","ghost","mid","double","winter"}:
                 return result({"error":"请先选择节日"},400)
@@ -103,7 +122,7 @@ CREATE TABLE IF NOT EXISTS archive_search_cache (cache_key TEXT PRIMARY KEY,answ
         if mode == "archive" and body.get("stormKey"):
             if body["stormKey"] not in self.load("storm-catalog.json")["storms"] or body.get("regionCode") not in ("cn","hk","mo","tw"):
                 return result({"error":"台风条目或地区无效"},400)
-            cache_key = digest(body["stormKey"]+"|"+body["regionCode"]+"|"+str(body.get("city",""))[:60])
+            cache_key = digest('official-context-v2|'+body["stormKey"]+"|"+body["regionCode"]+"|"+str(body.get("city",""))[:60])
             with self.connect() as db:
                 row=db.execute("SELECT * FROM archive_search_cache WHERE cache_key=?",(cache_key,)).fetchone()
             if row and time.time()*1000-row["checked_at"] < 3*86400000:
@@ -113,6 +132,10 @@ CREATE TABLE IF NOT EXISTS archive_search_cache (cache_key TEXT PRIMARY KEY,answ
             system += "。请按四个地区分别用简短段落说明常用词语、语境和例句。地区可能使用同一说法，不人为制造差异。未查证注明待核实，不编造词典依据。"
         elif mode == "archive":
             system += "。必须联网检索指定台风年份、国际名称和地区的官方历史档案，列出采用名称、发布机构、预警名称、起止时间、原始网址。不得混淆年份；查不到说明检索范围，不能推断未发布。"
+            context=self.archive_context(body)
+            if context:
+                system += '。已有可核验官方资料：'+json.dumps(context,ensure_ascii=False)
+                system += '。优先读取上述原始网址、该机构对应年份的热带气旋年报及信号表，再以国际名称、当地繁简译名和年份交叉检索。已有资料不得说成没有资料；先列已经查证的名称、记录与出处，再准确区分尚待确认的时段。不以其他地区或邻近年份的资料代替。没有新增证据时保留已知事实，不只输出一句没有结果。'
         elif mode == "latest":
             system += "。必须联网查中央气象台、香港天文台、澳门地球物理气象局、台湾地区气象署最新官方发布。四地分别列出名称、信号、适用地点、原发布时间、原文网址。没有找到如实说明，不从历史资料推断当前情况，不做个人出行安全判断。"
         else:

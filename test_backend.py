@@ -52,5 +52,19 @@ class BackendTests(unittest.TestCase):
         self.assertEqual(len(self.api.load('festivals.json')),9)
         self.assertEqual(len(self.api.load('storm-catalog.json')['storms']),116)
 
+    def test_archive_returns_known_sources_when_search_adds_nothing(self):
+        body={'mode':'archive','stormKey':'KOINU','regionCode':'hk','question':'核对小犬九号信号'}
+        response={'choices':[{'message':{'content':'未查到额外资料。'}}]}
+        with patch('backend.urlopen',return_value=io.BytesIO(json.dumps(response).encode())) as mock:
+            result=self.api.handle({'path':'/api/chat','method':'POST','body':body},'test-only')
+            context=result['body']['archiveContext']
+            self.assertEqual(context['name'],'小犬')
+            self.assertTrue(context['warnings'])
+            self.assertTrue(all(w['source'].startswith('https://www.hko.gov.hk/') for w in context['warnings']))
+            self.assertIn('table43.html',json.loads(mock.call_args.args[0].data)['messages'][0]['content'])
+        without_key=self.api.handle({'path':'/api/chat','method':'POST','body':body})
+        self.assertEqual(without_key['status'],503)
+        self.assertTrue(without_key['body']['archiveContext']['warnings'])
+
 if __name__=='__main__':
     unittest.main()
