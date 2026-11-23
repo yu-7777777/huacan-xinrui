@@ -1,0 +1,23 @@
+import fs from 'node:fs';import vm from 'node:vm';import assert from 'node:assert/strict';import {gunzipSync} from 'node:zlib';
+const read=name=>fs.readFileSync(new URL('./frontend/'+name,import.meta.url),'utf8');
+const element=()=>({scrollTop:400,scrollLeft:20});const inner=element(),outer=element();
+const parent={document:{querySelectorAll:()=>[outer]},scrollTo(){outer.scrollTop=0}};parent.parent=parent;
+const w={parent,document:{querySelectorAll:()=>[inner]},scrollTo(){inner.scrollTop=0}};
+const ux={window:w,document:{getElementById:()=>null},requestAnimationFrame:fn=>fn(),setTimeout(){},console};
+vm.runInNewContext(read('experience-upgrade.js'),ux);w.TongpinUX.scrollTop();assert.equal(inner.scrollTop,0);assert.equal(outer.scrollTop,0);
+const attrs={},svg={setAttribute(k,v){attrs[k]=v},removeAttribute(){},innerHTML:''};const handlers={};
+const map={dataset:{},classList:{add(){}},querySelectorAll:()=>[],querySelector:()=>({}),insertAdjacentHTML(){},addEventListener(k,f){handlers[k]=f},setPointerCapture(){},getBoundingClientRect:()=>({width:900,height:500})};
+const land=JSON.parse(gunzipSync(fs.readFileSync(new URL('./frontend/land.json.bin',import.meta.url))));
+const geo={window:{},document:{getElementById:id=>id==='map'?map:id==='fallback'?svg:{textContent:''}},fetch:async()=>({ok:true,json:async()=>land}),console};
+vm.runInNewContext(read('geography.js'),geo);await new Promise(r=>setImmediate(r));
+const tracks=JSON.parse(gunzipSync(fs.readFileSync(new URL('./frontend/tracks.json.bin',import.meta.url))));
+geo.window.TongpinMap.render(tracks.KOINU.points,10);assert.equal(geo.window.TongpinMap.getReady(),true);assert.ok(svg.innerHTML.includes('香港'));assert.ok(svg.innerHTML.includes('台湾地区'));assert.ok(svg.innerHTML.includes('fill-rule="evenodd"'));assert.ok(svg.innerHTML.includes('polyline'));assert.equal(attrs.preserveAspectRatio,'xMidYMid meet');
+for(const t of Object.values(tracks)){const view=geo.window.TongpinMap.fit(t.points);assert.ok(Object.values(view).every(Number.isFinite));assert.ok(view.sx>0&&view.sy>0);}
+const texts=[];const ctx={measureText:s=>({width:s.length*22}),createLinearGradient:()=>({addColorStop(){}}),fillRect(){},strokeRect(){},fillText(text,x,y){texts.push({text,y})},save(){},restore(){},translate(){},rotate(){}};
+const canvas={getContext:()=>ctx};const cards={window:{},document:{getElementById:()=>null,createElement:()=>canvas},setTimeout(){},console};
+vm.runInNewContext(read('card-export.js'),cards);
+const data={title:'相遇 · 团圆',entries:[{title:'相遇',voice:'一起赏月。'},{title:'团圆',voice:'一家人吃月饼。'}],festival:{name:'中秋',intro:'中秋寄托团圆与思念。',source:'https://example.org/festival'},confirmed:false,dirty:true};
+const text=cards.window.TongpinCardExport.compose(data);assert.ok(text.includes('一家人吃月饼'));assert.ok(text.includes('草稿'));assert.ok(!text.includes('invite='));
+cards.window.TongpinCardExport.canvasFor(data);assert.equal(canvas.width,1400);assert.ok(canvas.height>900);assert.ok(texts.every(x=>x.y<canvas.height-50));
+const app=read('app-v3.js');assert.ok(!app.includes("let stored=sessionStorage.getItem('tongpin-room')"));assert.ok(app.includes("sessionStorage.removeItem('tongpin-room')"));assert.ok(!app.includes('demotiles.maplibre.org'));assert.ok(!read('index.html').includes('unpkg.com/maplibre'));
+console.log('PASS: ancestor scroll reset, bundled coastlines and labels, all-track map bounds, local card export and fresh-entry behavior');

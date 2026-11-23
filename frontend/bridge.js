@@ -32,11 +32,7 @@
    let base=args.public_url||'';
    try{const u=new URL(document.referrer);if(/^https?:$/.test(u.protocol))base=u.origin+'/';}catch{}
    window.TONGPIN_PUBLIC_URL=base;
-   if(/^[a-f0-9]{24}\.[a-f0-9]{64}$/.test(args.invite||'')&&sessionStorage.getItem('streamlit-invite-applied')!==args.invite){
-    sessionStorage.setItem('streamlit-invite-applied',args.invite);
-    sessionStorage.setItem('pending-invite','#invite='+args.invite);
-    if(document.getElementById('joinText')){location.hash='#invite='+args.invite;location.reload();return;}
-   }
+   if(/^[a-f0-9]{24}\.[a-f0-9]{64}$/.test(args.invite||'')){window.TONGPIN_PENDING_INVITE='#invite='+args.invite;window.dispatchEvent(new CustomEvent('tongpin-invite',{detail:window.TONGPIN_PENDING_INVITE}));}
   }
   if(active&&args.responses&&Object.hasOwn(args.responses,active.request.id)){
    const response=args.responses[active.request.id],current=active;active=null;current.cleanup();
@@ -47,7 +43,7 @@
  });
  // Data assets are handled separately so initial Promise.all does not need reruns.
  window.addEventListener('DOMContentLoaded',()=>{
-  const height=()=>send('streamlit:setFrameHeight',{height:Math.max(850,window.innerHeight)});
+  const height=()=>send('streamlit:setFrameHeight',{height:Math.max(480,window.parent.innerHeight||window.innerHeight)});
   height();window.addEventListener('resize',height);
  });
  send('streamlit:componentReady',{apiVersion:1});
