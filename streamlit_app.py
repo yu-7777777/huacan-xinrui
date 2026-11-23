@@ -15,7 +15,7 @@ iframe{border:0;display:block;width:100%}
 </style>''', unsafe_allow_html=True)
 
 @st.cache_resource
-def backend():
+def backend(source_version):
     return Backend(ROOT / "frontend", ROOT / "data" / "tongpin.sqlite")
 
 def setting(name, default=""):
@@ -34,7 +34,7 @@ public_url = setting("PUBLIC_APP_URL") or ("http" if host.startswith(("localhost
 request = view(responses=responses, invite=st.query_params.get("invite", ""), public_url=public_url, key="tongpin-ui", default=None)
 if isinstance(request, dict) and isinstance(request.get("id"), str) and len(request["id"]) < 100 and request["id"] not in responses:
     try:
-        response = backend().handle(request, setting("DEEPSEEK_API_KEY"), setting("DEEPSEEK_MODEL", "deepseek-flash"))
+        response = backend((ROOT / "backend.py").stat().st_mtime_ns).handle(request, setting("DEEPSEEK_API_KEY"), setting("DEEPSEEK_MODEL", "deepseek-flash"))
     except Exception:
         response = {"status":500,"body":{"error":"服务暂不可用，请稍后重试"}}
     responses[request["id"]] = response
