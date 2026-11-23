@@ -2,3 +2,14 @@ html,body{scroll-behavior:auto!important}.family-care{margin:40px 0 0!important;
 @media(max-width:600px){.family-messages{grid-template-columns:1fr;gap:16px}.family-care h2{font-size:1.45rem}.family-messages section{padding:20px}.family-messages p{min-height:0}.card-downloads{display:grid;grid-template-columns:1fr}.card-downloads button{width:100%}.map-top-tools{right:8px;top:8px;gap:4px}.map-top-tools button{width:32px;height:34px}.map-legend{top:51px;left:8px;gap:9px;font-size:10px;padding:5px 7px}.map-credit{font-size:9px!important}.map-top-tools .map-fit{font-size:12px;padding:0 8px}}
 
 #mapNotice{display:none!important}.bundled-map{background:#e5eee6}
+
+/* Deeper silk and celadon surfaces, with light reading cards. */
+:root{--paper:#f4e9d5}
+body{background:radial-gradient(ellipse at 0 0,#d9b99b66,transparent 48%),radial-gradient(ellipse at 100% 50%,#a9c0ad55,transparent 55%),#e9ddc7}
+header{background:#f4e9d7f5;border-bottom-color:#c8ad87}
+.hero{background:linear-gradient(115deg,#ead2b4,#eee0c8 50%,#ccd9c4);border-color:#c5ad85}
+.panel{background-color:#fbf4e6;border-color:#cdb995;box-shadow:0 8px 28px #6b513d0c}
+.entrances>button{background:#f5e7cf;border-color:#c8b18d}.entrances>button:nth-child(2){background:#d8e3d0}.entrances>button:nth-child(3){background:#265e5c}
+.storm-heading{background:linear-gradient(110deg,#cddbc7,#e7d5b5);border-color:#aebf9f}
+.signals{background:#f4e7d0}.journey-nav{background:linear-gradient(115deg,#d4e1ce,#eed9b8);border-color:#b6c6ad}
+.bundled-map,.bundled-map svg{user-select:none;-webkit-user-select:none}

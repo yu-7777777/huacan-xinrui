@@ -12,6 +12,9 @@ const geo={window:{},document:{getElementById:id=>id==='map'?map:id==='fallback'
 vm.runInNewContext(read('geography.js'),geo);await new Promise(r=>setImmediate(r));
 const tracks=JSON.parse(gunzipSync(fs.readFileSync(new URL('./frontend/tracks.json.bin',import.meta.url))));
 geo.window.TongpinMap.render(tracks.KOINU.points,10);assert.equal(geo.window.TongpinMap.getReady(),true);assert.ok(svg.innerHTML.includes('香港'));assert.ok(svg.innerHTML.includes('台湾地区'));assert.ok(svg.innerHTML.includes('fill-rule="evenodd"'));assert.ok(svg.innerHTML.includes('polyline'));assert.equal(attrs.preserveAspectRatio,'xMidYMid meet');
+const beforeWheel=svg.innerHTML;let prevented=false;const wheel={target:{closest:()=>null},clientX:600,clientY:220,deltaY:-120,deltaMode:0,preventDefault(){prevented=true}};
+map.getBoundingClientRect=()=>({left:0,top:0,width:900,height:500});handlers.wheel(wheel);assert.ok(prevented);assert.notEqual(svg.innerHTML,beforeWheel);handlers.wheel({...wheel,deltaY:120});assert.equal(svg.innerHTML,beforeWheel);
+for(let n=0;n<80;n++)handlers.wheel({...wheel,deltaY:-1000});assert.ok(!svg.innerHTML.includes('NaN'));assert.ok(!svg.innerHTML.includes('Infinity'));
 for(const t of Object.values(tracks)){const view=geo.window.TongpinMap.fit(t.points);assert.ok(Object.values(view).every(Number.isFinite));assert.ok(view.sx>0&&view.sy>0);}
 const texts=[];const ctx={measureText:s=>({width:s.length*22}),createLinearGradient:()=>({addColorStop(){}}),fillRect(){},strokeRect(){},fillText(text,x,y){texts.push({text,y})},save(){},restore(){},translate(){},rotate(){}};
 const canvas={getContext:()=>ctx};const cards={window:{},document:{getElementById:()=>null,createElement:()=>canvas},setTimeout(){},console};
