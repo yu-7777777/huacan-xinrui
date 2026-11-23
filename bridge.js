@@ -40,6 +40,7 @@
   }
   if(active&&args.responses&&Object.hasOwn(args.responses,active.request.id)){
    const response=args.responses[active.request.id],current=active;active=null;current.cleanup();
+   if(current.request.path==='/api/chat'&&response.status===200&&document.getElementById('aiStatus'))document.getElementById('aiStatus').textContent='DeepSeek已配置';
    if(!current.aborted)current.resolve(new Response(JSON.stringify(response.body),{status:response.status,headers:{'Content-Type':'application/json'}}));
   }
   flush();

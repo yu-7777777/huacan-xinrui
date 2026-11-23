@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS archive_search_cache (cache_key TEXT PRIMARY KEY,answ
             payload["tools"]=[{"type":"deepseek_web_search"},{"type":"deepseek_read_url"}]
         request=Request("https://api.deepseek.com/chat/completions",data=json.dumps(payload).encode(),headers={"Authorization":"Bearer "+key,"Content-Type":"application/json"})
         try:
-            with urlopen(request, timeout=45) as response:
+            with urlopen(request, timeout=90 if web else 45) as response:
                 data=json.load(response)
             message=data.get("choices",[{}])[0].get("message",{})
             answer=message.get("content")
