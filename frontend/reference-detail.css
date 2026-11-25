@@ -133,3 +133,5 @@ body.scroll-edition{background-image:url('assets/brocade.svg'),url('assets/paper
 .scroll-edition #home .hero-routes{max-width:400px}
 .scroll-edition .entrances>[data-enter="culture"]:before{width:71%}
 @media(max-width:640px){.scroll-edition #home .culture-art{width:110%;margin:0 -5%;transform:none}.scroll-edition #home .culture-art img{max-height:290px}.scroll-edition #home .hero-routes{max-width:100%}.scroll-edition .entrances>[data-enter="culture"]:before{width:80%}}
+
+@media(max-width:640px){.scroll-edition #guide .guide-head b{font-size:20px!important;line-height:1.45;white-space:nowrap}.scroll-edition #guide .guide-head{padding-right:26px;background-size:80px auto}.scroll-edition #guide .guide-body{overflow-x:hidden}.scroll-edition #guide .msg.user{margin-right:38px;margin-left:20px}.scroll-edition #guide .guide-topics{background:none}.scroll-edition #guide .suggestions::-webkit-scrollbar{height:3px}.scroll-edition #guide .suggestions::-webkit-scrollbar-thumb{background:#c8aa88;border-radius:3px}}
