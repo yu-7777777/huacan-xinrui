@@ -1,0 +1,65 @@
+/* Approved green word entrance, full festival art, independent query result cards. */
+.scroll-edition .entrances>.jade-word-entry{background:linear-gradient(120deg,#edf0e3a8,#e6eddf59),url('assets/landscape-detail.webp') center bottom/120% auto no-repeat,#e8ede0;border-color:#c6d3be;min-height:342px;padding:29px 30px}
+.scroll-edition .entrances>.jade-word-entry:after{opacity:.3;background:url('assets/lattice.svg') repeat;mask-image:linear-gradient(225deg,#000,transparent 85%);width:170px;height:145px}
+.scroll-edition .jade-word-entry .chapter-heading h2{font-size:32px;color:#283c35}
+.scroll-edition .jade-word-entry .chapter-heading small{font-size:27px;border-color:#9cac98;color:#68796a}
+.scroll-edition .entrances>.jade-word-entry .entry-context{font:14px/1.6 var(--song);letter-spacing:2px;color:#75816f!important;margin:12px 0 20px}
+.entry-word-pair{display:flex;align-items:center;gap:18px;width:100%;max-width:420px;margin:0 0 18px;position:relative;z-index:1}
+.entry-word-pair>span{display:grid;place-items:center;position:relative;min-width:0;flex:1;border:1px solid #c5b38e;background:#fff8e9c7;padding:8px 22px;font:500 33px/1.5 var(--song);color:#2b3b33;box-shadow:0 3px 6px #6e715b14,inset 0 0 0 4px #f8edda;border-radius:5px}
+.entry-word-pair>i{height:34px;width:1px;background:#ba7353;flex-shrink:0}
+.entry-word-pair .frame-corner{width:16px;height:16px}
+.scroll-edition .entrances>.jade-word-entry .entry-note{font-size:16px;letter-spacing:1px;color:#63745f!important;margin:10px 0 23px}
+.scroll-edition .entrances>.jade-word-entry .chapter-action{color:#457871;border-color:#83a59a;background:#f7faef6b;font-size:18px;padding:6px 25px;min-height:40px}
+.scroll-edition .entrances>.jade-word-entry:hover{border-color:#7b9a8b}
+.scroll-edition #culture .festival-illustration{background:none!important;box-shadow:none!important;border:0;height:auto!important;min-height:0;padding:0!important;overflow:visible!important;display:flex;align-items:center;justify-content:center;max-width:none;width:100%;align-self:center}
+.festival-complete-image{display:block;width:100%;height:auto;object-fit:contain;max-width:100%;max-height:360px;border-radius:0}
+.scroll-edition #culture .festival-illustration #festGlyph,.scroll-edition #culture .festival-illustration small{display:none!important}
+.scroll-edition #culture>.page-heading{background-image:var(--festival-image)!important;background-size:auto 100%!important;background-position:right center!important;background-repeat:no-repeat!important;min-height:218px}
+.scroll-edition #culture>.page-heading:before{right:34%;opacity:.45}
+.scroll-edition .festival-story{grid-template-columns:46% minmax(0,1fr);padding:18px 27px 18px 12px;min-height:0;overflow:visible}
+.scroll-edition #guide{top:8px;max-height:calc(100dvh - 16px)}
+.scroll-edition .guide-fab{bottom:76px}
+.scroll-edition #words .page-heading{background-image:url('assets/auspicious-cloud.svg');min-height:226px;padding-bottom:37px}
+.scroll-edition #words .page-heading:after{background-size:100% auto;opacity:.33}
+.scroll-edition #wordSearch{margin-bottom:19px}
+.scroll-edition #wordSearch>div:first-of-type{position:relative}
+.scroll-edition #wordSearch>div:first-of-type:before{content:'';position:absolute;left:18px;top:15px;width:14px;height:14px;border:2px solid #8b7964;border-radius:50%;pointer-events:none}
+.scroll-edition #wordSearch>div:first-of-type:after{content:'';position:absolute;left:33px;top:31px;width:9px;height:2px;background:#8b7964;transform:rotate(45deg);pointer-events:none}
+.scroll-edition #wordQuery{padding-left:48px;background:#fffaf2a6}
+.scroll-edition #wordFilters{margin:13px 0 18px;padding:0 0 12px;gap:12px}
+.scroll-edition #wordFilters button{font-size:19px;min-width:85px;padding:6px 19px;min-height:38px}
+.word-section-title{font:600 24px/1.5 var(--song);color:#30271f;border-left:4px solid #ad4931;padding-left:14px;margin:18px 0 23px}
+.word-section-title>span{color:#a3452c;margin-left:6px}
+#regionalResults{margin:0 0 20px}
+.regional-result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.regional-result-card{position:relative;background:#f6e7d366;border:1px solid #d8b995;border-radius:14px;padding:17px 18px 22px;text-align:center;min-width:0}
+.regional-result-card>small{display:inline-block;font:18px/1.5 var(--song);color:#a24c30;border:1px solid #bd8b62;border-radius:5px;padding:1px 20px;background:#fff6e8a3}
+.result-divider{position:relative;width:80%;height:1px;background:#c19a74;margin:20px auto 13px}
+.result-divider:after{content:'';position:absolute;left:50%;top:-3px;width:6px;height:6px;border:1px solid #ac6a44;transform:translateX(-50%) rotate(45deg);background:#faeedf}
+.regional-result-card>strong{display:block;font:600 clamp(27px,3vw,38px)/1.65 var(--song);color:#30271d;overflow-wrap:anywhere}
+.regional-result-card>p{font-size:14px;line-height:1.8;color:#78644e;margin:10px 0 0;text-align:left}
+.regional-result-note{font:16px/1.8 var(--song);color:#74624f;margin:13px 8px 4px}
+.result-origin{display:block;font-size:13px;color:#9a8166;margin:0 8px}
+.regional-context{margin:12px 8px 0;border-top:1px solid #d8b997;padding-top:8px;font-size:15px;line-height:1.8}
+.regional-context summary{font-size:14px;min-height:30px}
+.regional-context p{margin:8px 0}
+.example-heading{padding-top:17px;border-top:1px solid #dbc0a0;margin-top:24px;background:none}
+.scroll-edition #wordCards{gap:12px}
+.scroll-edition .example-strip{grid-template-columns:150px minmax(0,1fr);padding:16px 25px;border-radius:14px;row-gap:0}
+.scroll-edition .example-strip h3{grid-column:1;grid-row:1;margin:0;font:500 30px/1.6 var(--song)}
+.scroll-edition .example-strip .quad-grid{grid-column:2;grid-row:1;gap:0}
+.scroll-edition .example-strip .quad-grid small{font-size:15px;margin-bottom:7px}
+.scroll-edition .example-strip .quad-grid strong{font-size:27px}
+.scroll-edition .example-strip>details{grid-column:1/-1;border-top:0;padding:0;margin:6px 0 0;background:none}
+.scroll-edition .example-strip>details:not([open])>summary{font-size:12px;min-height:19px;color:#9a846c;line-height:1.6}
+.scroll-edition .example-strip>details[open]{border-top:1px solid #d8b997;margin-top:13px;padding-top:12px;font-size:15px}
+.scroll-edition .word-note{padding:10px 20px;background:#fff5e753;margin:24px 0}
+.scroll-edition .word-note>details>summary{font-size:20px;min-height:40px;line-height:2}
+.scroll-edition .word-note>details>h2{font-size:22px}
+.scroll-edition #moreWordExamples{display:block;margin:17px auto 0;min-height:38px;font-size:15px}
+.scroll-edition #moreWordExamples[hidden]{display:none}
+.category-search{padding:20px;border:1px solid #d4b38f;border-radius:12px}
+@media(max-width:900px){.entry-word-pair{gap:12px}.entry-word-pair>span{padding-inline:13px;font-size:29px}.regional-result-card{padding-inline:12px}.regional-result-card>small{padding-inline:12px;font-size:16px}.scroll-edition .example-strip{grid-template-columns:115px 1fr;padding:15px 17px}.scroll-edition .example-strip .quad-grid strong{font-size:23px}}
+@media(max-width:640px){.scroll-edition .entrances>.jade-word-entry{min-height:300px;padding:25px 22px}.scroll-edition .jade-word-entry .chapter-heading h2{font-size:29px}.entry-word-pair{gap:12px;margin-bottom:15px}.entry-word-pair>span{font-size:29px;padding:8px 12px}.scroll-edition .entrances>.jade-word-entry .entry-context{font-size:13px}.scroll-edition .entrances>.jade-word-entry .entry-note{font-size:15px;margin:10px 0 22px}.scroll-edition #culture>.page-heading{background-size:auto 78%!important;background-position:160% center!important;min-height:205px}.scroll-edition .festival-story{grid-template-columns:1fr;padding:15px 18px;gap:13px}.festival-complete-image{max-height:280px;width:100%;height:auto}.scroll-edition #culture .festival-illustration{max-width:100%;width:100%}.scroll-edition #guide{top:4px;max-height:calc(100dvh - 8px)}.scroll-edition .guide-fab{bottom:46px}.scroll-edition #wordFilters{gap:3px;justify-content:space-between;flex-wrap:nowrap}.scroll-edition #wordFilters button{font-size:15px;min-width:0;padding:6px 10px;flex:1}.regional-result-grid{grid-template-columns:1fr 1fr;gap:11px}.regional-result-card{padding:15px 13px 19px}.regional-result-card>small{font-size:16px;padding-inline:13px}.regional-result-card>strong{font-size:29px}.regional-result-card>p{font-size:13px}.word-section-title{font-size:22px;margin:17px 0}.regional-result-note{font-size:14px}.scroll-edition .example-strip{display:block;padding:18px}.scroll-edition .example-strip h3{font-size:25px;margin:0 0 13px}.scroll-edition .example-strip .quad-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.scroll-edition .example-strip .quad-grid>div{padding:8px;border:1px solid #dbc19e;border-radius:6px}.scroll-edition .example-strip .quad-grid strong{font-size:24px}.scroll-edition .example-strip .quad-grid small{font-size:14px}.scroll-edition .word-note>details>summary{font-size:18px}.scroll-edition #wordSearch>div:first-of-type:before{top:15px}.scroll-edition #wordSearch>div:first-of-type:after{top:31px}}
+
+@media(max-width:640px){.scroll-edition .guide-fab{bottom:66px}.scroll-edition #culture>.page-heading{background-image:none!important}}

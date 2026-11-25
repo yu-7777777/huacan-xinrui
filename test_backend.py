@@ -66,5 +66,18 @@ class BackendTests(unittest.TestCase):
         self.assertEqual(without_key['status'],503)
         self.assertTrue(without_key['body']['archiveContext']['warnings'])
 
+    def test_structured_words_are_validated_and_general_chat_is_unchanged(self):
+        payload={'regions':{c:{'term':'bread','note':'context'} for c in ('cn','hk','mo','tw')},'note':'usage varies'}
+        response={'choices':[{'message':{'content':'```json\n'+json.dumps(payload)+'\n```'}}]}
+        with patch('backend.urlopen',return_value=io.BytesIO(json.dumps(response).encode())) as mock:
+            r=self.api.handle({'path':'/api/chat','method':'POST','body':{'question':'bread','mode':'words','structured':True}},'test-only')
+            self.assertEqual(r['body']['regionalExpressions']['regions']['hk']['term'],'bread')
+            self.assertIn('JSON',json.loads(mock.call_args.args[0].data)['messages'][0]['content'])
+        invalid={'choices':[{'message':{'content':'{"regions":{"cn":{"term":["invalid"]}}}'}}]}
+        with patch('backend.urlopen',return_value=io.BytesIO(json.dumps(invalid).encode())):
+            r=self.api.handle({'path':'/api/chat','method':'POST','body':{'question':'bread','mode':'words','structured':True}},'test-only')
+            self.assertNotIn('regionalExpressions',r['body'])
+            self.assertIn('answer',r['body'])
+
 if __name__=='__main__':
     unittest.main()
