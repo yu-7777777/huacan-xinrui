@@ -126,3 +126,10 @@ body.scroll-edition{background-image:url('assets/brocade.svg'),url('assets/paper
 .scroll-edition #culture .journey-nav:before{content:'';position:absolute;left:-3%;bottom:20px;width:190px;height:130px;background:url('assets/blossom-branch.svg') center/contain no-repeat;pointer-events:none;z-index:-1;transform:scaleX(-1)}
 .scroll-edition #guide .guide-head{background:url('assets/blossom-branch.svg') right top/150px auto no-repeat}
 @media(max-width:640px){.scroll-edition #culture .journey-nav:before{width:110px;opacity:.55}.scroll-edition #guide .guide-head{background-size:95px auto}}
+
+.scroll-edition #home .hero{grid-template-columns:.93fr 1.3fr}
+.scroll-edition #home .culture-art{width:112%;margin:0 -2% 0 -8%;transform:translateY(8px)}
+.scroll-edition #home .culture-art img{max-height:480px}
+.scroll-edition #home .hero-routes{max-width:400px}
+.scroll-edition .entrances>[data-enter="culture"]:before{width:71%}
+@media(max-width:640px){.scroll-edition #home .culture-art{width:110%;margin:0 -5%;transform:none}.scroll-edition #home .culture-art img{max-height:290px}.scroll-edition #home .hero-routes{max-width:100%}.scroll-edition .entrances>[data-enter="culture"]:before{width:80%}}
