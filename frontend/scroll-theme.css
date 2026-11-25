@@ -194,3 +194,14 @@ body.scroll-edition{background:#f6ecde url('assets/paper-grain.svg') repeat;colo
 .scroll-edition #aiStatus{font-size:14px;color:#527044;background:#dce1ca9c;width:fit-content;padding:2px 12px;border-radius:20px;margin-top:8px}
 .scroll-edition .guide-head b{font-size:38px}
 @media(max-width:640px){.scroll-edition .hero{padding-block:28px 0}.scroll-edition .culture-art img{max-height:310px}.scroll-edition .festival-illustration{height:230px;background-size:110% auto}.scroll-edition #festName{font-size:30px}.scroll-edition .guide-head b{font-size:28px}.scroll-edition #messages:empty:before{font-size:17px;padding:12px}}
+
+.scroll-edition .latest-storm{display:block;padding:14px 20px;margin:12px auto 18px;max-width:1060px}
+.scroll-edition .latest-storm>div:first-child{display:none}
+.scroll-edition .latest-storm form{display:grid;grid-template-columns:1fr auto;align-items:center}
+.scroll-edition .latest-storm label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.scroll-edition .case-library-note{border:0;background:none;padding:0 8px;margin:0 0 15px;font-size:13px}
+.scroll-edition .storm-heading{min-height:200px}
+.scroll-edition .signals>.eyebrow{font-size:14px}
+.scroll-edition .signals h2{font-size:31px}
+.scroll-edition .entrances>[data-enter="culture"]:before{clip-path:polygon(0 0,52% 0,54% 2%,56% 5%,57% 9%,58% 13%,57% 17%,55% 21%,54% 25%,53% 30%,54% 35%,56% 40%,58% 45%,59% 50%,58% 55%,56% 60%,54% 65%,53% 70%,54% 75%,56% 80%,58% 85%,59% 90%,58% 95%,56% 100%,0 100%)}
+@media(max-width:640px){.scroll-edition .latest-storm form{grid-template-columns:1fr}.scroll-edition .latest-storm{padding:15px}.scroll-edition .case-library-note{font-size:13px}.scroll-edition .signals h2{font-size:29px}}
