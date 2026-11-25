@@ -73,6 +73,7 @@ class BackendTests(unittest.TestCase):
             r=self.api.handle({'path':'/api/chat','method':'POST','body':{'question':'bread','mode':'words','structured':True}},'test-only')
             self.assertEqual(r['body']['regionalExpressions']['regions']['hk']['term'],'bread')
             self.assertIn('JSON',json.loads(mock.call_args.args[0].data)['messages'][0]['content'])
+            self.assertEqual(json.loads(mock.call_args.args[0].data)['response_format'],{'type':'json_object'})
         invalid={'choices':[{'message':{'content':'{"regions":{"cn":{"term":["invalid"]}}}'}}]}
         with patch('backend.urlopen',return_value=io.BytesIO(json.dumps(invalid).encode())):
             r=self.api.handle({'path':'/api/chat','method':'POST','body':{'question':'bread','mode':'words','structured':True}},'test-only')

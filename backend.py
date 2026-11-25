@@ -143,6 +143,8 @@ CREATE TABLE IF NOT EXISTS archive_search_cache (cache_key TEXT PRIMARY KEY,answ
         else:
             system += "。平台参考资料："+json.dumps({"storms":self.load("storm-events.json"),"festivals":[{"name":f["name"],"intro":f.get("intro", "")} for f in self.load("festivals.json")]},ensure_ascii=False)
         payload={"model":model,"messages":[{"role":"system","content":system},{"role":"user","content":question}],"stream":False,"thinking":{"type":"disabled"},"max_tokens":2400}
+        if mode == "words" and body.get("structured") is True:
+            payload["response_format"]={"type":"json_object"}
         if web:
             payload["tools"]=[{"type":"deepseek_web_search"},{"type":"deepseek_read_url"}]
         request=Request("https://api.deepseek.com/chat/completions",data=json.dumps(payload).encode(),headers={"Authorization":"Bearer "+key,"Content-Type":"application/json"})
