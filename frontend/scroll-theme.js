@@ -28,7 +28,8 @@ function decorate(){
  if(done===4)return true;return false;
 }
 const observer=new MutationObserver(()=>{if(decorate())observer.disconnect();});observer.observe(document.body,{childList:true,subtree:true});decorate();setTimeout(()=>observer.disconnect(),30000);
-const festivalState=()=>document.body.dataset.festival=$('festName').textContent;
+const seasons={'春节':'spring','元宵':'lantern','清明':'qingming','端午':'dragon','七夕':'qixi','中元':'ghost','中秋':'mid','重阳':'double','冬至':'winter'};
+const festivalState=()=>{document.body.dataset.festival=$('festName').textContent;document.body.dataset.season=seasons[$('festName').textContent]||'mid';};
 new MutationObserver(festivalState).observe($('festName'),{childList:true,subtree:true});festivalState();
 // The guide remains the original working chat, in a larger paper correspondence workspace.
 const guide=$('guide'),body=guide.querySelector('.guide-body'),suggestions=guide.querySelector('.suggestions');
