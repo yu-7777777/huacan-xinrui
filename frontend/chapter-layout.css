@@ -1,0 +1,23 @@
+.scroll-edition #home .hero{min-height:calc(100dvh - 190px)}
+.scroll-edition #chapters{padding-top:15px}
+.scroll-edition #chapters .scroll-chapters{margin:0 -1% 30px;padding:32px 0;background:url('assets/paper-waves.svg') center/100% 100% no-repeat}
+.scroll-edition #chapters .scroll-chapters h1{font:600 clamp(28px,3.5vw,48px)/1.5 var(--song);letter-spacing:3px;margin:0;text-align:center}
+.chapter-back{margin:20px 0 28px}
+.scroll-edition #words>.page-heading{min-height:205px;padding:25px 32px 48px 110px;background:url('assets/auspicious-cloud.svg') right 34%/24% auto no-repeat}
+.scroll-edition #words>.page-heading h1{position:relative;font-size:clamp(28px,3.6vw,46px);line-height:1.4;white-space:normal;margin:12px 0 14px;letter-spacing:2px}
+.scroll-edition #words>.page-heading p{font-size:17px;letter-spacing:2px;max-width:none}
+.scroll-edition #words>.page-heading:after{width:100%;height:65px;opacity:.32;background-position:center bottom;background-size:100% auto}
+.words-heading-seal{display:inline-grid;place-items:center;width:23px;min-width:23px;height:35px;font:12px/1.2 var(--song);letter-spacing:0;writing-mode:vertical-rl;color:#fff3df;background:#ad4b36;border:3px double #ffe6cc;border-radius:5px;vertical-align:middle;margin:0 13px 7px -38px}
+.scroll-edition #words>.page-heading>.words-reeds{position:absolute;left:-20px;bottom:0;width:150px;height:180px;object-fit:contain;z-index:0;pointer-events:none}
+.scroll-edition #wordCards{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.scroll-edition #wordCards>.example-strip{display:grid;grid-template-columns:18% minmax(0,1fr);align-items:center;padding:13px 26px;min-height:98px;border:1px solid #dbbea0;background:linear-gradient(110deg,#f7e7d76b,#fff7eb59);border-radius:13px;position:relative;overflow:hidden}
+.scroll-edition #wordCards>.example-strip h3{font:600 29px/1.6 var(--song);margin:0;padding:0 12px 0 4px;position:relative;z-index:1}
+.scroll-edition #wordCards>.example-strip:before{content:'';position:absolute;left:20px;bottom:-10px;width:165px;height:55px;background:url('assets/auspicious-cloud.svg') center/contain no-repeat;opacity:.3}
+.scroll-edition #wordCards>.example-strip .quad-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:0;padding:0;background:none}
+.scroll-edition #wordCards>.example-strip .quad-grid>div{position:relative;min-width:0;padding:0 12px;border:0;border-radius:0;background:none;text-align:center}
+.scroll-edition #wordCards>.example-strip .quad-grid>div:before{content:'';position:absolute;left:0;top:20%;height:63%;width:1px;background:#c59572}
+.scroll-edition #wordCards>.example-strip .quad-grid small{display:inline-block;font:15px/1.4 var(--song);padding:0 13px;margin:0 0 7px;border:1px solid #b67b54;border-radius:4px;color:#a24c32;background:#fff4e6a6;white-space:nowrap}
+.scroll-edition #wordCards>.example-strip .quad-grid strong{font:500 27px/1.4 var(--song);overflow-wrap:anywhere}
+.scroll-edition #wordCards>.example-strip>.frame-corner{display:none}
+#exampleSources{margin:14px 0;color:#806a56;font:14px/1.8 var(--song)}#exampleSources>summary{cursor:pointer}#exampleSources>div>details{padding:10px 18px;border-bottom:1px solid #dcc6af}#exampleSources p{font-size:14px}
+@media(max-width:640px){.scroll-edition #home .hero{min-height:0}.scroll-edition #chapters .scroll-chapters{padding:25px 0;margin-bottom:20px;gap:7px}.scroll-edition #chapters .scroll-chapters h1{font-size:25px;letter-spacing:0}.scroll-edition #words>.page-heading{padding:20px 0 40px 40px;min-height:185px}.scroll-edition #words>.page-heading h1{font-size:27px;letter-spacing:0}.scroll-edition #words>.page-heading p{font-size:14px;letter-spacing:0}.words-heading-seal{width:17px;min-width:17px;height:29px;font-size:10px;margin-left:-28px;margin-right:7px}.scroll-edition #words>.page-heading>.words-reeds{width:75px;height:120px;left:-25px;opacity:.7}.scroll-edition #wordCards>.example-strip{grid-template-columns:18% minmax(0,1fr);padding:12px 7px;min-height:80px;border-radius:10px}.scroll-edition #wordCards>.example-strip h3{font-size:17px;padding:0 5px 0 0;line-height:1.5}.scroll-edition #wordCards>.example-strip .quad-grid>div{padding:0 3px}.scroll-edition #wordCards>.example-strip .quad-grid small{font-size:10px;padding:0 3px;margin-bottom:6px}.scroll-edition #wordCards>.example-strip .quad-grid strong{font-size:17px}.scroll-edition #wordCards>.example-strip:before{width:65px;left:0;opacity:.18}}
