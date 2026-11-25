@@ -7,3 +7,6 @@
 `frontend/assets/book-hero.webp` 与 `festival-art.webp` 为本次通过图像生成制作的独立插画，采用带透明度的 WebP。`wind.svg` 为代码绘制的装饰线纹。界面文字、输入和按钮均为真实 HTML，未用设计截图代替功能页。
 
 节日切换到中秋以外主题时，专题插画改为对应节令字形，避免将月亮灯笼用作所有节日的背景。主题修改不写入或暴露服务端 API 密钥。
+
+
+Restoration: bundled SIL OFL Ma Shan Zheng brush font (subset with license), procedural SVG paper grain, layered paper borders, full festival window illustration, red thread and four-region horizontal word rows. Decorative assets never replace controls.

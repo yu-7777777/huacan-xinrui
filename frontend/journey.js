@@ -39,7 +39,7 @@ async function init(){
  if(!note.isConnected)document.querySelector('.storm-grid')?.before(note);
  if(!note.isConnected)$('storm').querySelector('.storm-heading')?.after(note);
  if(!note.isConnected)picker.parentElement.before(note);
- document.querySelector('[data-enter="storm"] p').textContent='回放有据可查的台风路径，比较各地预警。';
+ document.querySelector('[data-enter="storm"] p').textContent='读懂各地预警，把关心送给远方的家人。';
  const code=()=>{const r=document.querySelector('[data-region].selected')?.dataset.region||'hk';return r==='gd'?'cn':r;};
  function update(){
   const c=storms[picker.value];if(!c)return;
