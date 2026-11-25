@@ -36,3 +36,7 @@ body.scroll-edition{background:radial-gradient(ellipse at 10% 3%,#fffaf0b3,trans
 @media(prefers-reduced-motion:reduce){.scroll-edition *{transition:none!important}}
 body.scroll-edition[data-festival]:not([data-festival="中秋"]) .festival-illustration{background:radial-gradient(ellipse at center,#ead6b7 0 40%,#f5ead9 41% 52%,transparent 53%),url('assets/wind.svg') center/contain no-repeat}
 body.scroll-edition[data-festival]:not([data-festival="中秋"]) .festival-illustration span{display:grid;place-items:center;height:100%;font:90px var(--song);color:#a64831}
+.scroll-edition .word-suggestions{flex-direction:row!important;justify-content:flex-start}
+.scroll-edition .coedit-fields>label:first-child{grid-column:1;grid-row:1}
+.scroll-edition #map.bundled-map{background:#b9d5dd}
+@media(max-width:640px){.scroll-edition #map{height:280px}.scroll-edition .coedit-fields>label:first-child{grid-column:1;grid-row:auto}}
