@@ -7,4 +7,6 @@
 [data-enter="storm"]{position:relative;overflow:hidden;padding-bottom:155px!important;background-image:url('assets/landscape-detail.webp')!important;background-position:center bottom!important;background-size:100% auto!important;background-repeat:no-repeat!important}
 .storm-connection{position:absolute;bottom:0;left:0;width:100%;height:155px;pointer-events:none}.storm-connection svg{width:100%;height:100%}
 body[data-custom-festival="true"] #observation{display:none!important}
+#festivalSearch input,#festivalSearch button,#festivalSearchResult{font-family:var(--song)}
+.scroll-edition .entrances>[data-enter="storm"] .chapter-source{position:static;display:block;margin:12px 0;border:0;padding:0}
 @media(max-width:700px){.scroll-edition #culture>.page-heading{min-height:240px;padding-right:0!important;padding-bottom:100px!important}.festival-header-art{height:125px;width:42%;top:auto;bottom:0;right:0}.festival-header-couplet{max-width:55%;font-size:13px;letter-spacing:1px;padding-right:0}#festivalSearch{grid-template-columns:1fr}#festivalSearch>div{flex-wrap:wrap}#festivalSearch input{flex-basis:100%}#festivalSearch button{width:100%}.festival-discovery{padding:16px}}
