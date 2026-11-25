@@ -34,6 +34,8 @@ voice_a TEXT NOT NULL DEFAULT '',voice_b TEXT NOT NULL DEFAULT '',title_a TEXT N
 approved_a INTEGER NOT NULL DEFAULT 0,approved_b INTEGER NOT NULL DEFAULT 0,revision INTEGER NOT NULL DEFAULT 0,expires_at INTEGER NOT NULL);
 CREATE TABLE IF NOT EXISTS archive_search_cache (cache_key TEXT PRIMARY KEY,answer TEXT NOT NULL,citations TEXT NOT NULL,checked_at INTEGER NOT NULL);
 ''')
+            if 'festival_info' not in {row['name'] for row in db.execute('PRAGMA table_info(shared_cards)')}:
+                db.execute("ALTER TABLE shared_cards ADD COLUMN festival_info TEXT NOT NULL DEFAULT '{}'")
 
     @contextmanager
     def connect(self):
@@ -80,12 +82,21 @@ CREATE TABLE IF NOT EXISTS archive_search_cache (cache_key TEXT PRIMARY KEY,answ
                 response['body']['archiveContext']=context
             return response
         if path == "/api/cards" and method == "POST":
-            if body.get("festival") not in {"spring","lantern","qingming","dragon","qixi","ghost","mid","double","winter"}:
+            festival=body.get("festival")
+            info={}
+            if isinstance(festival,str) and re.fullmatch(r'custom_[a-f0-9]{12}',festival):
+                candidate=body.get('festivalInfo')
+                if not isinstance(candidate,dict) or not isinstance(candidate.get('name'),str) or not candidate['name'].strip() or not isinstance(candidate.get('intro'),str) or not candidate['intro'].strip():
+                    return result({'error':'请先查询并选择一个节日'},400)
+                info={field:str(candidate.get(field) or '')[:limit] for field,limit in [('name',40),('intro',1800),('dateHint',180),('source',600)]}
+                if info['source'] and not info['source'].startswith('https://'):
+                    info['source']=''
+            elif festival not in {"spring","lantern","qingming","dragon","qixi","ghost","mid","double","winter"}:
                 return result({"error":"请先选择节日"},400)
             ident, a, b = secrets.token_hex(12), secrets.token_hex(32), secrets.token_hex(32)
             expiry = int(time.time()*1000)+7*86400000
             with self.connect() as db:
-                db.execute("INSERT INTO shared_cards(id,token_a,token_b,festival,expires_at) VALUES(?,?,?,?,?)", (ident,digest(a),digest(b),body["festival"],expiry))
+                db.execute("INSERT INTO shared_cards(id,token_a,token_b,festival,expires_at,festival_info) VALUES(?,?,?,?,?,?)", (ident,digest(a),digest(b),festival,expiry,json.dumps(info,ensure_ascii=False)))
             return result({"id":ident,"token":a,"invite":b,"expiresAt":expiry},201)
         if re.fullmatch(r"/api/cards/[a-f0-9]{24}",path) and method in ("GET","PATCH"):
             token = req.get("authorization", "").removeprefix("Bearer ")
@@ -107,7 +118,7 @@ CREATE TABLE IF NOT EXISTS archive_search_cache (cache_key TEXT PRIMARY KEY,answ
                     if updated.rowcount != 1:
                         return result({"error":"对方刚更新了卡片，请同步后重试"},409)
                     row = db.execute("SELECT * FROM shared_cards WHERE id=?",(ident,)).fetchone()
-                return result({"id":ident,"role":role,"festival":row["festival"],"voiceA":row["voice_a"],"voiceB":row["voice_b"],"titleA":row["title_a"],"titleB":row["title_b"],"approvedA":bool(row["approved_a"]),"approvedB":bool(row["approved_b"]),"revision":row["revision"],"expiresAt":row["expires_at"]})
+                return result({"id":ident,"role":role,"festival":row["festival"],"festivalInfo":json.loads(row['festival_info']),"voiceA":row["voice_a"],"voiceB":row["voice_b"],"titleA":row["title_a"],"titleB":row["title_b"],"approvedA":bool(row["approved_a"]),"approvedB":bool(row["approved_b"]),"revision":row["revision"],"expiresAt":row["expires_at"]})
         return result({"error":"接口不存在"},404)
 
     def chat(self, body, key, model):
@@ -132,6 +143,8 @@ CREATE TABLE IF NOT EXISTS archive_search_cache (cache_key TEXT PRIMARY KEY,answ
             system += "。请按四个地区分别用简短段落说明常用词语、语境和例句。地区可能使用同一说法，不人为制造差异。未查证注明待核实，不编造词典依据。"
             if body.get("structured") is True:
                 system += '。本次用于四张词语卡片，必须只返回JSON对象，不要Markdown代码围栏或表格。格式为{"query":"查询词","regions":{"cn":{"term":"大陆说法","note":"简短语境"},"hk":{"term":"香港说法","note":"简短语境"},"mo":{"term":"澳门说法","note":"简短语境"},"tw":{"term":"台湾地区说法","note":"简短语境"}},"note":"整体说明"}。term只放简短词语，说明放note。可以使用相同词语，不人为制造差异；不能确定时term为空字符串并在note说明。不得编造参考来源。'
+        elif mode == "festival":
+            system += '。请介绍用户查询的节日或节气，必须只输出JSON，不使用Markdown。格式为{"found":true,"name":"节日名称","intro":"200字以内的起源、文化内涵和常见习俗，明确习俗因地域而异","dateHint":"历法日期或日期规则，不凭空给出某年的公历日期","source":"确知的权威背景网址，否则为空字符串"}。如不是节日或节气，返回{"found":false,"message":"简短解释"}。不编造来源或统一各地习俗。'
         elif mode == "archive":
             system += "。必须联网检索指定台风年份、国际名称和地区的官方历史档案，列出采用名称、发布机构、预警名称、起止时间、原始网址。不得混淆年份；查不到说明检索范围，不能推断未发布。"
             context=self.archive_context(body)
@@ -143,7 +156,7 @@ CREATE TABLE IF NOT EXISTS archive_search_cache (cache_key TEXT PRIMARY KEY,answ
         else:
             system += "。平台参考资料："+json.dumps({"storms":self.load("storm-events.json"),"festivals":[{"name":f["name"],"intro":f.get("intro", "")} for f in self.load("festivals.json")]},ensure_ascii=False)
         payload={"model":model,"messages":[{"role":"system","content":system},{"role":"user","content":question}],"stream":False,"thinking":{"type":"disabled"},"max_tokens":2400}
-        if mode == "words" and body.get("structured") is True:
+        if (mode == "words" and body.get("structured") is True) or mode == 'festival':
             payload["response_format"]={"type":"json_object"}
         if web:
             payload["tools"]=[{"type":"deepseek_web_search"},{"type":"deepseek_read_url"}]
@@ -165,6 +178,17 @@ CREATE TABLE IF NOT EXISTS archive_search_cache (cache_key TEXT PRIMARY KEY,answ
                 with self.connect() as db:
                     db.execute("INSERT INTO archive_search_cache VALUES(?,?,?,?) ON CONFLICT(cache_key) DO UPDATE SET answer=excluded.answer,citations=excluded.citations,checked_at=excluded.checked_at",(cache_key,answer,json.dumps(citations),stamp))
             output={"answer":answer,"citations":citations,"checkedAt":now_iso()}
+            if mode == 'festival':
+                try:
+                    parsed=json.loads(answer.strip())
+                    if isinstance(parsed,dict) and parsed.get('found') is True and isinstance(parsed.get('name'),str) and isinstance(parsed.get('intro'),str) and parsed['name'].strip() and parsed['intro'].strip():
+                        output['festivalInfo']={field:str(parsed.get(field) or '')[:limit] for field,limit in [('name',40),('intro',1800),('dateHint',180),('source',600)]}
+                        if not output['festivalInfo']['source'].startswith('https://'):
+                            output['festivalInfo']['source']=''
+                    else:
+                        output['message']=str(parsed.get('message') or '请输入节日或节气名称')[:300] if isinstance(parsed,dict) else '请输入节日或节气名称'
+                except (ValueError,TypeError):
+                    output['message']='介绍尚未整理完成，请重新查询。'
             if mode == "words" and body.get("structured") is True:
                 text=answer.strip()
                 if text.startswith("```"):

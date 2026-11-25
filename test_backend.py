@@ -28,6 +28,26 @@ class BackendTests(unittest.TestCase):
         self.assertEqual(b['body']['voiceA'],'月圆人团圆')
         self.assertTrue(b['body']['approvedB'])
         self.assertEqual(self.call(path,'PATCH',{'voice':'字'*221,'revision':2},c['token'])['status'],400)
+    def test_custom_festival_is_shared_with_both_people(self):
+        info={'name':'腊八节','intro':'分享节日记忆。','dateHint':'农历十二月初八','source':'https://example.org/festival'}
+        c=self.call('/api/cards','POST',{'festival':'custom_012345abcdef','festivalInfo':info})['body']
+        for token in [c['token'],c['invite']]:
+            record=self.call('/api/cards/'+c['id'],token=token)['body']
+            self.assertEqual(record['festivalInfo'],info)
+            self.assertEqual(record['festival'],'custom_012345abcdef')
+        self.assertEqual(self.call('/api/cards','POST',{'festival':'custom_012345abcdef'})['status'],400)
+        reopened=Backend(Path(__file__).parent/'frontend',Path(self.temp.name)/'test.sqlite')
+        result=reopened.handle({'path':'/api/cards/'+c['id'],'method':'GET','authorization':'Bearer '+c['invite']})
+        self.assertEqual(result['body']['festivalInfo']['name'],'腊八节')
+
+    def test_festival_ai_metadata(self):
+        response={'choices':[{'message':{'content':json.dumps({'found':True,'name':'腊八节','intro':'节日背景','dateHint':'农历十二月初八','source':'javascript:bad'})}}]}
+        with patch('backend.urlopen',return_value=io.BytesIO(json.dumps(response).encode())) as mock:
+            result=self.api.handle({'path':'/api/chat','method':'POST','body':{'mode':'festival','question':'腊八节'}},'test-only')
+            self.assertEqual(result['body']['festivalInfo']['source'],'')
+            payload=json.loads(mock.call_args.args[0].data)
+            self.assertEqual(payload['response_format'],{'type':'json_object'})
+
     def test_ai_without_key_and_generic(self):
         self.assertEqual(self.call('/api/chat','POST',{'question':'天空为什么蓝'})['status'],503)
         response={'choices':[{'message':{'content':'因为短波长光散射较强。'}}]}
