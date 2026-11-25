@@ -1,9 +1,10 @@
 """Same Tongpin interface, hosted by Streamlit with a Python API bridge."""
 from pathlib import Path
 import os
+import importlib
 import streamlit as st
 import streamlit.components.v1 as components
-from backend import Backend
+import backend as backend_module
 
 ROOT = Path(__file__).parent
 st.set_page_config(page_title="同频 · 山海相望，风雨共济", page_icon="🌿", layout="wide", initial_sidebar_state="collapsed")
@@ -16,7 +17,8 @@ iframe{border:0;display:block;width:100%}
 
 @st.cache_resource
 def backend(source_version):
-    return Backend(ROOT / "frontend", ROOT / "data" / "tongpin.sqlite")
+    # Cloud hot updates retain imported modules; reload when the source version changes.
+    return importlib.reload(backend_module).Backend(ROOT / "frontend", ROOT / "data" / "tongpin.sqlite")
 
 def setting(name, default=""):
     try:
