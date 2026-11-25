@@ -1,0 +1,128 @@
+/* Reference details: ornament, composition and paper layers, on original Song typography. */
+body.scroll-edition{background:#f8f0e4 url('assets/paper-grain.svg') repeat}
+.scroll-edition header:after{height:9px;left:1.5%;right:1.5%;bottom:0;border:1px solid #c29a6b;background:url('assets/fret-border.svg') left center/25px 13px repeat-x;opacity:.85}
+.scroll-edition header:before{content:'';position:absolute;left:1%;bottom:-2px;width:13px;height:13px;border:3px double #b98756;background:#f7ecdc;box-shadow:calc(96vw - 20px) 0 0 -1px #f7ecdc;pointer-events:none}
+.scroll-edition #home .hero{grid-template-columns:.87fr 1.37fr;position:relative;padding:24px 0 8px}
+.scroll-edition #home .hero h1{font-size:clamp(40px,4.4vw,66px);line-height:1.28}
+.scroll-edition #home .hero>div:first-child{padding-top:8px;padding-bottom:20px}
+.scroll-edition #home .hero p{max-width:440px;line-height:1.95}
+.scroll-edition #home .hero p strong{font-size:27px;letter-spacing:1px}
+.scroll-edition #home .culture-art{width:127%;margin:0 -8% 0 -14%;transform:translateY(8px)}
+.scroll-edition #home .culture-art img{max-height:500px;filter:drop-shadow(0 10px 9px #8b65451f)}
+.book-inscription{display:none}
+.scroll-edition #home .hero:after{content:'';display:block;position:absolute;inset:0 -2% auto auto;width:57%;height:150px;background:url('assets/auspicious-cloud.svg') center/55% auto no-repeat;opacity:.34;z-index:-1;pointer-events:none}
+.scroll-edition .hero-routes{margin-top:18px;border-top:1px solid #c6a785;padding-top:12px}
+.scroll-edition .hero-routes small{font-size:16px;margin-bottom:4px}.scroll-edition .hero-routes span{font-size:12px}
+.scroll-edition .red-thread{z-index:1;pointer-events:none;bottom:-45px!important;left:-4%;width:77%;opacity:.85}
+.scroll-edition .scroll-chapters{margin:20px -3% 22px;padding-top:34px;isolation:isolate}
+.scroll-edition .scroll-chapters:before{content:'';position:absolute;inset:-48px -1% 0;z-index:-1;background:url('assets/paper-waves.svg') center top/100% 100% no-repeat;opacity:.8}
+.scroll-edition .scroll-chapters h2{font-size:36px;letter-spacing:3px}
+.scroll-edition .scroll-chapters i{background:url('assets/pan-chang.svg') center/contain no-repeat;width:42px;height:27px;bottom:-3px}
+.scroll-edition .scroll-chapters:after{bottom:10px;width:270px}
+.scroll-edition .entrances{gap:22px;grid-template-columns:1.08fr 1fr}
+.scroll-edition .entrances>button{border-radius:22px;border-color:#d5b18a;background-color:#f7e9d5;min-height:342px;box-shadow:inset 0 0 0 5px #fff5e74a}
+.scroll-edition .entrances>[data-enter="culture"]{isolation:isolate;background:url('assets/festival-art.webp') right center/auto 108% no-repeat,#eadcc7;overflow:hidden}
+.scroll-edition .entrances>[data-enter="culture"]:before{content:'';position:absolute;inset:0;opacity:1;height:auto;width:79%;background:url('assets/scalloped-paper.svg') left center/100% 108% no-repeat;clip-path:none;z-index:0;pointer-events:none}
+.scroll-edition .entrances>[data-enter="culture"]>*{position:relative;z-index:1}
+.scroll-edition .entrances>[data-enter="culture"] p{max-width:65%;line-height:1.9}
+.scroll-edition .chapter-heading h2{font-size:35px}.scroll-edition .chapter-heading small{padding-right:19px}
+.scroll-edition .chapter-festivals{width:69%;overflow:visible;background:#fff5e6bd;margin:24px 0;border-color:#c6a076}
+.scroll-edition .chapter-festivals .current{position:relative;border-radius:5px;box-shadow:inset 0 0 12px #b96b4140}
+.scroll-edition .chapter-festivals .current:after{content:'';position:absolute;bottom:-10px;left:50%;border:5px solid transparent;border-top-color:#a7472e;transform:translateX(-50%)}
+.scroll-edition .entrances .chapter-action{min-height:42px;font-size:19px;background:#fff9ec8c;border:1px solid #a7472e;border-radius:8px;padding-inline:24px}
+.scroll-edition .entrances>[data-enter="words"]:after{height:60%;width:44%;opacity:.3;background:url('assets/lattice.svg') repeat;mask-image:linear-gradient(225deg,#000,transparent 80%)}
+.scroll-edition .entrances>[data-enter="storm"]{background:url('assets/landscape-detail.webp') right bottom/80% auto no-repeat,#f8eddd;min-height:245px}
+.scroll-edition .entrances>[data-enter="storm"] p{max-width:70%;font-size:18px}
+.scroll-edition .entrances>[data-enter="storm"] .chapter-action{background:#486a80;color:#fff6e6;border-color:#486a80}
+.scroll-edition .page-heading:after,.scroll-edition .storm-heading:after{background:url('assets/landscape-detail.webp') right bottom/contain no-repeat;opacity:.7}
+.scroll-edition #words .page-heading{padding-right:310px;min-height:235px;background:url('assets/auspicious-cloud.svg') 95% 10%/28% auto no-repeat}
+.scroll-edition #words .page-heading:after{height:90px;width:100%;background-size:100% auto;opacity:.5}
+.wooden-type{position:absolute!important;right:0;top:12px;width:270px;height:auto;pointer-events:none}
+.scroll-edition .word-search{position:relative;border:1px solid #c69a72;border-radius:14px;padding:25px 38px 27px;background:#fff8ee38 url('assets/paper-grain.svg')}
+.scroll-edition .word-search>label{position:relative;font-size:35px;padding-bottom:30px}
+.scroll-edition .word-search>label:after{content:'';position:absolute;bottom:5px;left:50%;width:31px;height:21px;transform:translateX(-50%);background:url('assets/pan-chang.svg') center/contain no-repeat}
+.scroll-edition #wordQuery{border-color:#a95035;background:#fffaf273;min-height:52px;padding-left:24px}
+.scroll-edition #wordFilters{justify-content:flex-start;border-bottom:1px solid #c9a17d;padding-bottom:12px;gap:16px}
+.scroll-edition #wordFilters button{flex:0 0 auto;min-width:95px;border:0;background:transparent;font-size:20px}
+.scroll-edition #wordFilters .selected{background:linear-gradient(110deg,#af422a,#b95536)!important}
+.scroll-edition .word-card{position:relative;border-radius:14px;background:#f8e9d840;padding:17px 27px;grid-template-columns:150px 1fr}
+.scroll-edition .word-card>small{font-size:13px}.scroll-edition .word-card>p{font-size:13px;margin-top:10px}
+.scroll-edition .quad-grid small{background:#fff7e994;border-color:#b87850;font-size:16px;padding:1px 15px}
+.scroll-edition .quad-grid strong{font-family:var(--song);font-weight:600;font-size:29px}
+.ornate-frame{position:relative}
+.frame-corner{position:absolute!important;display:block!important;width:23px;height:23px;background:url('assets/corner-flower.svg') center/contain no-repeat;pointer-events:none;z-index:3}
+.frame-corner.tl{left:5px;top:5px}.frame-corner.tr{right:5px;top:5px;transform:rotate(90deg)}.frame-corner.bl{left:5px;bottom:5px;transform:rotate(-90deg)}.frame-corner.br{right:5px;bottom:5px;transform:rotate(180deg)}
+.scroll-edition #culture>.page-heading{background:url('assets/festival-art.webp') 111% 46%/50% auto no-repeat;min-height:215px;padding-top:18px}
+.scroll-edition #culture>.page-heading:before{content:'';position:absolute;bottom:-7px;left:-3%;right:33%;height:55px;background:url('assets/paper-waves.svg') center/100% 100% no-repeat;opacity:.7;pointer-events:none}
+.scroll-edition .festival-story{padding:14px 30px 18px 5px;gap:20px;grid-template-columns:46% 1fr;background:#fff5e446}
+.scroll-edition .festival-illustration{height:260px;background-size:112% auto}
+.scroll-edition .festival-story>div:last-child{padding-left:28px}
+.scroll-edition #festName{font-size:34px;margin:6px 0 12px}
+.scroll-edition #festDate,.scroll-edition .festival-facts{font-size:13px}
+.scroll-edition #goCreate{margin-top:5px}
+.scroll-edition .coedit-v3{background:#fff5e42e;padding:24px}
+.scroll-edition .live-card>small{font-size:19px;color:#33291f;letter-spacing:2px}
+.scroll-edition .live-card h3{position:relative;font:600 32px/1.5 var(--song);margin:35px 0 24px;padding-top:23px}
+.scroll-edition .live-card h3:before{content:'';position:absolute;top:-5px;left:50%;width:230px;height:20px;transform:translateX(-50%);background:url('assets/pan-chang.svg') center/32px 21px no-repeat,linear-gradient(#c7a07a,#c7a07a) center/100% 1px no-repeat}
+.scroll-edition .voices{gap:26px}
+.scroll-edition .voices>div,.scroll-edition .voices>div:nth-child(2){border:4px double #c89a70;background:linear-gradient(#fff7e95c,#fff7e95c),url('assets/landscape-detail.webp') center bottom/130% auto no-repeat,#fff4df65;padding:23px 34px;min-height:220px;border-radius:14px;box-shadow:0 6px 9px #84562c1a}
+.scroll-edition .voices b{position:relative;font:600 24px var(--song);color:#a6472a}
+.scroll-edition .voices b:before,.scroll-edition .voices b:after{content:'';display:inline-block;vertical-align:middle;width:44px;height:24px;background:url('assets/auspicious-cloud.svg') center/cover no-repeat;margin-inline:7px;opacity:.75}
+.scroll-edition .voices b:after{transform:scaleX(-1)}
+.scroll-edition .voices p{font:20px/1.9 var(--song);color:#32261b;margin-top:20px}
+.scroll-edition .joining-seal{width:42px;height:42px;border:2px solid #fff5e5;border-radius:13px;box-shadow:0 0 0 1px #b46b47;background:linear-gradient(120deg,#c57850,#a7452b)}
+.scroll-edition .card-downloads{gap:20px}
+.scroll-edition #downloadCulturePNG:before,.scroll-edition #downloadCultureTXT:before{content:'⇩';margin-right:12px;font-size:20px}
+.scroll-edition .partner{background:url('assets/landscape-detail.webp') center bottom/160% auto no-repeat,#fff8ec64;border:1px solid #c9a98b}
+.scroll-edition .partner h3{font-size:23px}.scroll-edition .partner small{font-size:16px}
+.scroll-edition .storm-heading{background:url('assets/landscape-detail.webp') right bottom/68% auto no-repeat;min-height:210px}
+.scroll-edition .storm-heading p{max-width:700px;font-size:17px}
+.scroll-edition .storm-heading h1{margin-block:13px}
+.scroll-edition .map-panel,.scroll-edition .signals{border:1px solid #c9aa8c;border-radius:20px;box-shadow:inset 0 0 0 7px #fff7ea8c;padding:20px}
+.scroll-edition .signals{max-height:770px}
+.scroll-edition .signals h2{position:relative;font:600 28px/1.5 var(--song);padding:0 0 24px;margin-top:10px;text-align:center}
+.scroll-edition .signals h2:after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:35px;height:24px;background:#f8eedf url('assets/pan-chang.svg') center/contain no-repeat}
+.scroll-edition .region-tabs{margin-top:23px;border:1px solid #cfa47f;border-radius:8px;gap:0;flex-wrap:wrap;background:#fff5e678;justify-content:center}
+.scroll-edition .region-tabs button{background:transparent;font-family:var(--song);font-size:16px;padding:7px 11px}
+.scroll-edition .storm-names{border-radius:17px}
+.scroll-edition .storm-names h2{position:relative}
+.scroll-edition .name-grid{background:#e9d6bc3b;border-radius:12px}
+.scroll-edition .name-grid b{font:600 32px var(--song)}
+.scroll-edition .family-care{background:url('assets/landscape-detail.webp') center bottom/100% auto no-repeat,#faf0e2!important}
+.scroll-edition .family-care h2{font:600 30px var(--song)}
+.scroll-edition .family-messages section{background:#fff7ea8a!important;border:1px solid #cea47f;border-radius:16px}
+.scroll-edition .journey-nav{background:url('assets/landscape-detail.webp') center bottom/100% auto no-repeat!important;padding-bottom:65px}
+.scroll-edition footer{margin-top:0;position:relative;padding-top:20px}
+.scroll-edition footer:before{content:'';position:absolute;bottom:100%;left:-4%;right:-4%;height:95px;background:url('assets/landscape-detail.webp') center bottom/100% auto no-repeat;opacity:.26;z-index:-1;pointer-events:none}
+.scroll-edition #guide{padding:21px;box-shadow:0 20px 90px #6d4c3038}
+.scroll-edition #guide .guide-head b{font-size:31px}.scroll-edition .guide-topics{background:url('assets/landscape-detail.webp') 85% bottom/300% auto no-repeat,#fff6e632}
+.scroll-edition .guide-topics h3{text-align:center;border-bottom:0;position:relative;padding-bottom:28px;margin-top:12px}
+.scroll-edition .guide-topics h3:after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:190px;height:24px;background:url('assets/pan-chang.svg') center/35px 24px no-repeat,linear-gradient(#c7a17b,#c7a17b) center/100% 1px no-repeat}
+.scroll-edition .guide-topics .suggestions button{position:relative;padding:17px 17px 17px 35px;font:17px/1.8 var(--song)}
+.scroll-edition .guide-topics .suggestions button:before{content:'◌';position:absolute;left:12px;top:20px;color:#b15537;font-size:20px}
+.scroll-edition .guide-conversation{padding:20px 26px;background:#fff8ec3d}
+.scroll-edition .guide-body{padding-right:9px}
+.scroll-edition #messages:empty:before{display:none}
+.guide-welcome{display:flex;align-items:center;gap:15px;margin:22px 0}.guide-welcome[hidden]{display:none}
+.guide-seal{display:grid;place-items:center;flex-shrink:0;width:43px;height:43px;background:#a8402b;color:#fff4e1;font:18px var(--song);border:4px double #f7e4cb;border-radius:7px;box-shadow:0 0 0 1px #b36542}
+.guide-welcome p{border:1px solid #cfb599;border-radius:18px;padding:13px 24px;background:#fff9ed9c;font:20px/1.8 var(--song)}
+.scroll-edition .msg{position:relative;margin:24px 0 24px 51px;padding:16px 21px;border-radius:18px;background:#fffaf087;border:1px solid #cbb095;font:18px/1.9 var(--song);white-space:pre-wrap;overflow-wrap:anywhere}
+.scroll-edition .msg:before{content:'同频';position:absolute;left:-54px;top:6px;display:grid;place-items:center;width:38px;height:38px;background:#a8402b;color:#fff4e1;font:16px var(--song);border:4px double #f7e4cb;border-radius:7px;box-shadow:0 0 0 1px #b36542}
+.scroll-edition .msg:after{content:'';position:absolute;top:19px;left:-8px;width:14px;height:14px;transform:rotate(45deg);border-left:1px solid #cbb095;border-bottom:1px solid #cbb095;background:#fcf4e6}
+.scroll-edition .msg.user{margin:24px 43px 24px 75px;background:#e9beaa78;border-color:#e1b99d}
+.scroll-edition .msg.user:before{content:'人';left:auto;right:-46px;background:#ead4b7;border:0;box-shadow:none;border-radius:50%;color:#b58a5e;font-size:22px}
+.scroll-edition .msg.user:after{left:auto;right:-7px;border:0;background:#e9c5ad;transform:rotate(45deg)}
+.guide-quote{position:relative;white-space:normal;margin:20px 0 6px;padding:28px 30px 45px;border:1px solid #c7a17c;background:url('assets/landscape-detail.webp') bottom/120% auto no-repeat,#fff8e7c4;font:21px/1.9 var(--song);color:#392a1d;box-shadow:inset 0 0 0 5px #fff9ed70}
+.guide-quote:before{content:'“';position:absolute;top:0;left:8px;font:45px Georgia;color:#bf8863}
+.guide-quote:after{content:'”';position:absolute;bottom:0;right:14px;font:45px Georgia;color:#bf8863}
+.answer-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:17px;padding-top:12px;border-top:1px solid #d9bda0;white-space:normal}
+.scroll-edition .answer-actions button{font-size:14px;padding:6px 12px;min-height:35px}.related-answer{background:none;border:0;color:#95432d;text-decoration:underline;text-underline-offset:4px}
+.scroll-edition #chatForm{background:#f7eddf5c;padding:15px 0 0}.scroll-edition #question{background:#fff9ed84;border-color:#c9a07d}
+@media(max-width:800px){.scroll-edition #words .page-heading{padding-right:240px}.wooden-type{width:220px}.scroll-edition .voices b:before,.scroll-edition .voices b:after{width:27px}}
+@media(max-width:640px){.scroll-edition header:before{display:none}.scroll-edition #home .hero{display:flex;padding-top:24px}.scroll-edition #home .hero h1{font-size:40px}.scroll-edition #home .hero p strong{font-size:21px}.scroll-edition #home .hero>div:first-child{padding-bottom:0}.scroll-edition #home .culture-art{width:120%;margin:0 -10%;transform:none}.scroll-edition #home .culture-art img{max-height:315px}.scroll-edition .scroll-chapters{padding-top:25px;margin-top:13px}.scroll-edition .scroll-chapters h2{font-size:25px;letter-spacing:1px}.scroll-edition .entrances{grid-template-columns:1fr}.scroll-edition .entrances>button{min-height:305px;padding:25px 20px}.scroll-edition .entrances>[data-enter="culture"]:before{width:86%}.scroll-edition .entrances>[data-enter="culture"] p{max-width:73%}.scroll-edition .entrances .chapter-heading h2{font-size:29px}.scroll-edition .chapter-festivals{width:76%;margin:24px 0}.scroll-edition .entrances>[data-enter="storm"]{min-height:255px;background-size:130% auto}.scroll-edition .entrances>[data-enter="storm"] p{max-width:100%;font-size:16px}.scroll-edition #words .page-heading{padding-right:0;padding-bottom:95px;min-height:235px}.wooden-type{width:142px;right:0;top:auto;bottom:0}.scroll-edition .word-search{padding:24px 19px}.scroll-edition .word-search>label{font-size:27px}.scroll-edition #wordFilters{gap:5px}.scroll-edition #wordFilters button{font-size:17px;min-width:60px;padding:7px 14px}.scroll-edition .word-card{display:block;padding:20px}.scroll-edition .word-card>small{font-size:13px}.scroll-edition .word-card .quad-grid{gap:10px}.scroll-edition .quad-grid small{font-size:15px;padding:1px 9px}.scroll-edition .frame-corner{width:18px;height:18px}.scroll-edition #culture>.page-heading{min-height:210px;background-size:70% auto;background-position:160% 40%}.scroll-edition .festival-story{grid-template-columns:1fr;padding:14px 19px;gap:10px}.scroll-edition .festival-story>div:last-child{border:0;padding-left:0}.scroll-edition .festival-illustration{height:235px;background-size:117% auto}.scroll-edition #festName{font-size:28px}.scroll-edition .coedit-v3{padding:18px 13px}.scroll-edition .live-card>small{font-size:16px}.scroll-edition .live-card h3{font-size:27px;margin:24px 0}.scroll-edition .voices{gap:25px}.scroll-edition .voices>div,.scroll-edition .voices>div:nth-child(2){padding:23px 20px;min-height:200px}.scroll-edition .voices b{font-size:22px}.scroll-edition .voices p{font-size:18px}.scroll-edition .voices b:before,.scroll-edition .voices b:after{width:29px}.scroll-edition .storm-heading{background-size:100% auto;min-height:245px}.scroll-edition .storm-heading p{font-size:16px}.scroll-edition .map-panel,.scroll-edition .signals{padding:16px}.scroll-edition .signals h2{font-size:25px}.scroll-edition .name-grid b{font-size:27px}.scroll-edition .family-care h2{font-size:26px}.scroll-edition #guide{padding:13px}.scroll-edition .guide-conversation{padding:12px 16px}.scroll-edition .guide-body{padding-right:0}.scroll-edition .guide-topics .suggestions button{padding:9px 10px 9px 28px;font-size:14px}.scroll-edition .guide-topics .suggestions button:before{top:8px;left:8px;font-size:17px}.scroll-edition .guide-topics h3{display:none}.scroll-edition .msg{font-size:16px;margin-left:38px;padding:13px 15px}.scroll-edition .msg:before{width:29px;height:29px;font-size:12px;left:-41px;border-width:3px}.scroll-edition .msg.user{margin-left:28px;margin-right:31px}.scroll-edition .msg.user:before{right:-34px;left:auto;font-size:17px}.guide-welcome{gap:9px}.guide-seal{width:31px;height:31px;font-size:13px;border-width:3px}.guide-welcome p{font-size:16px;padding:11px 15px}.guide-quote{padding:24px 18px 32px;font-size:17px}.scroll-edition .answer-actions button{font-size:13px}}
+
+body.scroll-edition{background-image:url('assets/brocade.svg'),url('assets/paper-grain.svg');background-repeat:repeat}
+.scroll-edition #culture .journey-nav{position:relative;isolation:isolate}
+.scroll-edition #culture .journey-nav:before{content:'';position:absolute;left:-3%;bottom:20px;width:190px;height:130px;background:url('assets/blossom-branch.svg') center/contain no-repeat;pointer-events:none;z-index:-1;transform:scaleX(-1)}
+.scroll-edition #guide .guide-head{background:url('assets/blossom-branch.svg') right top/150px auto no-repeat}
+@media(max-width:640px){.scroll-edition #culture .journey-nav:before{width:110px;opacity:.55}.scroll-edition #guide .guide-head{background-size:95px auto}}

@@ -2,7 +2,7 @@
 const $=id=>document.getElementById(id);
 document.body.classList.add('scroll-edition');
 const hero=document.querySelector('#home .hero');
-hero.querySelector('.culture-art').innerHTML='<img src="assets/book-hero.webp" alt="展开的书卷上，街巷、石桥与亭台相连" width="1408" height="1024" fetchpriority="high">';
+hero.querySelector('.culture-art').innerHTML='<img src="assets/book-reference.webp" alt="展开的书卷上，街巷、石桥与亭台相连" width="1408" height="1024" fetchpriority="high">';
 hero.querySelector('.eyebrow').textContent='山海相望 · 心意相通';
 hero.querySelector('h1').innerHTML='从文化共鸣，<br>到风雨共济。';
 hero.querySelector('p').innerHTML='<strong>共一脉文化，听万种回声。</strong><br>从节日里的共同记忆，到不同说法中的相互理解，<br class="desktop-break">再到同一场风里的彼此牵挂。';
