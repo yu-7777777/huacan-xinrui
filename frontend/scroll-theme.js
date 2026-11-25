@@ -9,6 +9,11 @@ hero.querySelector('p').innerHTML='<strong>共一脉文化，听万种回声。<
 $('start').textContent='展卷，开始同频 →';
 hero.insertAdjacentHTML('beforeend','<svg class="red-thread" aria-hidden="true" viewBox="0 0 1200 100" preserveAspectRatio="none"><path d="M-20 97C110 80 160 8 280 31S443 91 534 45S721 15 800 38" fill="none" stroke="#ab422c" stroke-width="1.3"/></svg>');
 document.querySelector('.access-versions')?.remove();
+const routes=document.createElement('div');routes.className='hero-routes';routes.setAttribute('aria-label','选择同频旅程');
+routes.innerHTML='<button type="button" data-route="culture"><small>共叙</small><span>写一段节日记忆</span></button><button type="button" data-route="words"><small>相知</small><span>寻一个四地说法</span></button><button type="button" data-route="storm"><small>牵挂</small><span>读懂远方的风雨</span></button>';
+routes.querySelectorAll('button').forEach(b=>b.onclick=()=>document.querySelector('[data-page="'+b.dataset.route+'"]').click());
+hero.querySelector('div:first-child').append(routes);
+const inscription=document.createElement('div');inscription.className='book-inscription';inscription.setAttribute('aria-hidden','true');inscription.innerHTML='<span>一卷山海</span><small>万里同心</small>';hero.querySelector('.culture-art').append(inscription);
 const intro=document.createElement('div');intro.className='scroll-chapters';intro.innerHTML='<span></span><h2>一卷三章，循声而行。</h2><span></span><i aria-hidden="true">❖</i>';$('entrances').before(intro);
 const homeCards=[['culture','01','节日共叙','一个节日，写下你我不同的生活记忆。','共写一笺','<div class="chapter-festivals"><span>春节</span><span>端午</span><span class="current">中秋</span></div>'],['words','02','同物异名','同一事物，各有表达。','寻一个词','<div class="chapter-words">自行车 <i>/</i> 腳踏車</div>'],['storm','03','同一场风','读懂各地预警，把关心送给远方的家人。','看一场风','<small class="chapter-source">历史回放 · 来源可查</small>']];
 for(const [key,n,title,copy,label,extra] of homeCards){const b=document.querySelector('[data-enter="'+key+'"]');b.innerHTML='<div class="chapter-heading"><small>'+n+'</small><h2>'+title+'</h2></div><p>'+copy+'</p>'+extra+'<span class="chapter-action">'+label+' <i aria-hidden="true">→</i></span>';}
