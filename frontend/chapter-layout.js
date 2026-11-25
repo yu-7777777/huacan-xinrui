@@ -11,7 +11,7 @@ document.querySelector('#home .hero-routes')?.remove();
 if(location.hash==='#chapters')window.TongpinNavigate('chapters',false);
 const wordsHeading=document.querySelector('#words .page-heading');wordsHeading.querySelector('.wooden-type')?.remove();
 wordsHeading.querySelector('h1').textContent='说法不同，也能相互理解。';
-const seal=document.createElement('span');seal.className='words-heading-seal';seal.textContent='同频';seal.setAttribute('aria-hidden','true');wordsHeading.querySelector('h1').prepend(seal);
+const seal=document.createElement('span');seal.className='words-heading-seal';seal.textContent='同\n频';seal.setAttribute('aria-hidden','true');wordsHeading.querySelector('h1').prepend(seal);
 const reeds=document.createElement('img');reeds.src='assets/words-reeds.svg';reeds.alt='';reeds.className='words-reeds';reeds.setAttribute('aria-hidden','true');wordsHeading.append(reeds);
 const sources=document.createElement('details');sources.id='exampleSources';sources.innerHTML='<summary>示例词语的资料与语境</summary><div></div>';$('wordCards').after(sources);
 function arrangeExamples(){const target=sources.querySelector('div');target.replaceChildren();for(const row of $('wordCards').querySelectorAll('.example-strip')){const details=row.querySelector(':scope>details');if(!details)continue;details.querySelector('summary').textContent=row.querySelector('h3').textContent+' · 资料与语境';target.append(details);}sources.hidden=!target.childElementCount;}
