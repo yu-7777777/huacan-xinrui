@@ -46,9 +46,26 @@ const main=document.createElement('div');main.className='guide-conversation';
 const caption=body.querySelector(':scope > p');caption.textContent='问词语，聊文化，也读懂风雨里的牵挂。';
 const note=guide.querySelector(':scope > label.note'),form=$('chatForm'),foot=guide.querySelector(':scope > p.note');
 main.append(body,note,form,foot);layout.append(side,main);guide.append(layout);
-const prompts=[['自行车在四地分别怎么说？','自行车在大陆、香港、澳门和台湾地区分别怎么说？'],['如何读懂各地的预警？','八号风球可以换算成橙色预警吗？'],['怎样理解文化阅读数据？','这些浏览量代表各地区青年吗？']];
+const prompts=[['自行车在四地分别怎么说？','自行车在大陆、香港、澳门和台湾地区分别怎么说？'],['中秋有哪些不同的过法？','中秋有哪些不同的过法？'],['八号风球可以换算成橙色预警吗？','八号风球可以换算成橙色预警吗？']];
 suggestions.querySelectorAll('button').forEach((b,i)=>{b.textContent=prompts[i][0];b.dataset.q=prompts[i][1];});
 const extra=document.createElement('button');extra.type='button';extra.textContent='如何邀请朋友共写文化卡？';extra.onclick=()=>{$('question').value='如何邀请朋友共写文化卡？';form.requestSubmit();};suggestions.append(extra);
-document.querySelector('#guide .guide-head b').textContent='纸上问答 · 同频向导';
+document.querySelector('#guide .guide-head b').textContent='纸上问答 · 有据可循';
+{
+const title=document.createElement('h2');
+title.textContent='同频向导';
+caption.before(title);
+const example=document.createElement('section');
+example.className='guide-example';
+example.innerHTML='<small>示例对话</small><p>你好，想从哪个问题开始？</p><p class="sample-question">我想给远方的家人发一句关心的话。</p><blockquote>你那边风雨怎么样？请留意当地最新预警，方便时给家里报个平安。</blockquote><button type="button">复制这段话</button> <button type="button">查看相关内容：同一场风 →</button>';
+const [copy,related]=example.querySelectorAll('button');
+copy.onclick=async()=>{try{await navigator.clipboard.writeText(example.querySelector('blockquote').textContent);copy.textContent='已复制';}catch{const range=document.createRange();range.selectNodeContents(example.querySelector('blockquote'));getSelection().removeAllRanges();getSelection().addRange(range);copy.textContent='已选中，可手动复制';}};
+related.onclick=()=>{$('closeGuide').click();window.TongpinNavigate('storm');};
+caption.after(example);
+form.addEventListener('submit',()=>{example.hidden=true;});
+const signature=document.createElement('footer');
+signature.className='guide-signature';
+signature.textContent='同频 · 从文化共鸣，到风雨共济。';
+guide.append(signature);
+}
 document.querySelectorAll('.journey-nav').forEach(n=>{if(n.querySelector('[data-next-page="culture"]'))n.querySelector('button').textContent='开启节日共叙';});
 })();

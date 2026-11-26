@@ -223,3 +223,15 @@ body[data-page=home] #qingjin .painting > img{filter:contrast(1.08) saturate(1.0
 .scroll-edition #culture .festival-illustration>.festival-complete-image{
  position:absolute;inset:0;width:100%;height:100%!important;max-height:none;object-fit:cover;object-position:center;transform:scale(1.13)
 }
+
+body.scroll-edition[data-page=storm] #functionBackdrop img.scenery-storm{filter:contrast(1.19) saturate(1.15)!important}
+body.scroll-edition[data-page=storm] #storm>.storm-heading{background-image:linear-gradient(90deg,#fff6df44,transparent 60%),url('assets/function-storm-clean.webp')!important}
+body.scroll-edition #guide{background:#fcf0db url('assets/paper-grain.svg');overflow:auto}
+body.scroll-edition #guide .guide-head{background:#fff0d7 url('assets/guide-blossoms.webp') right center/auto 100% no-repeat;padding:clamp(12px,2vw,32px);border-bottom:1px solid #cf985a}
+body.scroll-edition #guide .guide-workspace{display:grid;grid-template-columns:minmax(168px,26%) minmax(0,1fr);gap:2px;padding:0 2%;min-height:0}
+body.scroll-edition #guide :is(.guide-topics,.guide-conversation){min-width:0;border:3px double #c08c48;border-radius:13px}
+body.scroll-edition #guide .suggestions button{border:1px solid #d1ae78;background:#fff2da;text-align:left;color:#383629;padding:12px;border-radius:8px}
+body.scroll-edition #guide .guide-body h2{margin:0;color:#20413e}
+.guide-example{padding:12px;color:#463b2f}.guide-example small{color:#785e41}.guide-example p{width:fit-content;background:#fff8ed;border:1px solid #dec6a2;border-radius:10px;padding:8px 12px}.guide-example .sample-question{margin-left:auto;background:#f7d6be}.guide-example blockquote{margin:12px 0;padding:16px;border:3px double #c89d64;background:#fff6e4;font-weight:bold}.guide-example button{padding:6px 10px}
+body.scroll-edition #guide .guide-signature{text-align:center;padding:48px 8px 6px;background:#fbecd6 url('assets/guide-hills.webp') top center/100% 44px no-repeat}
+@media(max-width:700px){body.scroll-edition #guide .guide-workspace{grid-template-columns:minmax(0,1fr)}body.scroll-edition #guide .suggestions{display:grid;grid-template-columns:1fr 1fr}.guide-example{padding:5px}}
