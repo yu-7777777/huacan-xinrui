@@ -15,7 +15,7 @@ async function refine(){
  new MutationObserver(nameArchiveLink).observe($('catalogDetails'),{childList:true});nameArchiveLink();
  const controls=document.querySelector('.coedit-options');
  document.querySelectorAll('#createSection>.coedit-secondary-tools').forEach(row=>controls?.append(row));
- document.querySelectorAll('#createSection>.invite-join').forEach(row=>controls?.append(row));
+ document.querySelectorAll('#createSection>.join-box').forEach(row=>controls?.append(row));
  const desc=document.querySelector('#storm>.storm-heading p');if(desc)desc.textContent='你窗外的风，也许正经过远方家人的城市。';
  const input=$('latestStormQuery');if(input)input.placeholder='查询台风、风暴或家人所在城市';
 }
