@@ -107,3 +107,36 @@ body.scroll-edition > p {
   border-radius: .35rem;
   padding: .3em .6em;
 }
+
+/* Functional pages share the chapter directory's side navigation. */
+body.scroll-edition[data-page]:not([data-page=home]) {
+  --rail: clamp(140px,15vw,236px);
+  --nav-height: 0px;
+  padding: 0 0 0 var(--rail) !important;
+}
+body.scroll-edition[data-page]:not([data-page=home]) > header {
+  inset: 0 auto 0 0 !important;
+  width: var(--rail) !important;
+  height: 100dvh !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 30px 14px !important;
+  overflow: auto;
+  background: linear-gradient(110deg,#d9c6a5,#d3bd99) !important;
+  border-right: 1px solid #b69a72;
+}
+body.scroll-edition > header::after,body.scroll-edition > header .brand small,
+body.scroll-edition > header .status {display:none !important}
+body.scroll-edition > header .brand {padding:0 0 24px;border-bottom:3px double #b69a72}
+body.scroll-edition > header nav {display:flex !important;flex-direction:column;align-items:stretch;width:100%;margin:20px 0 0;gap:6px}
+body.scroll-edition > header nav button {text-align:left;font-size:clamp(17px,1.3vw,22px);font-weight:750;border:0!important;padding:12px!important}
+body.scroll-edition > header nav button.active {background:#a54631!important;color:#fff8e8!important;border-radius:5px}
+body.scroll-edition[data-page]:not([data-page=home]) > main {width:100%!important;max-width:none!important;margin:0!important;box-sizing:border-box;padding-inline:12px!important}
+body.scroll-edition[data-page=chapters] #chapters:not([hidden]) {height:100dvh!important;grid-template-rows:auto minmax(0,1fr) auto;gap:8px;padding:5px 0}
+body.scroll-edition #chapters .scroll-chapters h1 {font-size:clamp(30px,3vw,54px)!important}
+body.scroll-edition #chapters #entrances .chapter-heading h2 {font-size:clamp(26px,2.2vw,42px)!important}
+body.scroll-edition #chapters #entrances p,body.scroll-edition #chapters #entrances .chapter-action {font-size:clamp(16px,1.2vw,23px)!important}
+@media(max-width:700px){body.scroll-edition[data-page]:not([data-page=home]){--rail:82px}body.scroll-edition[data-page]:not([data-page=home])>header{padding:14px 3px!important}body.scroll-edition>header .brand{justify-content:center}body.scroll-edition>header .brand b{display:none}body.scroll-edition>header nav button{font-size:15px;padding:10px 4px!important}}
