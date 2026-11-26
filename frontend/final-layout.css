@@ -12,7 +12,7 @@ body.scroll-edition #guide .guide-head{background:linear-gradient(110deg,#fff4dd
 body.scroll-edition #guide .guide-topics{background:#faf2e3 url(assets/words-reeds.svg) center bottom/100% auto no-repeat;border:1px solid #ceb487}
 body.scroll-edition #guide .guide-conversation{background:#fff8eced;border:1px solid #ceb487}
 /* Keep the navigation and festival controls in view as the content scrolls. */
-body.scroll-edition[data-page] > header {
+body.scroll-edition[data-page]:not([data-page=home]) > header {
   position: fixed !important;
   inset: 0 0 auto !important;
   z-index: 120 !important;
@@ -20,13 +20,16 @@ body.scroll-edition[data-page] > header {
   box-sizing: border-box;
   background-color: #e9dbc2 !important;
 }
-body.scroll-edition[data-page] {
+body.scroll-edition[data-page]:not([data-page=home]) {
   padding-top: var(--nav-height, 88px) !important;
   display: block;
   overflow-y: auto;
 }
+body[data-page=home] > header {
+  display: none !important;
+}
 body[data-page=home] #qingjin {
-  top: var(--nav-height, 88px) !important;
+  top: 0 !important;
   display: block;
   overflow-y: auto;
 }
