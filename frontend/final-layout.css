@@ -34,6 +34,8 @@ body[data-page=home] #qingjin {
   overflow-y: auto;
 }
 body[data-page=home] #qingjin .painting {
+  /* Offset the 66px printed toolbar of the 1586px-wide cover, including its hit areas. */
+  margin-top: calc(-100% * 66 / 1586);
   width: 100%;
   height: auto;
 }
