@@ -9,7 +9,7 @@ $('start').onclick=()=>window.TongpinNavigate('chapters');
 document.querySelector('#home .hero-routes')?.remove();
 // Initialization fetches data asynchronously and may resolve after the new route is built.
 if(location.hash==='#chapters')window.TongpinNavigate('chapters',false);
-const wordsHeading=document.querySelector('#words .page-heading');wordsHeading.querySelector('.wooden-type')?.remove();
+const wordsHeading=document.querySelector('#words .page-heading');
 wordsHeading.querySelector('h1').textContent='说法不同，也能相互理解。';
 const seal=document.createElement('span');seal.className='words-heading-seal';seal.textContent='同\n频';seal.setAttribute('aria-hidden','true');wordsHeading.querySelector('h1').prepend(seal);
 const reeds=document.createElement('img');reeds.src='assets/words-reeds.svg';reeds.alt='';reeds.className='words-reeds';reeds.setAttribute('aria-hidden','true');wordsHeading.append(reeds);

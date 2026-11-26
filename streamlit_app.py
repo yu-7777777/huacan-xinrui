@@ -26,7 +26,7 @@ def setting(name, default=""):
     except (FileNotFoundError, st.errors.StreamlitSecretNotFoundError):
         return os.environ.get(name, default)
 
-view = components.declare_component("tongpin_public_20261126_16", path=str(ROOT / "frontend"))
+view = components.declare_component("tongpin_public_20261126_17", path=str(ROOT / "frontend"))
 if "rpc_responses" not in st.session_state:
     st.session_state.rpc_responses = {}
 responses = st.session_state.rpc_responses
