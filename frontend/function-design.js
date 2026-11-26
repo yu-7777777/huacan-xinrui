@@ -14,6 +14,7 @@ async function arrange(){
  section.querySelectorAll(':scope>.room-controls').forEach(row=>{if(!row.children.length)row.remove();else row.classList.add('coedit-secondary-tools');});
  const form=$('festivalSearch');form.querySelector('label').classList.add('sr-only');form.querySelector('small').hidden=true;$('festivalQuery').placeholder='探索更多节日';$('festivalSearchButton').textContent='AI探索';
  const care=document.querySelector('.family-care');if(care){care.querySelector('.note')?.classList.add('care-footnote');}
+ while(!$('catalogDetails'))await new Promise(r=>setTimeout(r,80));
  const archive=$('catalogDetails'),search=document.querySelector('.signals .archive-search');if(archive&&search)search.before(archive);
  function compactArchive(){
   if(archive.querySelector('.archive-featured'))return;
