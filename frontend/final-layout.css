@@ -250,3 +250,26 @@ body.scroll-edition[data-page=chapters] > header nav button{font-weight:800}
  box-sizing:border-box;width:min(100%,320px);min-width:0;min-height:56px;
  padding:10px 20px;font-size:clamp(19px,1.5vw,23px);line-height:1.4
 }
+
+/* Sunset chapter: painted margins frame the live map and signal archive. */
+body.scroll-edition[data-page=storm] #storm{
+ --storm-paper:#fff1dbeF;--storm-gold:#c18b4e;
+ padding-inline:clamp(7px,2vw,32px);padding-bottom:24px
+}
+body.scroll-edition[data-page=storm] #storm>.storm-heading{
+ background:url('assets/storm-sunset-flowers.webp') left top/auto 100% no-repeat,
+ url('assets/storm-sunset-peak.webp') right center/auto 100% no-repeat,
+ linear-gradient(175deg,#ed9069,#ffe4a9 54%,#e5b27a)!important;
+ padding:clamp(22px,4vw,64px) clamp(16px,12%,160px);min-height:clamp(145px,20vw,235px)
+}
+body.scroll-edition[data-page=storm] #storm .latest-storm{margin:8px auto;padding:8px;border:1px solid var(--storm-gold);background:var(--storm-paper)!important}
+body.scroll-edition[data-page=storm] #storm>.storm-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:12px;padding:12px;border:3px double var(--storm-gold);border-radius:13px;background:var(--storm-paper);align-items:stretch}
+body.scroll-edition[data-page=storm] #storm .storm-grid>*{min-width:0}
+body.scroll-edition[data-page=storm] #storm :is(.family-care,.storm-names){border:2px double var(--storm-gold)!important;background:var(--storm-paper)!important}
+body.scroll-edition[data-page=storm] #storm .family-messages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+body.scroll-edition[data-page=storm] #storm .primary{background:#a63723;color:#fff9eb}
+body.scroll-edition[data-page=storm] main>footer{background:#fae2b7 url('assets/storm-sunset-shore.webp') bottom left/auto 100% no-repeat!important}
+@media(max-width:850px){
+ body.scroll-edition[data-page=storm] #storm>.storm-grid,body.scroll-edition[data-page=storm] #storm .family-messages{grid-template-columns:minmax(0,1fr)}
+ body.scroll-edition[data-page=storm] #storm>.storm-heading{padding-inline:12px;background:linear-gradient(90deg,#ffe4b9dd,transparent),url('assets/storm-sunset-peak.webp') center/cover!important}
+}
