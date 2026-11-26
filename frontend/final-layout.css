@@ -235,3 +235,8 @@ body.scroll-edition #guide .guide-body h2{margin:0;color:#20413e}
 .guide-example{padding:12px;color:#463b2f}.guide-example small{color:#785e41}.guide-example p{width:fit-content;background:#fff8ed;border:1px solid #dec6a2;border-radius:10px;padding:8px 12px}.guide-example .sample-question{margin-left:auto;background:#f7d6be}.guide-example blockquote{margin:12px 0;padding:16px;border:3px double #c89d64;background:#fff6e4;font-weight:bold}.guide-example button{padding:6px 10px}
 body.scroll-edition #guide .guide-signature{text-align:center;padding:48px 8px 6px;background:#fbecd6 url('assets/guide-hills.webp') top center/100% 44px no-repeat}
 @media(max-width:700px){body.scroll-edition #guide .guide-workspace{grid-template-columns:minmax(0,1fr)}body.scroll-edition #guide .suggestions{display:grid;grid-template-columns:1fr 1fr}.guide-example{padding:5px}}
+
+@media(min-width:701px){
+ body.scroll-edition[data-page=chapters]:not([data-page=home]){--rail:clamp(112px,12.5vw,240px)}
+}
+body.scroll-edition[data-page=chapters] > header nav button{font-weight:800}
