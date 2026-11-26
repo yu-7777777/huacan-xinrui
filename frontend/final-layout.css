@@ -202,6 +202,7 @@ body.scroll-edition[data-page=storm] #storm>.storm-heading{
  background:linear-gradient(90deg,#fff6df60,transparent 72%),url('assets/function-storm-clean.webp') center 24%/cover no-repeat,#d6e5d8!important;
  padding:clamp(16px,3vw,44px);border-radius:12px
 }
+body.scroll-edition[data-page=words] .words-workspace{background-color:#fff1dbc7!important}
 body.scroll-edition[data-page=words] .regional-result-card{border:1px solid #cfaa76}
 body.scroll-edition[data-page=words] #wordFilters button.selected,
 body.scroll-edition[data-page=storm] .region-tabs button.selected{background:#ab3826!important;color:#fff9eb!important}
