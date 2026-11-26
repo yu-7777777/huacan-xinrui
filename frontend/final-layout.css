@@ -29,3 +29,16 @@ body.scroll-edition #storm :is(.primary,.region-tabs button.selected,.archive-fe
 body.scroll-edition #storm .family-messages>div{border:1px solid #d3aa72;border-radius:10px;background:#fff6e5}
 @media(min-width:850px){body.scroll-edition #storm .storm-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr)}body.scroll-edition #storm #map{height:auto;aspect-ratio:1.8}}
 @media(max-width:650px){body.scroll-edition #storm>.storm-heading{min-height:105px!important;background-size:cover!important}}
+
+body.scroll-edition #floatingGuide{bottom:calc(52px + env(safe-area-inset-bottom,0px))!important}
+body.scroll-edition[data-page] #guide.compact-guide:not([hidden]){
+ position:fixed!important;inset:auto 12px calc(112px + env(safe-area-inset-bottom,0px)) auto!important;
+ width:min(390px,calc(100vw - 24px))!important;height:min(420px,calc(100dvh - 128px))!important;
+ max-height:70dvh!important;transform:none!important;display:flex;flex-direction:column;
+ padding:10px;border-radius:14px;box-sizing:border-box;overflow:auto;z-index:130
+}
+body.scroll-edition #guide.compact-guide :is(.guide-topics,.guide-signature,.guide-example,.guide-body>h2,.guide-body>p,.guide-conversation>p.note){display:none}
+body.scroll-edition #guide.compact-guide .guide-head{padding:6px 10px}
+body.scroll-edition #guide.compact-guide .guide-workspace{display:flex;flex:1;min-height:0;margin:0;padding:0}
+body.scroll-edition #guide.compact-guide .guide-conversation{flex:1;padding:8px}
+body.scroll-edition #guide.compact-guide .guide-body{min-height:0;overflow:auto}
