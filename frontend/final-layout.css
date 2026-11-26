@@ -1,7 +1,4 @@
 /* The cover and its links share one viewport-sized coordinate system. */
-#qingjin .painting{width:100%;height:100%;aspect-ratio:auto}
-#qingjin .painting>img{width:100%;height:100%;object-fit:fill}
-@media (orientation:portrait){#qingjin .painting{height:auto;aspect-ratio:1586/992}#qingjin{background:linear-gradient(#123b53,#17636c)}}
 body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) #functionBackdrop img{filter:saturate(1.16) contrast(1.04)!important;opacity:.86!important}
 body.scroll-edition[data-page=culture]{--chapter-color:#ae432d}
 body.scroll-edition[data-page=words]{--chapter-color:#276659}
@@ -25,12 +22,17 @@ body.scroll-edition[data-page] > header {
 }
 body.scroll-edition[data-page] {
   padding-top: var(--nav-height, 88px) !important;
+  display: block;
+  overflow-y: auto;
 }
 body[data-page=home] #qingjin {
   top: var(--nav-height, 88px) !important;
+  display: block;
+  overflow-y: auto;
 }
 body[data-page=home] #qingjin .painting {
-  width: min(100vw, calc((100dvh - var(--nav-height, 88px)) * 1.5988));
+  width: 100%;
+  height: auto;
 }
 body.scroll-edition[data-page=culture] #culture > :is(.page-heading,#festivalTabs,.festival-discovery) {
   position: fixed !important;
