@@ -1,7 +1,15 @@
 document.querySelector('#qingjin').addEventListener('click', event => {
   const page = event.target.closest('[data-cover]')?.dataset.cover;
   if (page === 'guide') document.querySelector('#guideNav').click();
-  else if (page) window.TongpinNavigate(page);
+  else if (page) {
+    window.TongpinNavigate(page);
+    const control = event.target.closest('[data-cover]');
+    if (control.dataset.festival) {
+      Array.from(document.querySelectorAll('#festivalTabs [data-f]'))
+        .find(tab => tab.textContent.trim() === control.dataset.festival)?.click();
+    }
+    if (control.dataset.focus) document.getElementById(control.dataset.focus)?.focus();
+  }
 });
 const fixedSections = [
   [document.querySelector('body > header'), '--nav-height'],

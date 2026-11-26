@@ -361,3 +361,18 @@ body.scroll-edition #storm .family-messages section b{color:inherit}
 body.scroll-edition #storm .family-messages section p{margin:14px 0 22px;padding:0;border:0;background:transparent;font-size:clamp(18px,1.45vw,23px);color:#293f39}
 body.scroll-edition #storm .family-messages section button{margin-top:auto;color:inherit;border-color:currentColor}
 body.scroll-edition[data-page=storm] main>footer{background:#fff4deba!important}
+
+body[data-page=home] #qingjin .painting{inset:0;width:100%;height:100%;aspect-ratio:auto;line-height:0}
+body[data-page=home] #qingjin .painting .design{position:absolute;left:0;top:-6.896552%;width:100%;height:106.896552%;object-fit:fill;filter:none}
+#qingjin .painting button{z-index:2}
+#qingjin .chapter-row{box-sizing:border-box}
+#qingjin .hero-lettering{position:absolute;inset:0;pointer-events:none;mask-image:linear-gradient(to right,transparent 20%,black 24%,black 70%,transparent 73%),linear-gradient(to bottom,transparent 2%,black 4.2%,black 17.5%,transparent 18.8%);mask-composite:intersect}
+#qingjin .hero-lettering .design{transform-origin:47% 17%;transform:scale(1.085)}
+#qingjin .scroll-note{position:absolute;top:71.8%;width:7%;text-align:center;color:#59412c;font:500 clamp(9px,.92vw,20px)/1.55 "KaiTi","STKaiti",serif;pointer-events:none}
+#qingjin .mine-note{left:14.4%}
+#qingjin .friend-note{left:23.55%}
+#qingjin .chapter-row{position:absolute;inset:45.45% 0 auto;height:52.4%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:.4vw;padding:0 .4vw;pointer-events:none;background:linear-gradient(170deg,#edd7a4,#ddac7c 55%,#c97e53)}
+#qingjin .chapter-row>*{display:block;width:100%;height:100%;min-height:0;overflow:hidden;border-radius:1.25vw}
+#qingjin .scroll-note{z-index:1}
+#qingjin .mine-note{left:14.85%}
+#qingjin .friend-note{left:24.38%}
