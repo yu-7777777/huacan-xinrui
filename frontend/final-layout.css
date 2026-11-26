@@ -355,7 +355,7 @@ body.scroll-edition[data-page=storm] #storm>.storm-heading p{font-size:clamp(19p
 body.scroll-edition[data-page=storm] #storm .family-care{margin-top:clamp(24px,4vw,56px)!important;padding:clamp(20px,3.4vw,50px);background:linear-gradient(105deg,#fff9eeef,#f7eddde6)!important;border:1px solid #cda369!important}
 body.scroll-edition #storm .family-care h2{display:flex;align-items:center;gap:14px;font:500 clamp(23px,2.6vw,36px)/1.4 TongpinBrush,KaiTi,serif}
 body.scroll-edition #storm .family-care h2:after{content:'';height:1px;flex:1;background:linear-gradient(90deg,#b49251,transparent)}
-body.scroll-edition #storm .family-messages section{display:flex;flex-direction:column;align-items:flex-start;padding:clamp(20px,2.3vw,35px);color:#28645b;border-radius:3px 12px;background:linear-gradient(110deg,#fffaf0,#fffaf0ce),url('assets/storm-osmanthus.webp') right 65%/cover}
+body.scroll-edition #storm .family-messages section{display:flex;flex-direction:column;align-items:flex-start;padding:clamp(20px,2.3vw,35px);color:#28645b;border-radius:3px 12px;background:linear-gradient(110deg,#fffaf0,#fffaf0ce),url('assets/storm-osmanthus-detail.svg') right 65%/cover}
 body.scroll-edition #storm .family-messages section:nth-child(2){color:#995437}
 body.scroll-edition #storm .family-messages section b{color:inherit}
 body.scroll-edition #storm .family-messages section p{margin:14px 0 22px;padding:0;border:0;background:transparent;font-size:clamp(18px,1.45vw,23px);color:#293f39}
@@ -376,3 +376,41 @@ body[data-page=home] #qingjin .painting .design{position:absolute;left:0;top:-6.
 #qingjin .scroll-note{z-index:1}
 #qingjin .mine-note{left:14.85%}
 #qingjin .friend-note{left:24.38%}
+
+/* The complete painting scrolls with the document. Reflected continuations
+   fill the margins at the same scale as the central image. */
+body.scroll-edition[data-page=words]{position:relative;min-height:100dvh;height:auto}
+body.scroll-edition[data-page=words] #functionBackdrop{
+  position:absolute;inset:0 0 0 var(--rail);height:auto;container-type:size;
+  background:#19364b url("assets/words-pavilions.jpg") center/cover no-repeat;
+}
+body.scroll-edition[data-page=words] #functionBackdrop img.scenery-words{
+  inset:0;width:100%;height:100%;object-fit:contain;object-position:center;
+  transform:none!important;filter:contrast(1.075) saturate(1.035)!important;
+}
+@container (min-aspect-ratio:1279/2034){
+  body[data-page=words] #functionBackdrop::before,
+  body[data-page=words] #functionBackdrop::after{
+    content:"";position:absolute;top:0;bottom:0;width:calc((100% - 62.881023cqh)/2);
+    background-image:url("assets/words-pavilions.jpg");background-size:auto 100%;
+    background-repeat:repeat-x;transform:scaleX(-1);filter:contrast(1.075) saturate(1.035);
+  }
+  body[data-page=words] #functionBackdrop::before{left:0;background-position:left center}
+  body[data-page=words] #functionBackdrop::after{right:0;background-position:right center}
+}
+/* Show a complete landscape from the top of the scrolling storm page. */
+body.scroll-edition[data-page=storm]{position:relative;min-height:100dvh;height:auto}
+body.scroll-edition[data-page=storm] #functionBackdrop{
+  position:absolute;inset:0 0 0 var(--rail);height:auto;
+  background:#648879 url("assets/storm-osmanthus-detail.svg") center top/contain repeat;
+}
+body.scroll-edition[data-page=storm] #functionBackdrop img.scenery-storm{
+  inset:0;width:100%;height:100%;object-fit:contain;object-position:center top;
+  visibility:visible;transform:none!important;filter:none!important;
+}
+
+/* Translucent paper on the storm preview, with lighter inner layers. */
+body.scroll-edition[data-page=storm] #storm{--storm-paper:rgba(255,244,222,.78)}
+body.scroll-edition[data-page=storm] #storm :is(.storm-lesson-fold,.family-care){background:var(--storm-paper)!important}
+body.scroll-edition[data-page=storm] #storm .storm-grid :is(.signals,.map-panel){background:rgba(255,246,229,.25)!important}
+body.scroll-edition[data-page=storm] #storm :is(.name-grid>div,.family-messages section){background:rgba(255,247,231,.32)}
