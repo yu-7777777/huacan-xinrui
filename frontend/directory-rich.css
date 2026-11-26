@@ -27,9 +27,10 @@
 .scroll-edition #chapters #entrances .directory-care{padding:16px 18px;border-top:1px solid #b9b8a4;border-bottom:1px solid #b9b8a4;background:linear-gradient(90deg,transparent,#fff8e36b,transparent);box-sizing:border-box}
 .scroll-edition #chapters #entrances .directory-care-caption{display:flex;align-items:center;justify-content:center;gap:10px;font:600 19px/1.6 var(--song);color:#49676b}
 .scroll-edition #chapters #entrances .care-envelope{color:#a56540;font-size:27px;line-height:1}
+.scroll-edition #chapters #entrances .directory-care-caption>span:not(.care-envelope){color:#49676b;background:none}
 .scroll-edition #chapters #entrances .directory-care-message{display:block;font:15px/1.8 var(--song);color:#61726c;margin:9px 0}
 .scroll-edition #chapters #entrances .directory-care-steps{display:flex;justify-content:center;align-items:center;gap:12px;font:13px/1.5 var(--song);color:#6f796c}
-.scroll-edition #chapters #entrances .directory-care-steps span{border:1px solid #b9bba2;border-radius:4px;background:#fbf4df99;padding:2px 9px}
+.scroll-edition #chapters #entrances .directory-care-steps span{border:1px solid #b9bba2;border-radius:4px;background:#fbf4df99;padding:2px 9px;color:#55706a}
 .scroll-edition #chapters #entrances .directory-care-steps i{font-style:normal;color:#b39a78}
 .scroll-edition #chapters #entrances .storm-connection{width:29%;right:2%;bottom:12px;height:110px;opacity:.9}
 body.scroll-edition[data-page=chapters] #floatingGuide{right:16px;bottom:12px;min-height:32px;padding:6px 12px;font-size:13px}
