@@ -69,3 +69,28 @@ body.scroll-edition main > footer :is(b,span) {
 }
 
 body.scroll-edition[data-page=culture] #culture {padding-top: calc(var(--festival-heading-height) + var(--festival-tabs-height) + var(--festival-search-height)) !important;}
+
+/* Shared footer and explanatory copy over illustrated backgrounds. */
+body.scroll-edition main > footer {
+  background: #fff7e8f5 !important;
+  padding: .65rem 1rem;
+  gap: .6rem 1rem;
+  flex-wrap: wrap;
+}
+body.scroll-edition main > footer :is(b, span, #sourcesBtn),
+body.scroll-edition main :is(.note, .entry-note, .regional-result-note, .archive-lookup-note, .festival-note, .care-note, .card-downloads p),
+body.scroll-edition > p {
+  color: #211b16 !important;
+  font-size: clamp(18px, 1.35vw, 23px) !important;
+  font-weight: 800 !important;
+  line-height: 1.55 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+body.scroll-edition main > footer b {font-size: clamp(23px, 1.7vw, 30px) !important;}
+body.scroll-edition main :is(.note, .entry-note, .regional-result-note, .archive-lookup-note, .festival-note, .care-note, .card-downloads p),
+body.scroll-edition > p {
+  background-color: #fff7e8f5 !important;
+  border-radius: .35rem;
+  padding: .3em .6em;
+}
