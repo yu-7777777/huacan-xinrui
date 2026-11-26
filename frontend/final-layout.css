@@ -186,7 +186,7 @@ body.scroll-edition > header nav button.active{background:#fff1d8!important;colo
 }
 
 body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) #functionBackdrop{
- left:var(--rail);height:100%;bottom:0
+ position:fixed;inset:0 0 0 var(--rail);height:auto
 }
 body.scroll-edition[data-page=words] #functionBackdrop .scenery-words{
  opacity:1!important;filter:contrast(1.09) saturate(1.06)!important;transform:none
