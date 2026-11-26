@@ -22,3 +22,8 @@
 ## 结构
 
 保留原功能节点与事件处理器：词语页使用一个半透明工作区；节日故事显示在双卷轴上，下载与共创表单在下；地图与地区档案仍采用真实数据，家人关怀区保留复制功能。目录的一屏布局与首页书卷不在此次功能页面改版范围内。
+
+## Fidelity correction 2026-11-26
+Built-in imagegen produced wooden-blossom.webp from approved board reference: two warm carved wood type blocks bearing 同 / 懂, with white plum blossom branches, transparent background; no UI. Prompt requested the middle-header decoration, photorealistic wood/watercolor, preserving exact characters. Original exec-c7571b4a-5fb1-4581-9d38-5dc49277fc0f.png.
+Built-in imagegen edited user storm screenshot into function-storm-clean.webp: remove only viewer black bands, close icon, counter; retain turquoise/gold mountain/lake composition with no new objects. Original exec-45771559-2f6b-4d26-9a6c-71baafd4f880.png. Both assets copied to frontend/assets; conversion only resized/encoded via Pillow.
+Map imagery uses Esri World Imagery geographic tiles with explicit provider attribution; Natural Earth coastlines remain available independently. Route markers remain NOAA IBTrACS geographic records.
