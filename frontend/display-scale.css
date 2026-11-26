@@ -1,5 +1,5 @@
 /* Unified full-width display scale, based on the user's header screenshot. */
-body.scroll-edition[data-page]{--paper:#eddfc9;background:linear-gradient(135deg,#f1e3d0b3,#dfc7a64d),url('assets/paper-grain.svg'),#e7d6bc;background-size:auto,220px 220px,auto}
+body.scroll-edition[data-page]{--paper:#eddfc9;background:linear-gradient(135deg,#f1e3d0b3,#dfc7a64d),url('assets/paper-grain.svg'),#e7d6bc;background-size:auto,220px 220px,auto;overflow-x:clip!important}
 body.scroll-edition[data-page]>header{background:#e9d9bfed!important;border:0;height:124px!important;min-height:124px!important;box-sizing:border-box;padding:10px 4% 22px!important;align-items:center;gap:24px;flex-wrap:nowrap}
 body.scroll-edition[data-page] header .brand{transform:none!important;margin-right:0;gap:14px;flex-shrink:0}
 body.scroll-edition[data-page] header .brand b{font-size:38px;letter-spacing:3px}
