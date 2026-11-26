@@ -12,7 +12,7 @@ st.markdown('''<style>
 [data-testid="stHeader"]{display:none}
 .block-container{padding:0!important;max-width:100%!important}
 [data-testid="stMainBlockContainer"]{padding:0!important}
-iframe{border:0;display:block;width:100%}
+[data-testid="stElementContainer"]:has(iframe){margin:0!important}iframe{height:100dvh!important;border:0;display:block;width:100%}
 </style>''', unsafe_allow_html=True)
 
 @st.cache_resource
@@ -26,7 +26,7 @@ def setting(name, default=""):
     except (FileNotFoundError, st.errors.StreamlitSecretNotFoundError):
         return os.environ.get(name, default)
 
-view = components.declare_component("tongpin_public_20261126_36", path=str(ROOT / "frontend"))
+view = components.declare_component("tongpin_public_20261126_37", path=str(ROOT / "frontend"))
 if "rpc_responses" not in st.session_state:
     st.session_state.rpc_responses = {}
 responses = st.session_state.rpc_responses
