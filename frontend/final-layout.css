@@ -1,0 +1,16 @@
+/* The cover and its links share one viewport-sized coordinate system. */
+#qingjin .painting{width:100%;height:100%;aspect-ratio:auto}
+#qingjin .painting>img{width:100%;height:100%;object-fit:fill}
+@media (orientation:portrait){#qingjin .painting{height:auto;aspect-ratio:1586/992}#qingjin{background:linear-gradient(#123b53,#17636c)}}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) #functionBackdrop img{filter:saturate(1.16) contrast(1.04)!important;opacity:.86!important}
+body.scroll-edition[data-page=culture]{--chapter-color:#ae432d}
+body.scroll-edition[data-page=words]{--chapter-color:#276659}
+body.scroll-edition[data-page=storm]{--chapter-color:#185e70}
+body.scroll-edition :is(#culture,#words,#storm) :is(.panel,.words-workspace,.festival-story,.family-care){background-color:#fff7e9ed;border:1px solid #bf9351;border-radius:14px}
+body.scroll-edition :is(#culture,#words,#storm) .primary{background:var(--chapter-color);color:#fff9e7;border:1px solid #c79f63}
+body.scroll-edition :is(#culture,#words,#storm) :is(.page-heading,.storm-heading) h1{color:#183c37;text-shadow:0 1px 8px #fff5db}
+body.scroll-edition #words .wooden-type{width:clamp(180px,28vw,495px)!important;max-width:38%;object-fit:contain}
+body.scroll-edition #guide{background:#fbf0da url(assets/paper-grain.svg);border-color:#bf9654;color:#233c37}
+body.scroll-edition #guide .guide-head{background:linear-gradient(110deg,#fff4dd,#e7e5cd);border-bottom:1px solid #bb9355}
+body.scroll-edition #guide .guide-topics{background:#faf2e3 url(assets/words-reeds.svg) center bottom/100% auto no-repeat;border:1px solid #ceb487}
+body.scroll-edition #guide .guide-conversation{background:#fff8eced;border:1px solid #ceb487}
