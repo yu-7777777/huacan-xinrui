@@ -22,7 +22,7 @@ body.scroll-edition[data-page="chapters"] main>footer,body.scroll-edition[data-p
 .scroll-edition #chapters #entrances>[data-enter="culture"]{--directory-art:url('assets/realm-festival.webp')}
 .scroll-edition #chapters #entrances>[data-enter="words"]{--directory-art:url('assets/realm-words.webp')}
 .scroll-edition #chapters #entrances>[data-enter="storm"]{--directory-art:url('assets/realm-storm.webp')}
-.scroll-edition #chapters #entrances>button{background-image:none!important}
+.scroll-edition #chapters #entrances>button[data-enter]{background-image:none!important}
 .scroll-edition #chapters #entrances>button:after{display:block!important;content:'';position:absolute;inset:0 0 auto auto;height:100%;width:auto;max-width:100%;aspect-ratio:3;background:var(--directory-art) right center/auto 100% no-repeat;mask-image:linear-gradient(90deg,transparent,#000 32%);opacity:1;z-index:0;pointer-events:none;clip-path:none}
 .scroll-edition #chapters #entrances>button>*{z-index:2}
 .scroll-edition #chapters #entrances>button:before{z-index:1}
