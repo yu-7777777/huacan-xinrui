@@ -308,3 +308,8 @@ body.scroll-edition[data-page=chapters] > header nav button{
 @media(max-width:700px){
  body.scroll-edition #chapters .scroll-chapters h1,body.scroll-edition #chapters #entrances .chapter-heading h2{font-family:TongpinBrush,KaiTi,serif}
 }
+
+body.scroll-edition #storm .family-care>p.note{
+ color:#705b48!important;font-weight:400!important;font-size:clamp(14px,1vw,16px)!important;
+ line-height:1.6!important;background:transparent!important;padding:0;margin:10px 0 0
+}
