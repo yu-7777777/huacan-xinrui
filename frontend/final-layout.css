@@ -240,3 +240,8 @@ body.scroll-edition #guide .guide-signature{text-align:center;padding:48px 8px 6
  body.scroll-edition[data-page=chapters]:not([data-page=home]){--rail:clamp(112px,12.5vw,240px)}
 }
 body.scroll-edition[data-page=chapters] > header nav button{font-weight:800}
+
+.scroll-edition #culture .festival-story #festName{
+ text-align:center;font-family:TongpinBrush,KaiTi,STKaiti,var(--song);font-weight:800;
+ font-size:clamp(25px,2.5vw,40px);line-height:1.35;letter-spacing:.045em;color:#34291f
+}
