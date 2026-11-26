@@ -21,3 +21,9 @@ const sizes = new ResizeObserver(() => {
   }
 });
 for (const [element] of fixedSections) sizes.observe(element);
+
+document.querySelector('body > header').addEventListener('click', event => {
+  if (event.target.closest('[data-page], .brand')?.closest('nav button, a.brand')) {
+    document.getElementById('guide').hidden = true;
+  }
+}, true);

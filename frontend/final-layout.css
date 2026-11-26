@@ -140,3 +140,25 @@ body.scroll-edition #chapters .scroll-chapters h1 {font-size:clamp(30px,3vw,54px
 body.scroll-edition #chapters #entrances .chapter-heading h2 {font-size:clamp(26px,2.2vw,42px)!important}
 body.scroll-edition #chapters #entrances p,body.scroll-edition #chapters #entrances .chapter-action {font-size:clamp(16px,1.2vw,23px)!important}
 @media(max-width:700px){body.scroll-edition[data-page]:not([data-page=home]){--rail:82px}body.scroll-edition[data-page]:not([data-page=home])>header{padding:14px 3px!important}body.scroll-edition>header .brand{justify-content:center}body.scroll-edition>header .brand b{display:none}body.scroll-edition>header nav button{font-size:15px;padding:10px 4px!important}}
+
+/* Keep the guide inside the content pane so the shared rail stays usable. */
+body.scroll-edition[data-page]:not([data-page=home]) #guide:not([hidden]) {
+  position: fixed !important;
+  inset: 0 0 0 var(--rail) !important;
+  transform: none !important;
+  margin: 0 !important;
+  width: auto !important;
+  height: 100dvh !important;
+  max-width: none !important;
+  max-height: 100dvh !important;
+  box-sizing: border-box;
+}
+body.scroll-edition[data-page]:not([data-page=home]) > header nav {
+  flex-wrap: nowrap !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+body:has(#guide:not([hidden])) #guideNav {
+  background: #a54631 !important;
+  color: white !important;
+}
