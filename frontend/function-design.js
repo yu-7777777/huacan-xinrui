@@ -1,6 +1,6 @@
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
-const scenery=document.createElement('div');scenery.id='functionBackdrop';scenery.setAttribute('aria-hidden','true');for(const page of ['culture','words','storm']){const img=document.createElement('img');img.src='assets/function-'+page+'.jpg?v=function11';img.className='scenery-'+page;img.alt='';img.decoding='async';scenery.append(img);}document.body.prepend(scenery);
+const scenery=document.createElement('div');scenery.id='functionBackdrop';scenery.setAttribute('aria-hidden','true');for(const page of ['culture','words','storm']){const img=document.createElement('img');img.src='assets/function-'+page+'.jpg?v=preview30';img.className='scenery-'+page;img.alt='';img.decoding='async';scenery.append(img);}document.body.prepend(scenery);
 scenery.querySelector('.scenery-storm').src='assets/function-storm-clean.webp';
 window.TongpinScrollArt={};for(const key of ['green','ochre']){const img=new Image();img.src='assets/story-scroll-'+key+'.webp';window.TongpinScrollArt[key]=img;}
 async function arrange(){
@@ -12,6 +12,14 @@ async function arrange(){
  const confirm=$('approve')?.closest('label');if(confirm)tools.before(confirm);
  section.querySelectorAll(':scope>.room-controls').forEach(row=>{if(!row.children.length)row.remove();else row.classList.add('coedit-secondary-tools');});
  const form=$('festivalSearch');form.querySelector('label').classList.add('sr-only');form.querySelector('small').hidden=true;$('festivalQuery').placeholder='探索更多节日';$('festivalSearchButton').textContent='AI探索';
+ const lesson=document.querySelector('#storm .learn');
+ if(lesson && !lesson.closest('details')){
+  const fold=document.createElement('details');
+  fold.className='storm-lesson-fold';fold.open=true;
+  const summary=document.createElement('summary');
+  summary.textContent='先看地点与时间，再读当地信号。';
+  lesson.before(fold);fold.append(summary,lesson);
+ }
  const care=document.querySelector('.family-care');if(care){care.querySelector('.note')?.classList.add('care-footnote');}
  while(!$('catalogDetails'))await new Promise(r=>setTimeout(r,80));
  const archive=$('catalogDetails'),search=document.querySelector('.signals .archive-search');if(archive&&search)search.before(archive);
