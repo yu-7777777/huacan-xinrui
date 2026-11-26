@@ -14,3 +14,58 @@ body.scroll-edition #guide{background:#fbf0da url(assets/paper-grain.svg);border
 body.scroll-edition #guide .guide-head{background:linear-gradient(110deg,#fff4dd,#e7e5cd);border-bottom:1px solid #bb9355}
 body.scroll-edition #guide .guide-topics{background:#faf2e3 url(assets/words-reeds.svg) center bottom/100% auto no-repeat;border:1px solid #ceb487}
 body.scroll-edition #guide .guide-conversation{background:#fff8eced;border:1px solid #ceb487}
+/* Keep the navigation and festival controls in view as the content scrolls. */
+body.scroll-edition[data-page] > header {
+  position: fixed !important;
+  inset: 0 0 auto !important;
+  z-index: 120 !important;
+  visibility: visible !important;
+  box-sizing: border-box;
+  background-color: #e9dbc2 !important;
+}
+body.scroll-edition[data-page] {
+  padding-top: var(--nav-height, 88px) !important;
+}
+body[data-page=home] #qingjin {
+  top: var(--nav-height, 88px) !important;
+}
+body[data-page=home] #qingjin .painting {
+  width: min(100vw, calc((100dvh - var(--nav-height, 88px)) * 1.5988));
+}
+body.scroll-edition[data-page=culture] #culture > :is(.page-heading,#festivalTabs,.festival-discovery) {
+  position: fixed !important;
+  left: var(--festival-left, 4vw) !important;
+  width: var(--festival-width, 92vw) !important;
+  box-sizing: border-box;
+  margin-inline: 0 !important;
+  z-index: 45 !important;
+  background-color: #f3e6ce !important;
+  margin-block: 0 !important;
+}
+body.scroll-edition[data-page=culture] #culture > .page-heading {
+  top: var(--nav-height) !important;
+  min-height: 0 !important;
+  height: clamp(78px, 20dvh, 210px) !important;
+  box-sizing: border-box;
+  padding-block: clamp(5px, 2vh, 24px) !important;
+}
+body.scroll-edition[data-page=culture] #culture > #festivalTabs {
+  top: calc(var(--nav-height) + var(--festival-heading-height)) !important;
+}
+body.scroll-edition[data-page=culture] #culture > .festival-discovery {
+  top: calc(var(--nav-height) + var(--festival-heading-height) + var(--festival-tabs-height)) !important;
+}
+#festivalSearchResult {max-height: 20dvh; overflow: auto;}
+@media(max-height: 650px), (max-width: 700px) {
+  body.scroll-edition[data-page=culture] #culture > .page-heading h1 {font-size: 25px !important; margin: 0 !important;}
+  body.scroll-edition[data-page=culture] #culture > .page-heading p {font-size: 14px !important; margin: 0 !important;}
+  body.scroll-edition[data-page=culture] #festivalTabs {display:flex !important; flex-wrap:nowrap !important; overflow-x:auto;}
+  body.scroll-edition[data-page=culture] #festivalTabs button {flex:none;}
+}
+body.scroll-edition main > footer :is(b,span) {
+  color: #fff9e7 !important;
+  font-weight: 800 !important;
+  text-shadow: -1px -1px 1px #26352d, 1px -1px 1px #26352d, -1px 1px 1px #26352d, 1px 1px 1px #26352d, 0 1px 3px #17271f !important;
+}
+
+body.scroll-edition[data-page=culture] #culture {padding-top: calc(var(--festival-heading-height) + var(--festival-tabs-height) + var(--festival-search-height)) !important;}
