@@ -1,0 +1,51 @@
+/* More expressive chapter previews, retaining the three existing entry buttons. */
+.scroll-edition #chapters:not([hidden]){height:auto;min-height:calc(100dvh - var(--directory-header-height,124px) - 8px);grid-template-rows:54px minmax(0,1fr) 34px;gap:10px;padding:10px 0}
+.scroll-edition #chapters #entrances{height:auto;min-height:calc(100dvh - var(--directory-header-height,124px) - 130px);grid-template-rows:repeat(3,minmax(190px,1fr));gap:14px}
+.scroll-edition #chapters #entrances>button[data-enter]{padding:20px 32px!important;min-height:190px!important;position:relative;border-radius:18px;text-align:left;isolation:isolate;box-shadow:0 4px 14px #88654012,inset 0 0 0 4px #fff8e552}
+.scroll-edition #chapters #entrances>button:after{aspect-ratio:3.4;mask-image:linear-gradient(90deg,transparent,#000 43%);opacity:.95}
+.scroll-edition #chapters #entrances>button:before{display:block!important;content:'';position:absolute;left:17px;top:18px;bottom:18px;width:2px;height:auto;background:linear-gradient(transparent,#bb8456aa,transparent);pointer-events:none}
+.scroll-edition #chapters #entrances .chapter-heading{margin:0 0 8px;position:relative}
+.scroll-edition #chapters #entrances .chapter-heading h2{font-size:clamp(26px,2vw,36px);line-height:1.25}
+.scroll-edition #chapters #entrances .chapter-heading small{font-size:24px;line-height:1.25}
+.scroll-edition #chapters #entrances p{max-width:30%;font-size:16px;line-height:1.6;margin:0 0 12px}
+.scroll-edition #chapters #entrances .entry-note{max-width:28%;font-size:16px;margin:3px 0 13px}
+.scroll-edition #chapters #entrances .chapter-action{flex-shrink:0;min-height:35px;padding:6px 20px;font-size:17px;line-height:1.3;border-radius:7px}
+.scroll-edition #chapters #entrances .chapter-source{display:none}
+.scroll-edition #chapters #entrances .directory-scene{position:absolute;left:32%;top:50%;transform:translateY(-50%);width:35%;max-width:560px;pointer-events:none;text-align:center;color:#41635c}
+.scroll-edition #chapters #entrances .mini-scroll-pair{display:flex;align-items:center;justify-content:center;gap:10px}
+.scroll-edition #chapters #entrances .mini-slip{width:108px;height:134px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:21px 12px 18px;box-sizing:border-box;background:url('assets/story-scroll-green.webp') center/contain no-repeat;filter:drop-shadow(0 4px 3px #70452213)}
+.scroll-edition #chapters #entrances .mini-slip:nth-child(3){background-image:url('assets/story-scroll-ochre.webp')}
+.scroll-edition #chapters #entrances .mini-slip b{font:600 13px/1.5 var(--song);color:#865037;white-space:nowrap}
+.scroll-edition #chapters #entrances .mini-slip em{font:500 18px/1.6 var(--song);color:#4a4638;margin-top:8px;white-space:nowrap}
+.scroll-edition #chapters #entrances .mini-slip i{font:10px/1.5 var(--song);color:#927954;margin-top:5px;width:78px;white-space:normal;text-align:center}
+.scroll-edition #chapters #entrances .mini-joining{display:grid;place-items:center;width:27px;height:27px;background:#b96747;color:#fff2d6;outline:1px solid #fff3dc;outline-offset:3px;border-radius:50%;font:17px var(--song)}
+.scroll-edition #chapters #entrances .directory-scene-caption{display:block;margin-top:7px;font:14px/1.4 var(--song);letter-spacing:3px;color:#99633f}
+.scroll-edition #chapters #entrances .entry-word-pair{left:32%;top:42%;width:34%;max-width:480px;gap:16px}
+.scroll-edition #chapters #entrances .entry-word-pair>span{font-size:clamp(24px,2vw,34px);padding:10px 18px;min-width:0;border-color:#c2a87d;background-color:#fff8e7dc;box-shadow:0 4px 12px #617c5d1a}
+.scroll-edition #chapters #entrances .directory-region-tags{position:absolute;left:32%;top:70%;width:34%;max-width:480px;display:flex;align-items:center;justify-content:center;gap:12px;pointer-events:none;font:14px/1.6 var(--song);color:#55736b;white-space:nowrap}
+.scroll-edition #chapters #entrances .directory-region-tags i{font-style:normal;color:#b78d61}
+.scroll-edition #chapters #entrances .directory-care{padding:16px 18px;border-top:1px solid #b9b8a4;border-bottom:1px solid #b9b8a4;background:linear-gradient(90deg,transparent,#fff8e36b,transparent);box-sizing:border-box}
+.scroll-edition #chapters #entrances .directory-care-caption{display:flex;align-items:center;justify-content:center;gap:10px;font:600 19px/1.6 var(--song);color:#49676b}
+.scroll-edition #chapters #entrances .care-envelope{color:#a56540;font-size:27px;line-height:1}
+.scroll-edition #chapters #entrances .directory-care-message{display:block;font:15px/1.8 var(--song);color:#61726c;margin:9px 0}
+.scroll-edition #chapters #entrances .directory-care-steps{display:flex;justify-content:center;align-items:center;gap:12px;font:13px/1.5 var(--song);color:#6f796c}
+.scroll-edition #chapters #entrances .directory-care-steps span{border:1px solid #b9bba2;border-radius:4px;background:#fbf4df99;padding:2px 9px}
+.scroll-edition #chapters #entrances .directory-care-steps i{font-style:normal;color:#b39a78}
+.scroll-edition #chapters #entrances .storm-connection{width:29%;right:2%;bottom:12px;height:110px;opacity:.9}
+body.scroll-edition[data-page=chapters] #floatingGuide{right:16px;bottom:12px;min-height:32px;padding:6px 12px;font-size:13px}
+@media(max-width:1100px){
+.scroll-edition #chapters #entrances>button[data-enter]{padding:18px 25px!important}
+.scroll-edition #chapters #entrances p{max-width:37%;font-size:14px}.scroll-edition #chapters #entrances .entry-note{max-width:32%;font-size:14px}
+.scroll-edition #chapters #entrances .directory-scene{left:37%;width:35%}.scroll-edition #chapters #entrances .entry-word-pair{left:38%;width:36%;gap:8px}.scroll-edition #chapters #entrances .entry-word-pair>span{font-size:25px;padding:9px 12px}
+.scroll-edition #chapters #entrances .directory-region-tags{left:38%;width:36%;gap:7px;font-size:12px}.scroll-edition #chapters #entrances .directory-care-caption{font-size:16px}.scroll-edition #chapters #entrances .directory-care-message{font-size:12px}.scroll-edition #chapters #entrances .directory-care-steps{font-size:11px;gap:6px}.scroll-edition #chapters #entrances .directory-care-steps span{padding:2px 5px}
+}
+@media(max-height:760px) and (min-width:701px){
+.scroll-edition #chapters #entrances{grid-template-rows:repeat(3,minmax(170px,1fr))}.scroll-edition #chapters #entrances>button[data-enter]{min-height:170px!important;padding-block:15px!important}.scroll-edition #chapters #entrances .chapter-heading h2{font-size:27px}.scroll-edition #chapters #entrances p{font-size:14px;margin-bottom:10px}.scroll-edition #chapters #entrances .mini-slip{height:113px;width:91px;padding:17px 8px}.scroll-edition #chapters #entrances .mini-slip em{font-size:16px;margin-top:4px}.scroll-edition #chapters #entrances .mini-slip i{display:none}.scroll-edition #chapters #entrances .directory-scene-caption{font-size:12px}
+}
+@media(max-width:700px){
+.scroll-edition #chapters:not([hidden]){grid-template-rows:45px minmax(0,1fr) 32px;gap:8px}.scroll-edition #chapters #entrances{min-height:0;grid-template-rows:repeat(3,minmax(180px,1fr));gap:12px}.scroll-edition #chapters #entrances>button[data-enter]{min-height:180px!important;padding:18px!important;border-radius:14px}
+.scroll-edition #chapters #entrances .chapter-heading h2{font-size:25px}.scroll-edition #chapters #entrances .chapter-heading small{font-size:18px;padding-right:10px}.scroll-edition #chapters #entrances p{font-size:13px;max-width:55%;line-height:1.55;margin-bottom:12px}.scroll-edition #chapters #entrances .entry-note{font-size:13px;max-width:49%;margin-bottom:12px}.scroll-edition #chapters #entrances .chapter-action{font-size:14px;min-height:32px;padding:5px 12px}
+.scroll-edition #chapters #entrances .directory-coedit{left:53%;width:45%;top:49%}.scroll-edition #chapters #entrances .mini-scroll-pair{gap:4px}.scroll-edition #chapters #entrances .mini-slip{width:58px;height:84px;padding:15px 3px 10px;background-size:100% 100%}.scroll-edition #chapters #entrances .mini-slip b{font-size:9px}.scroll-edition #chapters #entrances .mini-slip em{font-size:12px;margin-top:4px}.scroll-edition #chapters #entrances .mini-slip i,.scroll-edition #chapters #entrances .mini-joining{display:none}.scroll-edition #chapters #entrances .directory-scene-caption{font-size:10px;letter-spacing:0;margin-top:4px}
+.scroll-edition #chapters #entrances .entry-word-pair{left:auto;right:8px;top:42%;width:46%;gap:4px}.scroll-edition #chapters #entrances .entry-word-pair>span{font-size:18px;padding:6px 4px}.scroll-edition #chapters #entrances .directory-region-tags{left:auto;right:7px;top:66%;width:47%;font-size:9px;gap:3px}
+.scroll-edition #chapters #entrances .directory-care{left:auto;right:8px;top:45%;width:43%;padding:8px 3px;border:0;background:none}.scroll-edition #chapters #entrances .directory-care-caption{font-size:12px;gap:4px;line-height:1.6}.scroll-edition #chapters #entrances .care-envelope{font-size:18px}.scroll-edition #chapters #entrances .directory-care-message{font-size:10px;line-height:1.65;margin:6px 0}.scroll-edition #chapters #entrances .directory-care-steps{display:none}.scroll-edition #chapters #entrances .storm-connection{width:48%;right:-4%;height:70px;bottom:5px;opacity:.55}
+}

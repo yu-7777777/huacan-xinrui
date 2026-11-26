@@ -1,0 +1,10 @@
+(()=>{'use strict';
+const culture=document.querySelector('#entrances>[data-enter="culture"]');
+const words=document.querySelector('#entrances>[data-enter="words"]');
+const storm=document.querySelector('#entrances>[data-enter="storm"]');
+if(!culture||!words||!storm)return;
+const scene=(target,cls,html)=>{const node=document.createElement('div');node.className='directory-scene '+cls;node.setAttribute('aria-hidden','true');node.innerHTML=html;target.append(node);};
+scene(culture,'directory-coedit','<div class="mini-scroll-pair"><span class="mini-slip"><b>我的一笺</b><em>赏月团圆</em><i>记下家里的过节方式</i></span><span class="mini-joining">合</span><span class="mini-slip"><b>远方的一笺</b><em>遥寄祝福</em><i>听见另一种节日记忆</i></span></div><span class="directory-scene-caption">一纸相逢 · 两地同心</span>');
+const tags=document.createElement('div');tags.className='directory-region-tags';tags.setAttribute('aria-hidden','true');tags.innerHTML='<span>大陆</span><i>·</i><span>香港</span><i>·</i><span>澳门</span><i>·</i><span>台湾地区</span>';words.append(tags);
+scene(storm,'directory-care','<div class="directory-care-caption"><span class="care-envelope">✉</span><span>把关心，送到风雨那一端</span></div><span class="directory-care-message">你那边风雨怎么样？方便时报个平安。</span><div class="directory-care-steps"><span>看路径</span><i>—</i><span>读信号</span><i>—</i><span>寄牵挂</span></div>');
+})();
