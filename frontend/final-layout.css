@@ -277,3 +277,9 @@ body.scroll-edition[data-page=storm] main>footer{background:#fae2b7 url('assets/
 body.scroll-edition[data-page]:not([data-page=home]) > header{scrollbar-width:none}
 body.scroll-edition[data-page]:not([data-page=home]) > header::-webkit-scrollbar{display:none}
 body.scroll-edition > header nav button.active::after{content:none!important;display:none!important}
+
+.scroll-edition #culture .festival-story>div:last-child{text-align:center}
+.scroll-edition #culture .festival-story #festIntro{margin-inline:auto}
+.scroll-edition #culture .festival-story .festival-facts{display:flex;justify-content:center;flex-wrap:wrap}
+.scroll-edition #culture .festival-story #observation{text-align:start}
+.scroll-edition #culture .festival-story #observation>summary{text-align:center;justify-content:center;list-style-position:inside}
