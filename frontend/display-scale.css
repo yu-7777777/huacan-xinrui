@@ -9,7 +9,7 @@ body.scroll-edition[data-page] header nav{height:auto;order:initial;gap:clamp(12
 body.scroll-edition[data-page] header nav button{height:54px;min-height:54px;padding:10px 14px;font:400 clamp(18px,1.15vw,22px)/1.5 var(--song);letter-spacing:1px;white-space:nowrap;border:0!important}
 body.scroll-edition[data-page] header nav button+button{border-left:1px solid #c5a67b4a!important}
 body.scroll-edition[data-page] header nav .active:after{bottom:0;height:2px;background:#a84831}
-body.scroll-edition[data-page]>header:after{display:block!important;content:'';position:absolute;left:1.3%;right:1.3%;bottom:9px;height:10px;border-block:1px solid #bc9366;background:url('assets/lattice.svg') repeat-x center/18px 18px;opacity:.8}
+body.scroll-edition[data-page]>header:after{display:block!important;content:'';position:absolute;left:1.3%;right:1.3%;bottom:9px;height:12px;border-block:1px solid #bc9366;background:url('assets/fret-border.svg') repeat-x center/24px 12px;opacity:1}
 body.scroll-edition[data-page] main{width:100%;max-width:none!important;padding-inline:clamp(24px,4vw,76px)!important;box-sizing:border-box;margin-inline:auto}
 #functionBackdrop{background:#eaddc6}
 body.scroll-edition[data-page=culture],body.scroll-edition[data-page=words],body.scroll-edition[data-page=storm]{background:#eddfc9}
@@ -18,7 +18,7 @@ body[data-page=culture] #functionBackdrop img{opacity:.27}
 #functionBackdrop .scenery-storm{opacity:.39}
 .scroll-edition #words .wooden-type{width:clamp(300px,22vw,390px)!important;max-height:290px;top:15px!important}
 .scroll-edition #words>.page-heading{padding-right:clamp(315px,25vw,440px);min-height:280px}
-.scroll-edition #home .culture-art{width:132%;margin:0 -10% 0 -14%}
+.scroll-edition #home .culture-art{width:128%;margin:0 -10% 0 -14%}
 .scroll-edition #home .culture-art img{max-height:740px;width:100%;height:auto;object-fit:contain}
 @media(min-width:1001px){
 .scroll-edition #home .hero>div:first-child{max-width:570px;padding-left:20px}.scroll-edition #home .hero p{max-width:530px;font-size:19px;line-height:1.9}.scroll-edition #home .hero p strong{font-size:30px}.scroll-edition #home .hero h1{font-size:clamp(48px,4.2vw,80px)}
