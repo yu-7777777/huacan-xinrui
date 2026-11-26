@@ -162,3 +162,25 @@ body:has(#guide:not([hidden])) #guideNav {
   background: #a54631 !important;
   color: white !important;
 }
+
+@media(min-width:701px){
+ body.scroll-edition[data-page]:not([data-page=home]){--rail:clamp(126px,12.5vw,198px)}
+}
+body.scroll-edition[data-page]:not([data-page=home]) > header{
+ padding:0!important;background:linear-gradient(100deg,#fff3da,#f8e6c9 72%,#f2d7a8)!important;border:4px double #cf983e
+}
+body.scroll-edition > header .brand{padding:12px 8%;border-bottom:4px double #cf983e}
+body.scroll-edition[data-page]:not([data-page=home]) > header nav{flex:1;margin:0;gap:0}
+body.scroll-edition > header nav button{flex:1;text-align:center;border-bottom:1px solid #d9b787!important}
+body.scroll-edition > header nav button.active{background:#fff1d8!important;color:#ae321e!important;text-decoration:underline;text-underline-offset:.45em}
+@media(min-width:701px){
+ body.scroll-edition[data-page=chapters]:not([data-page=home]) > main{padding:0!important}
+ body.scroll-edition[data-page=chapters] #chapters:not([hidden]){
+  display:block;position:relative;padding:0;margin:0;width:100%;background:url('assets/directory-reference.svg') center/100% 100% no-repeat;filter:contrast(1.045)
+ }
+ body.scroll-edition #chapters .scroll-chapters{position:absolute;opacity:0;pointer-events:none}
+ body.scroll-edition #chapters #entrances{position:absolute;inset:14.8% 4.9% 9.8%;width:auto;height:auto;display:grid;grid-template-rows:repeat(3,1fr);gap:1%}
+ body.scroll-edition #chapters #entrances>button[data-enter],body.scroll-edition #chapters .chapter-back{opacity:0;cursor:pointer}
+ body.scroll-edition #chapters #entrances>button:focus-visible,body.scroll-edition #chapters .chapter-back:focus-visible{opacity:1;outline:3px solid #145a61}
+ body.scroll-edition #chapters .chapter-back{position:absolute;inset:auto auto 2% 5%;width:9.5%;height:6%}
+}
