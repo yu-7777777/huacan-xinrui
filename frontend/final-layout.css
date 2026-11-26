@@ -245,3 +245,8 @@ body.scroll-edition[data-page=chapters] > header nav button{font-weight:800}
  text-align:center;font-family:TongpinBrush,KaiTi,STKaiti,var(--song);font-weight:800;
  font-size:clamp(25px,2.5vw,40px);line-height:1.35;letter-spacing:.045em;color:#34291f
 }
+
+.scroll-edition #culture .journey-nav button[data-next-page="words"]{
+ box-sizing:border-box;width:min(100%,320px);min-width:0;min-height:56px;
+ padding:10px 20px;font-size:clamp(19px,1.5vw,23px);line-height:1.4
+}
