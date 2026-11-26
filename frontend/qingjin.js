@@ -35,3 +35,11 @@ document.querySelector('body > header').addEventListener('click', event => {
     document.getElementById('guide').hidden = true;
   }
 }, true);
+
+// Keep the painting as tall as the content, independently of the scrollport.
+const chapterMain = document.querySelector('body > main');
+new ResizeObserver(() => {
+  const body = document.body;
+  const bottom = chapterMain.getBoundingClientRect().bottom - body.getBoundingClientRect().top + body.scrollTop;
+  body.style.setProperty('--function-scene-height', Math.ceil(bottom) + 'px');
+}).observe(chapterMain);

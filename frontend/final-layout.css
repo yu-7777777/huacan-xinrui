@@ -457,3 +457,12 @@ body.scroll-edition[data-page=culture] #culture #festivalSearch>div{
 body.scroll-edition[data-page=culture] #culture #festivalSearch :is(input,button){width:100%;box-sizing:border-box}
 
 body.scroll-edition[data-page=culture] main>footer{background:transparent!important}
+
+/* Give long chapters their own scrollport inside the viewport-sized host iframe. */
+html:has(>body:is([data-page=culture],[data-page=words],[data-page=storm])){overflow:hidden!important}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]){
+  box-sizing:border-box;height:100dvh;min-height:0;overflow-y:auto!important;overflow-x:hidden!important
+}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) #functionBackdrop{
+  bottom:auto;height:max(100%,var(--function-scene-height,100dvh))
+}
