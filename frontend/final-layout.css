@@ -1,8 +1,5 @@
 /* The cover and its links share one viewport-sized coordinate system. */
-#qingjin .painting{width:100%;height:100%;aspect-ratio:auto}
-#qingjin .painting>img{width:100%;height:100%;object-fit:fill}
-@media (orientation:portrait){#qingjin .painting{height:auto;aspect-ratio:1586/992}#qingjin{background:linear-gradient(#123b53,#17636c)}}
-body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) #functionBackdrop img{filter:saturate(1.16) contrast(1.04)!important;opacity:.86!important}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) #functionBackdrop img{filter:contrast(1.12) saturate(1.12)!important;opacity:1!important;transform:none}
 body.scroll-edition[data-page=culture]{--chapter-color:#ae432d}
 body.scroll-edition[data-page=words]{--chapter-color:#276659}
 body.scroll-edition[data-page=storm]{--chapter-color:#185e70}
@@ -14,8 +11,278 @@ body.scroll-edition #guide{background:#fbf0da url(assets/paper-grain.svg);border
 body.scroll-edition #guide .guide-head{background:linear-gradient(110deg,#fff4dd,#e7e5cd);border-bottom:1px solid #bb9355}
 body.scroll-edition #guide .guide-topics{background:#faf2e3 url(assets/words-reeds.svg) center bottom/100% auto no-repeat;border:1px solid #ceb487}
 body.scroll-edition #guide .guide-conversation{background:#fff8eced;border:1px solid #ceb487}
+/* Keep the navigation and festival controls in view as the content scrolls. */
+body.scroll-edition[data-page]:not([data-page=home]) > header {
+  position: fixed !important;
+  inset: 0 0 auto !important;
+  z-index: 120 !important;
+  visibility: visible !important;
+  box-sizing: border-box;
+  background-color: #e9dbc2 !important;
+}
+body.scroll-edition[data-page]:not([data-page=home]) {
+  padding-top: var(--nav-height, 88px) !important;
+  display: block;
+  overflow-y: auto;
+}
+body[data-page=home] > header {
+  display: none !important;
+}
+body[data-page=home] #qingjin {
+  inset: 0;
+  display: block;
+  overflow: hidden;
+}
+body[data-page=home] #qingjin .painting {
+  /* The visible artwork occupies rows 66..991 of the original cover. */
+  position: absolute;
+  top: calc(-100% * 66 / 926);
+  width: 100%;
+  height: calc(100% * 992 / 926);
+}
+body[data-page=home] #qingjin .painting > img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+body.scroll-edition[data-page=culture] #culture > :is(.page-heading,#festivalTabs,.festival-discovery) {
+  position: fixed !important;
+  left: var(--festival-left, 4vw) !important;
+  width: var(--festival-width, 92vw) !important;
+  box-sizing: border-box;
+  margin-inline: 0 !important;
+  z-index: 45 !important;
+  background-color: #f3e6ce !important;
+  margin-block: 0 !important;
+}
+body.scroll-edition[data-page=culture] #culture > .page-heading {
+  top: var(--nav-height) !important;
+  min-height: 0 !important;
+  height: clamp(78px, 20dvh, 210px) !important;
+  box-sizing: border-box;
+  padding-block: clamp(5px, 2vh, 24px) !important;
+}
+body.scroll-edition[data-page=culture] #culture > #festivalTabs {
+  top: calc(var(--nav-height) + var(--festival-heading-height)) !important;
+}
+body.scroll-edition[data-page=culture] #culture > .festival-discovery {
+  top: calc(var(--nav-height) + var(--festival-heading-height) + var(--festival-tabs-height)) !important;
+}
+#festivalSearchResult {max-height: 20dvh; overflow: auto;}
+@media(max-height: 650px), (max-width: 700px) {
+  body.scroll-edition[data-page=culture] #culture > .page-heading h1 {font-size: 25px !important; margin: 0 !important;}
+  body.scroll-edition[data-page=culture] #culture > .page-heading p {font-size: 14px !important; margin: 0 !important;}
+  body.scroll-edition[data-page=culture] #festivalTabs {display:flex !important; flex-wrap:nowrap !important; overflow-x:auto;}
+  body.scroll-edition[data-page=culture] #festivalTabs button {flex:none;}
+}
+body.scroll-edition main > footer :is(b,span) {
+  color: #fff9e7 !important;
+  font-weight: 800 !important;
+  text-shadow: -1px -1px 1px #26352d, 1px -1px 1px #26352d, -1px 1px 1px #26352d, 1px 1px 1px #26352d, 0 1px 3px #17271f !important;
+}
 
+body.scroll-edition[data-page=culture] #culture {padding-top: calc(var(--festival-heading-height) + var(--festival-tabs-height) + var(--festival-search-height)) !important;}
 
+/* Shared footer and explanatory copy over illustrated backgrounds. */
+body.scroll-edition main > footer {
+  background: #fff7e8f5 !important;
+  padding: .65rem 1rem;
+  gap: .6rem 1rem;
+  flex-wrap: wrap;
+}
+body.scroll-edition main > footer :is(b, span, #sourcesBtn),
+body.scroll-edition main :is(.note, .entry-note, .regional-result-note, .archive-lookup-note, .festival-note, .care-note, .card-downloads p),
+body.scroll-edition > p {
+  color: #211b16 !important;
+  font-size: clamp(18px, 1.35vw, 23px) !important;
+  font-weight: 800 !important;
+  line-height: 1.55 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+body.scroll-edition main > footer b {font-size: clamp(23px, 1.7vw, 30px) !important;}
+body.scroll-edition main :is(.note, .entry-note, .regional-result-note, .archive-lookup-note, .festival-note, .care-note, .card-downloads p),
+body.scroll-edition > p {
+  background-color: #fff7e8f5 !important;
+  border-radius: .35rem;
+  padding: .3em .6em;
+}
+
+/* Functional pages share the chapter directory's side navigation. */
+body.scroll-edition[data-page]:not([data-page=home]) {
+  --rail: clamp(140px,15vw,236px);
+  --nav-height: 0px;
+  padding: 0 0 0 var(--rail) !important;
+}
+body.scroll-edition[data-page]:not([data-page=home]) > header {
+  inset: 0 auto 0 0 !important;
+  width: var(--rail) !important;
+  height: 100dvh !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 30px 14px !important;
+  overflow: auto;
+  background: linear-gradient(110deg,#d9c6a5,#d3bd99) !important;
+  border-right: 1px solid #b69a72;
+}
+body.scroll-edition > header::after,body.scroll-edition > header .brand small,
+body.scroll-edition > header .status {display:none !important}
+body.scroll-edition > header .brand {padding:0 0 24px;border-bottom:3px double #b69a72}
+body.scroll-edition > header nav {display:flex !important;flex-direction:column;align-items:stretch;width:100%;margin:20px 0 0;gap:6px}
+body.scroll-edition > header nav button {text-align:left;font-size:clamp(17px,1.3vw,22px);font-weight:750;border:0!important;padding:12px!important}
+body.scroll-edition > header nav button.active {background:#a54631!important;color:#fff8e8!important;border-radius:5px}
+body.scroll-edition[data-page]:not([data-page=home]) > main {width:100%!important;max-width:none!important;margin:0!important;box-sizing:border-box;padding-inline:12px!important}
+body.scroll-edition[data-page=chapters] #chapters:not([hidden]) {height:100dvh!important;grid-template-rows:auto minmax(0,1fr) auto;gap:8px;padding:5px 0}
+body.scroll-edition #chapters .scroll-chapters h1 {font-size:clamp(30px,3vw,54px)!important}
+body.scroll-edition #chapters #entrances .chapter-heading h2 {font-size:clamp(26px,2.2vw,42px)!important}
+body.scroll-edition #chapters #entrances p,body.scroll-edition #chapters #entrances .chapter-action {font-size:clamp(16px,1.2vw,23px)!important}
+@media(max-width:700px){body.scroll-edition[data-page]:not([data-page=home]){--rail:82px}body.scroll-edition[data-page]:not([data-page=home])>header{padding:14px 3px!important}body.scroll-edition>header .brand{justify-content:center}body.scroll-edition>header .brand b{display:none}body.scroll-edition>header nav button{font-size:15px;padding:10px 4px!important}}
+
+/* Keep the guide inside the content pane so the shared rail stays usable. */
+body.scroll-edition[data-page]:not([data-page=home]) #guide:not([hidden]) {
+  position: fixed !important;
+  inset: 0 0 0 var(--rail) !important;
+  transform: none !important;
+  margin: 0 !important;
+  width: auto !important;
+  height: 100dvh !important;
+  max-width: none !important;
+  max-height: 100dvh !important;
+  box-sizing: border-box;
+}
+body.scroll-edition[data-page]:not([data-page=home]) > header nav {
+  flex-wrap: nowrap !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+body:has(#guide:not([hidden])) #guideNav {
+  background: #a54631 !important;
+  color: white !important;
+}
+
+@media(min-width:701px){
+ body.scroll-edition[data-page]:not([data-page=home]){--rail:clamp(112px,10vw,158px)}
+}
+body.scroll-edition[data-page]:not([data-page=home]) > header{
+ padding:0!important;background:linear-gradient(100deg,#fff3da,#f8e6c9 72%,#f2d7a8)!important;border:4px double #cf983e
+}
+body.scroll-edition > header .brand{padding:12px 8%;border-bottom:4px double #cf983e}
+body.scroll-edition[data-page]:not([data-page=home]) > header nav{flex:1;margin:0;gap:0}
+body.scroll-edition > header nav button{flex:1;text-align:center;border-bottom:1px solid #d9b787!important}
+body.scroll-edition > header nav button.active{background:#fff1d8!important;color:#ae321e!important;text-decoration:underline;text-underline-offset:.45em}
+@media(min-width:701px){
+ body.scroll-edition[data-page=chapters]:not([data-page=home]) > main{padding:0!important}
+ body.scroll-edition[data-page=chapters] #chapters:not([hidden]){
+  display:block;position:relative;padding:0;margin:0;width:100%;background:url('assets/directory-reference.svg') center/100% 100% no-repeat;filter:contrast(1.075)
+ }
+ body.scroll-edition #chapters .scroll-chapters{position:absolute;opacity:0;pointer-events:none}
+ body.scroll-edition #chapters #entrances{position:absolute;inset:14.8% 4.9% 9.8%;width:auto;height:auto;display:grid;grid-template-rows:repeat(3,1fr);gap:1%}
+ body.scroll-edition #chapters #entrances>button[data-enter],body.scroll-edition #chapters .chapter-back{opacity:0;cursor:pointer}
+ body.scroll-edition #chapters #entrances>button:focus-visible,body.scroll-edition #chapters .chapter-back:focus-visible{opacity:1;outline:3px solid #145a61}
+ body.scroll-edition #chapters .chapter-back{position:absolute;inset:auto auto 2% 5%;width:9.5%;height:6%}
+}
+
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) #functionBackdrop{
+ position:fixed;inset:0 0 0 var(--rail);height:auto
+}
+body.scroll-edition[data-page=words] #functionBackdrop .scenery-words{
+ opacity:1!important;filter:contrast(1.12) saturate(1.1)!important;transform:none
+}
+body.scroll-edition[data-page=culture] #culture>.page-heading{
+ background:linear-gradient(90deg,#fff4df8a,transparent 72%),url('assets/function-culture.jpg') center 36%/cover!important
+}
+body.scroll-edition[data-page=words] .words-workspace,
+body.scroll-edition[data-page=storm] #storm :is(.signals,.map-panel,.storm-names,.family-care){
+ background:#fff1dbf5!important;border:1px solid #c19358!important;border-radius:12px
+}
+body.scroll-edition[data-page=storm] #storm>.storm-heading{
+ background:linear-gradient(90deg,#fff6df60,transparent 72%),url('assets/function-storm-clean.webp') center 24%/cover no-repeat,#d6e5d8!important;
+ padding:clamp(16px,3vw,44px);border-radius:12px
+}
+body.scroll-edition[data-page=words] .words-workspace{background-color:#fff1dbc7!important}
+body.scroll-edition[data-page=words] .regional-result-card{border:1px solid #cfaa76}
+body.scroll-edition[data-page=words] #wordFilters button.selected,
+body.scroll-edition[data-page=storm] .region-tabs button.selected{background:#ab3826!important;color:#fff9eb!important}
+
+body.scroll-edition[data-page]:not([data-page=home]) > header{box-sizing:border-box;overflow-x:hidden}
+body.scroll-edition > header :is(.brand,nav,nav button){min-width:0;max-width:100%;box-sizing:border-box}
+body.scroll-edition > header .brand{justify-content:center;gap:6px;padding-inline:4px}
+body.scroll-edition > header .brand b{font-size:clamp(22px,1.65vw,30px)!important;letter-spacing:1px}
+body.scroll-edition > header .brand .seal-mark{width:36px!important;height:40px!important;min-width:0;flex:none;font-size:15px!important}
+
+body.scroll-edition[data-page=storm] #storm>.storm-heading :is(h1,p){color:#112f2e;text-shadow:0 1px 3px #fff9e8,0 0 6px #fff9e8}
+
+body[data-page=home] #qingjin .painting > img{filter:contrast(1.08) saturate(1.07)}
+
+.scroll-edition #culture .festival-story>.festival-illustration{
+ position:relative;width:100%;aspect-ratio:2/1;height:auto!important;overflow:hidden
+}
+.scroll-edition #culture .festival-illustration>.festival-complete-image{
+ position:absolute;inset:0;width:100%;height:100%!important;max-height:none;object-fit:cover;object-position:center;transform:scale(1.13)
+}
+
+body.scroll-edition[data-page=storm] #functionBackdrop img.scenery-storm{filter:contrast(1.19) saturate(1.15)!important}
+body.scroll-edition[data-page=storm] #storm>.storm-heading{background-image:linear-gradient(90deg,#fff6df44,transparent 60%),url('assets/function-storm-clean.webp')!important}
+body.scroll-edition #guide{background:#fcf0db url('assets/paper-grain.svg');overflow:auto}
+body.scroll-edition #guide .guide-head{background:#fff0d7 url('assets/guide-blossoms.webp') right center/auto 100% no-repeat;padding:clamp(12px,2vw,32px);border-bottom:1px solid #cf985a}
+body.scroll-edition #guide .guide-workspace{display:grid;grid-template-columns:minmax(168px,26%) minmax(0,1fr);gap:2px;padding:0 2%;min-height:0}
+body.scroll-edition #guide :is(.guide-topics,.guide-conversation){min-width:0;border:3px double #c08c48;border-radius:13px}
+body.scroll-edition #guide .suggestions button{border:1px solid #d1ae78;background:#fff2da;text-align:left;color:#383629;padding:12px;border-radius:8px}
+body.scroll-edition #guide .guide-body h2{margin:0;color:#20413e}
+.guide-example{padding:12px;color:#463b2f}.guide-example small{color:#785e41}.guide-example p{width:fit-content;background:#fff8ed;border:1px solid #dec6a2;border-radius:10px;padding:8px 12px}.guide-example .sample-question{margin-left:auto;background:#f7d6be}.guide-example blockquote{margin:12px 0;padding:16px;border:3px double #c89d64;background:#fff6e4;font-weight:bold}.guide-example button{padding:6px 10px}
+body.scroll-edition #guide .guide-signature{text-align:center;padding:48px 8px 6px;background:#fbecd6 url('assets/guide-hills.webp') top center/100% 44px no-repeat}
+@media(max-width:700px){body.scroll-edition #guide .guide-workspace{grid-template-columns:minmax(0,1fr)}body.scroll-edition #guide .suggestions{display:grid;grid-template-columns:1fr 1fr}.guide-example{padding:5px}}
+
+@media(min-width:701px){
+ body.scroll-edition[data-page=chapters]:not([data-page=home]){--rail:clamp(112px,12.5vw,240px)}
+}
+body.scroll-edition[data-page=chapters] > header nav button{font-weight:800}
+
+.scroll-edition #culture .festival-story #festName{
+ text-align:center;font-family:TongpinBrush,KaiTi,STKaiti,var(--song);font-weight:800;
+ font-size:clamp(25px,2.5vw,40px);line-height:1.35;letter-spacing:.045em;color:#34291f
+}
+
+.scroll-edition #culture .journey-nav button[data-next-page="words"]{
+ box-sizing:border-box;width:min(100%,320px);min-width:0;min-height:56px;
+ padding:10px 20px;font-size:clamp(19px,1.5vw,23px);line-height:1.4
+}
+
+/* Sunset chapter: painted margins frame the live map and signal archive. */
+body.scroll-edition[data-page=storm] #storm{
+ --storm-paper:#fff1dbeF;--storm-gold:#c18b4e;
+ padding-inline:clamp(7px,2vw,32px);padding-bottom:24px
+}
+body.scroll-edition[data-page=storm] #storm>.storm-heading{
+ background:url('assets/storm-sunset-flowers.webp') left top/auto 100% no-repeat,
+ url('assets/storm-sunset-peak.webp') right center/auto 100% no-repeat,
+ linear-gradient(175deg,#ed9069,#ffe4a9 54%,#e5b27a)!important;
+ padding:clamp(22px,4vw,64px) clamp(16px,12%,160px);min-height:clamp(145px,20vw,235px)
+}
+body.scroll-edition[data-page=storm] #storm .latest-storm{margin:8px auto;padding:8px;border:1px solid var(--storm-gold);background:var(--storm-paper)!important}
+body.scroll-edition[data-page=storm] #storm>.storm-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:12px;padding:12px;border:3px double var(--storm-gold);border-radius:13px;background:var(--storm-paper);align-items:stretch}
+body.scroll-edition[data-page=storm] #storm .storm-grid>*{min-width:0}
+body.scroll-edition[data-page=storm] #storm :is(.family-care,.storm-names){border:2px double var(--storm-gold)!important;background:var(--storm-paper)!important}
+body.scroll-edition[data-page=storm] #storm .family-messages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+body.scroll-edition[data-page=storm] #storm .primary{background:#a63723;color:#fff9eb}
+body.scroll-edition[data-page=storm] main>footer{background:#fae2b7 url('assets/storm-sunset-shore.webp') bottom left/auto 100% no-repeat!important}
+@media(max-width:850px){
+ body.scroll-edition[data-page=storm] #storm>.storm-grid,body.scroll-edition[data-page=storm] #storm .family-messages{grid-template-columns:minmax(0,1fr)}
+ body.scroll-edition[data-page=storm] #storm>.storm-heading{padding-inline:12px;background:linear-gradient(90deg,#ffe4b9dd,transparent),url('assets/storm-sunset-peak.webp') center/cover!important}
+}
+
+body.scroll-edition[data-page]:not([data-page=home]) > header{scrollbar-width:none}
+body.scroll-edition[data-page]:not([data-page=home]) > header::-webkit-scrollbar{display:none}
+body.scroll-edition > header nav button.active::after{content:none!important;display:none!important}
+
+.scroll-edition #culture .festival-story>div:last-child{text-align:center}
+.scroll-edition #culture .festival-story #festIntro{margin-inline:auto}
+.scroll-edition #culture .festival-story .festival-facts{display:flex;justify-content:center;flex-wrap:wrap}
+.scroll-edition #culture .festival-story #observation{text-align:start}
+.scroll-edition #culture .festival-story #observation>summary{text-align:center;justify-content:center;list-style-position:inside}
 
 body.scroll-edition #floatingGuide{bottom:calc(52px + env(safe-area-inset-bottom,0px))!important}
 body.scroll-edition[data-page] #guide.compact-guide:not([hidden]){
