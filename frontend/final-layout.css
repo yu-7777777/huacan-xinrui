@@ -184,3 +184,24 @@ body.scroll-edition > header nav button.active{background:#fff1d8!important;colo
  body.scroll-edition #chapters #entrances>button:focus-visible,body.scroll-edition #chapters .chapter-back:focus-visible{opacity:1;outline:3px solid #145a61}
  body.scroll-edition #chapters .chapter-back{position:absolute;inset:auto auto 2% 5%;width:9.5%;height:6%}
 }
+
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) #functionBackdrop{
+ left:var(--rail);height:100%;bottom:0
+}
+body.scroll-edition[data-page=words] #functionBackdrop .scenery-words{
+ opacity:1!important;filter:contrast(1.09) saturate(1.06)!important;transform:none
+}
+body.scroll-edition[data-page=culture] #culture>.page-heading{
+ background:linear-gradient(90deg,#fff4dfd9,transparent 80%),url('assets/function-culture.jpg') center 36%/cover!important
+}
+body.scroll-edition[data-page=words] .words-workspace,
+body.scroll-edition[data-page=storm] #storm :is(.signals,.map-panel,.storm-names,.family-care){
+ background:#fff1dbf5!important;border:1px solid #c19358!important;border-radius:12px
+}
+body.scroll-edition[data-page=storm] #storm>.storm-heading{
+ background:linear-gradient(90deg,#fbf2dc 8%,#fbf2dcdd 42%,transparent 76%),url('assets/storm-heading-mountains.webp') right center/auto 100% no-repeat,#fbf2dc!important;
+ padding:clamp(16px,3vw,44px);border-radius:12px
+}
+body.scroll-edition[data-page=words] .regional-result-card{border:1px solid #cfaa76}
+body.scroll-edition[data-page=words] #wordFilters button.selected,
+body.scroll-edition[data-page=storm] .region-tabs button.selected{background:#ab3826!important;color:#fff9eb!important}
