@@ -296,3 +296,8 @@ body.scroll-edition #guide.compact-guide .guide-head{padding:6px 10px}
 body.scroll-edition #guide.compact-guide .guide-workspace{display:flex;flex:1;min-height:0;margin:0;padding:0}
 body.scroll-edition #guide.compact-guide .guide-conversation{flex:1;padding:8px}
 body.scroll-edition #guide.compact-guide .guide-body{min-height:0;overflow:auto}
+
+body.scroll-edition #createSection :is(.card-downloads>p,#invitation>.note){
+ color:#69503d!important;font-weight:500!important;font-size:clamp(16px,1.1vw,19px)!important;
+ line-height:1.65!important
+}
