@@ -273,3 +273,7 @@ body.scroll-edition[data-page=storm] main>footer{background:#fae2b7 url('assets/
  body.scroll-edition[data-page=storm] #storm>.storm-grid,body.scroll-edition[data-page=storm] #storm .family-messages{grid-template-columns:minmax(0,1fr)}
  body.scroll-edition[data-page=storm] #storm>.storm-heading{padding-inline:12px;background:linear-gradient(90deg,#ffe4b9dd,transparent),url('assets/storm-sunset-peak.webp') center/cover!important}
 }
+
+body.scroll-edition[data-page]:not([data-page=home]) > header{scrollbar-width:none}
+body.scroll-edition[data-page]:not([data-page=home]) > header::-webkit-scrollbar{display:none}
+body.scroll-edition > header nav button.active::after{content:none!important;display:none!important}
