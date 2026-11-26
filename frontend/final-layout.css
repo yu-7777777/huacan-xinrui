@@ -346,8 +346,18 @@ body.scroll-edition #storm .family-messages section p{background:#fff6e6e8;borde
  body.scroll-edition #storm .storm-names{grid-template-columns:1fr}
 }
 
-body.scroll-edition[data-page=storm] #functionBackdrop{background:url('assets/storm-demo-left.webp') left/3.7% 100% no-repeat,url('assets/storm-demo-right.webp') right/3.7% 100% no-repeat,#f7e8cf}
-body.scroll-edition[data-page=storm] #functionBackdrop .scenery-storm{visibility:hidden}
-body.scroll-edition[data-page=storm] #storm>.storm-heading{min-height:0!important;aspect-ratio:612/100;box-sizing:border-box;padding:0;background:url('assets/storm-demo-banner.webp') center/100% 100% no-repeat!important}
-body.scroll-edition[data-page=storm] #storm>.storm-heading :is(h1,p){opacity:0}
-body.scroll-edition[data-page=storm] #storm>.storm-heading #stormCard{align-self:flex-end;margin-top:auto}
+
+body.scroll-edition[data-page=storm] #functionBackdrop{background:#e5deb8}
+body.scroll-edition[data-page=storm] #functionBackdrop img.scenery-storm{visibility:visible;object-fit:cover;object-position:center 35%;filter:contrast(1.07) saturate(1.04)!important}
+body.scroll-edition[data-page=storm] #storm>.storm-heading{background:linear-gradient(90deg,#fff4dfd9,#fff4dfab 36%,transparent 77%)!important;padding:clamp(20px,4vw,60px);min-height:145px}
+body.scroll-edition[data-page=storm] #storm>.storm-heading h1{font-size:clamp(34px,4.4vw,68px)!important;color:#103932}
+body.scroll-edition[data-page=storm] #storm>.storm-heading p{font-size:clamp(19px,1.75vw,28px)!important;font-weight:600;color:#21443c}
+body.scroll-edition[data-page=storm] #storm .family-care{margin-top:clamp(24px,4vw,56px)!important;padding:clamp(20px,3.4vw,50px);background:linear-gradient(105deg,#fff9eeef,#f7eddde6)!important;border:1px solid #cda369!important}
+body.scroll-edition #storm .family-care h2{display:flex;align-items:center;gap:14px;font:500 clamp(23px,2.6vw,36px)/1.4 TongpinBrush,KaiTi,serif}
+body.scroll-edition #storm .family-care h2:after{content:'';height:1px;flex:1;background:linear-gradient(90deg,#b49251,transparent)}
+body.scroll-edition #storm .family-messages section{display:flex;flex-direction:column;align-items:flex-start;padding:clamp(20px,2.3vw,35px);color:#28645b;border-radius:3px 12px;background:linear-gradient(110deg,#fffaf0,#fffaf0ce),url('assets/storm-osmanthus.webp') right 65%/cover}
+body.scroll-edition #storm .family-messages section:nth-child(2){color:#995437}
+body.scroll-edition #storm .family-messages section b{color:inherit}
+body.scroll-edition #storm .family-messages section p{margin:14px 0 22px;padding:0;border:0;background:transparent;font-size:clamp(18px,1.45vw,23px);color:#293f39}
+body.scroll-edition #storm .family-messages section button{margin-top:auto;color:inherit;border-color:currentColor}
+body.scroll-edition[data-page=storm] main>footer{background:#fff4deba!important}
