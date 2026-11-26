@@ -164,7 +164,7 @@ body:has(#guide:not([hidden])) #guideNav {
 }
 
 @media(min-width:701px){
- body.scroll-edition[data-page]:not([data-page=home]){--rail:clamp(126px,12.5vw,198px)}
+ body.scroll-edition[data-page]:not([data-page=home]){--rail:clamp(112px,10vw,158px)}
 }
 body.scroll-edition[data-page]:not([data-page=home]) > header{
  padding:0!important;background:linear-gradient(100deg,#fff3da,#f8e6c9 72%,#f2d7a8)!important;border:4px double #cf983e
@@ -205,3 +205,9 @@ body.scroll-edition[data-page=storm] #storm>.storm-heading{
 body.scroll-edition[data-page=words] .regional-result-card{border:1px solid #cfaa76}
 body.scroll-edition[data-page=words] #wordFilters button.selected,
 body.scroll-edition[data-page=storm] .region-tabs button.selected{background:#ab3826!important;color:#fff9eb!important}
+
+body.scroll-edition[data-page]:not([data-page=home]) > header{box-sizing:border-box;overflow-x:hidden}
+body.scroll-edition > header :is(.brand,nav,nav button){min-width:0;max-width:100%;box-sizing:border-box}
+body.scroll-edition > header .brand{justify-content:center;gap:6px;padding-inline:4px}
+body.scroll-edition > header .brand b{font-size:clamp(22px,1.65vw,30px)!important;letter-spacing:1px}
+body.scroll-edition > header .brand .seal-mark{width:36px!important;height:40px!important;min-width:0;flex:none;font-size:15px!important}
