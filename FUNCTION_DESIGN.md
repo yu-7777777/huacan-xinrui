@@ -27,3 +27,8 @@
 Built-in imagegen produced wooden-blossom.webp from approved board reference: two warm carved wood type blocks bearing 同 / 懂, with white plum blossom branches, transparent background; no UI. Prompt requested the middle-header decoration, photorealistic wood/watercolor, preserving exact characters. Original exec-c7571b4a-5fb1-4581-9d38-5dc49277fc0f.png.
 Built-in imagegen edited user storm screenshot into function-storm-clean.webp: remove only viewer black bands, close icon, counter; retain turquoise/gold mountain/lake composition with no new objects. Original exec-45771559-2f6b-4d26-9a6c-71baafd4f880.png. Both assets copied to frontend/assets; conversion only resized/encoded via Pillow.
 Map imagery uses Esri World Imagery geographic tiles with explicit provider attribution; Natural Earth coastlines remain available independently. Route markers remain NOAA IBTrACS geographic records.
+
+Final asset prompts (built-in imagegen):
+- festival-mid-scene.webp: wide 16:9 edge-to-edge Mid-Autumn art matching reference small rectangle; complete glowing moon upper-right, cream osmanthus upper-left, golden lanterns lower-left, muted indigo, paper watercolor; no text/UI/scalloped frame. Original exec-846e0466-a6ae-47e0-b5ab-1107c9969ef3.png.
+- culture-banner.webp: 3:1 wide banner recomposition using approved board and original sunset image as references; blue mountains, apricot sunset, birds, maple branch at left, lake, covered wooden boat lower-middle; quiet sky for heading, subtle ivory fading, no text/UI/new buildings. Original exec-bb882b0d-761b-4708-9306-92f1f8db06b9.png.
+PNG export now uses the same scroll assets as the editable story cards, retaining factual source and draft/confirmation status.
