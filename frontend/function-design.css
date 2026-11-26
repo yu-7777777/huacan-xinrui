@@ -1,5 +1,21 @@
 /* Final approved functional pages: quiet scenery, clear live content. */
-#functionBackdrop{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;display:none;background:#f5ecdf}
+.scroll-edition #createSection .voices .frame-corner,.scroll-edition .words-workspace #wordSearch>.frame-corner,.scroll-edition .words-workspace .regional-result-card>.frame-corner,.scroll-edition .words-workspace #wordCards .frame-corner{display:none!important}
+.scroll-edition #createSection .voices{max-width:920px}
+.scroll-edition .words-workspace #wordSuggestions{display:none!important}
+.scroll-edition #storm>.storm-heading{align-items:stretch}
+.scroll-edition #storm>.storm-heading>div{width:100%}
+.scroll-edition #storm>.storm-heading>button{margin-left:0!important}
+.scroll-edition #storm .signals>.eyebrow{display:none}
+.scroll-edition #storm #catalogDetails .archive-featured{padding:18px 17px;border:1px solid #d2b694;border-radius:10px;background:#fff8e9bd;margin:12px 0}
+.scroll-edition #storm #catalogDetails .archive-featured>small{display:block;font:13px/1.6 var(--song);color:#8a7154;margin-bottom:10px}
+.scroll-edition #storm #catalogDetails .archive-featured .warning-summary{border:0;margin:0;padding:0;background:none}
+.scroll-edition #storm #catalogDetails .archive-featured .warning-summary>b,.scroll-edition #storm #catalogDetails .archive-featured .warning-summary>strong{font:600 32px/1.5 var(--song);color:#9f4b33}
+.scroll-edition #storm #catalogDetails .archive-featured .warning-summary a{display:inline-block;padding:5px 12px;margin-top:9px;border:1px solid #bd8d65;border-radius:6px;color:#9e4a32;background:#fff9ee;text-decoration:none}
+.scroll-edition #storm #catalogDetails .archive-history{font:13px/1.8 var(--song);border-top:1px solid #d7c0a0;padding:8px 0}
+.scroll-edition #storm #catalogDetails .archive-history h3{font-size:20px}
+.scroll-edition #storm #catalogDetails .archive-history .warning-summary{font-size:13px}
+body.scroll-edition{position:relative}
+#functionBackdrop{position:absolute;inset:0 0 auto;height:var(--function-scene-height,100dvh);z-index:0;pointer-events:none;overflow:hidden;display:none;background:#f5ecdf}
 #functionBackdrop img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%;filter:blur(3px) saturate(.72);opacity:.32;transform:scale(1.025);display:none}
 body[data-page="culture"] #functionBackdrop,body[data-page="words"] #functionBackdrop,body[data-page="storm"] #functionBackdrop{display:block}
 body[data-page="culture"] .scenery-culture,body[data-page="words"] .scenery-words,body[data-page="storm"] .scenery-storm{display:block!important}
