@@ -1,13 +1,13 @@
 /* Match the approved three-page board. Only functional routes are affected. */
 body:is([data-page=culture],[data-page=words],[data-page=storm]){--paper:#fff9ee;--rule:#d7b48a;--cinnabar:#ac3325}
-body:is([data-page=culture],[data-page=words],[data-page=storm])>header{height:64px!important;min-height:64px!important;padding:0 max(24px,calc((100% - 1060px)/2))!important;flex-wrap:nowrap;gap:18px;background:#fff7e9e8;border-bottom:1px solid #dfc8a9}
+body:is([data-page=culture],[data-page=words],[data-page=storm])>header{height:84px!important;min-height:84px!important;padding:0 max(24px,calc((100% - 1200px)/2))!important;flex-wrap:nowrap;gap:18px;background:#fff7e9e8;border-bottom:1px solid #dfc8a9}
 body:is([data-page=culture],[data-page=words],[data-page=storm])>header:after{display:none!important}
-body:is([data-page=culture],[data-page=words],[data-page=storm]) header .brand{transform:scale(.78);transform-origin:left center;margin-right:-30px}
+body:is([data-page=culture],[data-page=words],[data-page=storm]) header .brand{transform:none;margin-right:0}
 body:is([data-page=culture],[data-page=words],[data-page=storm]) header nav{gap:12px;flex-wrap:nowrap;width:auto;order:initial}
-body:is([data-page=culture],[data-page=words],[data-page=storm]) header nav button{font-size:14px;padding:16px 7px;min-height:48px;border:0!important;white-space:nowrap}
+body:is([data-page=culture],[data-page=words],[data-page=storm]) header nav button{font-size:17px;padding:16px 11px;min-height:48px;border:0!important;white-space:nowrap}
 body:is([data-page=culture],[data-page=words],[data-page=storm]) header nav button:focus:not(:focus-visible){outline:none}
 body:is([data-page=culture],[data-page=words],[data-page=storm]) header nav button.active:after{bottom:7px;height:2px;background:#ac3325}
-body:is([data-page=culture],[data-page=words],[data-page=storm]) main{max-width:1060px!important;padding-inline:30px!important}
+body:is([data-page=culture],[data-page=words],[data-page=storm]) main{max-width:1200px!important;padding-inline:28px!important}
 #functionBackdrop img{object-fit:fill;transform:none!important;filter:blur(.45px) saturate(.72);opacity:.43}
 #functionBackdrop .scenery-storm{opacity:.35;object-fit:cover;object-position:center 52%;transform:none}
 .scroll-edition #culture>.page-heading{min-height:300px;padding:48px 42px 125px;justify-content:center}
@@ -117,6 +117,23 @@ body[data-page=culture] #functionBackdrop img{opacity:.22}
 .scroll-edition #culture .journey-nav button,.scroll-edition #storm .journey-nav button{width:auto;min-width:200px;min-height:34px;padding:6px 22px;font-size:16px;margin:0 auto}
 .scroll-edition #createSection .coedit-options .join-box{padding:8px;border:0;background:none;margin:0}.scroll-edition #createSection .coedit-options .join-box summary{font-size:12px}
 .scroll-edition #storm .case-library-note{font-size:10px;line-height:1.5;margin:4px 0 12px;color:#75634d}
+/* Restore the original desktop reading scale without altering the artwork. */
+@media(min-width:701px){
+.scroll-edition #culture>.page-heading h1,.scroll-edition #words>.page-heading h1,.scroll-edition #storm>.storm-heading h1{font-size:clamp(30px,3.5vw,44px);line-height:1.4;margin-bottom:14px}
+.scroll-edition #culture>.page-heading p,.scroll-edition #words>.page-heading p,.scroll-edition #storm>.storm-heading p{font-size:16px;line-height:1.8}
+.scroll-edition #storm>.storm-heading{min-height:210px;padding-top:44px;padding-bottom:28px}
+.scroll-edition #festivalTabs button{font-size:17px;min-height:36px;padding:7px 5px}
+.scroll-edition #festivalSearch input,.scroll-edition #festivalSearch button{font-size:16px;min-height:40px;padding-block:7px}
+.scroll-edition #culture #festName{font-size:30px}.scroll-edition #culture #festIntro{font-size:16px;line-height:1.8}.scroll-edition #culture .festival-facts{font-size:13px}.scroll-edition #culture #festSource{font-size:16px;padding:7px 18px}.scroll-edition #culture .festival-story .festival-illustration{height:200px!important}
+.scroll-edition #createSection .voices{max-width:760px;gap:28px}.scroll-edition #createSection .voices b{font-size:25px}.scroll-edition #createSection .voices p{font-size:18px;line-height:1.9;max-height:295px}.scroll-edition #createSection .live-card>small{font-size:27px}
+.scroll-edition #createSection .card-downloads button{font-size:16px;min-height:38px;padding:7px 18px}.scroll-edition #createSection .card-downloads>p{font-size:12px}
+.scroll-edition #createSection .coedit-fields>label{font-size:16px;grid-template-columns:130px minmax(0,1fr)}.scroll-edition #createSection .coedit-fields input,.scroll-edition #createSection .coedit-fields textarea{font-size:16px;padding:8px 12px}.scroll-edition #createSection .coedit-fields textarea{min-height:85px}.scroll-edition #createSection .coedit-toolbar button{font-size:16px;min-height:40px;padding:8px 16px}.scroll-edition #createSection>label{font-size:13px}
+.scroll-edition .words-workspace #wordSearch>label{font-size:28px}.scroll-edition .words-workspace #wordQuery,.scroll-edition .words-workspace #wordSubmit{font-size:16px;min-height:42px;padding-block:8px}.scroll-edition .words-workspace #wordFilters button{font-size:16px;min-height:35px}.scroll-edition .words-workspace .word-section-title{font-size:26px}
+.scroll-edition .words-workspace .regional-result-card{min-height:145px}.scroll-edition .words-workspace .regional-result-card>small{font-size:16px;padding:11px 6px}.scroll-edition .words-workspace .regional-result-card>strong{font-size:30px;padding:20px 5px}.scroll-edition .words-workspace .regional-result-note{font-size:13px}
+.scroll-edition .words-workspace #wordCards>.example-strip{min-height:90px}.scroll-edition .words-workspace #wordCards>.example-strip h3{font-size:23px}.scroll-edition .words-workspace .example-strip .quad-grid small{font-size:14px!important}.scroll-edition .words-workspace .example-strip .quad-grid strong{font-size:24px}.scroll-edition .words-workspace .word-note summary{font-size:17px}
+.scroll-edition #storm .latest-storm input,.scroll-edition #storm .latest-storm button{font-size:16px;min-height:40px}.scroll-edition #storm #map{height:420px}.scroll-edition #storm .storm-picker select{font-size:15px;min-height:34px}.scroll-edition #storm .region-tabs button{font-size:15px;min-height:36px}.scroll-edition #storm #catalogDetails .archive-featured>small{font-size:13px}.scroll-edition #storm #catalogDetails .archive-featured .warning-summary>b{font-size:34px}.scroll-edition #storm #catalogDetails .archive-featured .warning-summary>p{font-size:15px;line-height:1.8}.scroll-edition #storm #catalogDetails .archive-featured .warning-summary a{font-size:16px;padding:8px 16px}
+.scroll-edition #storm .playbar button,.scroll-edition #storm .playbar select{font-size:15px;min-height:34px}.scroll-edition #storm .storm-names>.eyebrow,.scroll-edition #storm .family-care h2{font-size:26px}.scroll-edition #storm .name-grid small{font-size:16px}.scroll-edition #storm .name-grid b{font-size:28px}.scroll-edition #storm .family-messages b{font-size:19px}.scroll-edition #storm .family-messages p{font-size:16px}.scroll-edition #storm .family-messages button{font-size:15px;min-height:34px}
+}
 @media(max-width:700px){
 body:is([data-page=culture],[data-page=words],[data-page=storm])>header{height:auto!important;min-height:80px!important;padding:8px 14px!important;gap:3px;flex-wrap:wrap}
 body:is([data-page=culture],[data-page=words],[data-page=storm]) header nav{width:100%;justify-content:space-between;gap:1px}body:is([data-page=culture],[data-page=words],[data-page=storm]) header nav button{font-size:12px;padding:6px 4px;min-height:30px}
