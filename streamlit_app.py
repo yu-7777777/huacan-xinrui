@@ -10,6 +10,9 @@ ROOT = Path(__file__).parent
 st.set_page_config(page_title="同频 · 山海相望，风雨共济", page_icon="🌿", layout="wide", initial_sidebar_state="collapsed")
 st.markdown('''<style>
 [data-testid="stHeader"]{display:none}
+[data-testid="stVerticalBlock"]:has(iframe){gap:0!important}
+[data-testid="stElementContainer"]:has(.stMarkdown) {display:none}
+[data-testid="stMain"]:has(iframe){overflow:hidden}
 .block-container{padding:0!important;max-width:100%!important}
 [data-testid="stMainBlockContainer"]{padding:0!important}
 [data-testid="stElementContainer"]:has(iframe){margin:0!important}iframe{height:100dvh!important;border:0;display:block;width:100%}
