@@ -1,11 +1,11 @@
-#culture[data-festival=spring]{--desk-art:url("assets/desk-spring.webp")}
-#culture[data-festival=lantern]{--desk-art:url("assets/desk-lantern.webp")}
-#culture[data-festival=qingming]{--desk-art:url("assets/desk-qingming.webp")}
-#culture[data-festival=dragon]{--desk-art:url("assets/desk-dragon.webp")}
-#culture[data-festival=qixi]{--desk-art:url("assets/desk-qixi.webp")}
-#culture[data-festival=ghost]{--desk-art:url("assets/desk-ghost.webp")}
-#culture[data-festival=double]{--desk-art:url("assets/desk-double.webp")}
-#culture[data-festival=winter]{--desk-art:url("assets/desk-winter.webp")}
+#culture[data-festival=spring]{--desk-art:url("assets/desk-spring.webp?v=letters1")}
+#culture[data-festival=lantern]{--desk-art:url("assets/desk-lantern.webp?v=letters1")}
+#culture[data-festival=qingming]{--desk-art:url("assets/desk-qingming.webp?v=letters1")}
+#culture[data-festival=dragon]{--desk-art:url("assets/desk-dragon.webp?v=letters1")}
+#culture[data-festival=qixi]{--desk-art:url("assets/desk-qixi.webp?v=letters1")}
+#culture[data-festival=ghost]{--desk-art:url("assets/desk-ghost.webp?v=letters1")}
+#culture[data-festival=double]{--desk-art:url("assets/desk-double.webp?v=letters1")}
+#culture[data-festival=winter]{--desk-art:url("assets/desk-winter.webp?v=letters1")}
 body[data-page=chapters] #framedDirectory{display:block;position:fixed;inset:0;z-index:99;background:#10343d}
 body[data-page=chapters] #framedDirectory img{width:100%;height:100%;object-fit:fill}
 body[data-page=chapters] #framedDirectory button{position:absolute;color:transparent;background:none;border:0}
@@ -21,11 +21,19 @@ body.scroll-edition #guide#guide .guide-head::after{display:none!important}
 #culture:not([data-detail="#createSection"]) #createSection .voices,#culture>.festival-module-title:has(+#createSection){display:none!important}
 #culture[data-festival]:not([data-festival=mid]) .season-desk{background:#624c36 var(--desk-art,var(--season-art)) center/100% 100%!important}
 @media(min-width:701px){
-#culture[data-festival]:not([data-festival=mid]) .season-desk button:nth-child(-n+3){background:transparent!important;border:0;box-shadow:none;transform:none;padding:1.4%;justify-content:center;gap:8px}
-#culture[data-festival]:not([data-festival=mid]) .season-desk button:nth-child(1){inset:34% 57% 18% 25%}
-#culture[data-festival]:not([data-festival=mid]) .season-desk button:nth-child(2){inset:34% 29% 18% 44%}
-#culture[data-festival]:not([data-festival=mid]) .season-desk button:nth-child(3){inset:34% 2% 18% 78%}
-#culture[data-festival]:not([data-festival=mid]) .season-desk button strong{font-size:clamp(17px,1.7vw,28px)}
+#culture[data-festival]:not([data-festival=mid]) .season-desk{container-type:inline-size}
+#culture[data-festival]:not([data-festival=mid]) .season-desk button:nth-child(-n+3){background:transparent!important;border:0;box-shadow:none;transform:none;padding:0;color:#382716}
+#culture[data-festival]:not([data-festival=mid]) .season-desk button:nth-child(1){inset:4% 56% 24% 15%}
+#culture[data-festival]:not([data-festival=mid]) .season-desk button:nth-child(2){inset:4% 28% 24% 45%}
+#culture[data-festival]:not([data-festival=mid]) .season-desk button:nth-child(-n+2) small{position:absolute;top:4%;left:22%;width:51%;text-align:center;color:#fff1c8;font:1.75cqw TongpinBrush,KaiTi,serif}
+#culture[data-festival]:not([data-festival=mid]) .season-desk button:nth-child(-n+2) strong{position:absolute;top:27%;left:13%;width:75%;text-align:left;font:1.53cqw/1.65 KaiTi,serif;color:#382716}
+#culture[data-festival]:not([data-festival=mid]) .season-desk button:nth-child(-n+3) span{display:none}
+#culture[data-festival]:not([data-festival=mid]) .season-desk button:nth-child(3){inset:12% 2% 12% 76%}
+#culture[data-festival]:not([data-festival=mid]) .season-desk button:nth-child(3) small{position:absolute;top:8%;left:14%;writing-mode:vertical-rl;font:1.8cqw TongpinBrush,KaiTi,serif;color:#352916}
+#culture[data-festival]:not([data-festival=mid]) .season-desk button:nth-child(3) strong{position:absolute;bottom:8%;right:10%;background:#153b40;color:#fff1cd;padding:.25em .65em;font:1.25cqw KaiTi,serif}
+#culture[data-festival]:not([data-festival=mid]) .season-desk :is(.desk-search,.desk-write){display:grid;place-items:center;padding:0;background:transparent!important;border:0;box-shadow:none;color:#fff1c8;font:1.85cqw TongpinBrush,KaiTi,serif}
+#culture[data-festival]:not([data-festival=mid]) .season-desk .desk-search{inset:1% 2% 90% 77%}
+#culture[data-festival]:not([data-festival=mid]) .season-desk .desk-write{inset:83% 40% 5% 35%}
 }
 #words#words .wooden-type,#words#words .words-reeds{display:none!important}
 #words#words .object-exhibit figure{aspect-ratio:855/589;background-size:contain;background-repeat:no-repeat}
