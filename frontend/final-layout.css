@@ -475,3 +475,16 @@ body.scroll-edition[data-page] > #draft-retention-note{
   color:#736454!important;background:transparent!important;
   font:400 14px/1.6 var(--song,serif)!important;text-shadow:none!important;
 }
+
+#footer-signature{display:contents}
+body[data-page=culture] main>footer #footer-signature{
+  display:inline-flex;align-items:baseline;gap:.55em;align-self:center;
+  max-width:100%;padding:5px 12px;border:1px solid rgba(168,145,108,.45);
+  border-radius:8px;background:rgba(252,244,226,.86);
+}
+body.scroll-edition[data-page=culture] main>footer #footer-signature :is(b,span){
+  color:#465852!important;font-size:15px!important;font-weight:400!important;
+}
+body.scroll-edition[data-page=culture] main>footer #footer-signature b{
+  font-size:17px!important;font-weight:600!important;white-space:nowrap;
+}
