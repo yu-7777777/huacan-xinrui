@@ -1,0 +1,18 @@
+body.scroll-edition[data-page=chapters] main #chapters:not([hidden]):has(.harbor-directory){
+ display:block!important;position:relative!important;box-sizing:border-box;overflow:auto!important;height:100dvh!important;padding:0!important;filter:none;
+ background:linear-gradient(90deg,#08293722,#08293711),url("assets/directory-chart.webp") center/cover!important
+}
+#chapters:has(.harbor-directory)>:not(.harbor-directory){display:none!important}
+#chapters .harbor-directory{box-sizing:border-box;max-width:980px;padding:clamp(24px,5vw,80px);color:#fff2d8}
+#chapters .harbor-directory h1{font:400 clamp(32px,4.4vw,68px)/1.35 TongpinBrush,KaiTi,serif;color:#ffdda1;margin:0 0 .55em}
+#chapters .harbor-directory button{position:static;display:block;box-sizing:border-box;width:100%;text-align:left;background:none;border:0;border-top:1px solid #ceba886e;border-radius:0;color:#fff3df;padding:clamp(18px,3vh,36px) 0;cursor:pointer;font:400 clamp(15px,1.2vw,19px)/1.65 sans-serif;box-shadow:none}
+#chapters .harbor-directory svg{float:left;width:clamp(42px,5vw,70px);margin:8px clamp(14px,2vw,32px) 0 0;color:#f6cf87}
+#chapters .harbor-directory strong{display:block;font:400 clamp(27px,3vw,46px)/1.3 TongpinBrush,KaiTi,serif}
+#chapters .harbor-directory .harbor-back{width:auto;font-size:15px;color:#f5d599}
+#chapters .harbor-directory button:hover strong{text-decoration:underline;text-underline-offset:6px}
+#chapters .harbor-directory button:focus-visible{outline:2px solid #f5d599}
+body.scroll-edition[data-page=chapters]>header{background:#102f40!important;border-color:#ae956c!important}
+body.scroll-edition[data-page=chapters]>header nav button,body.scroll-edition[data-page=chapters]>header .brand{background:transparent!important;color:#f8e8cb!important}
+
+#chapters .harbor-directory h1 img{display:block;width:clamp(128px,14vw,205px);height:auto;filter:saturate(.72)}
+@media(max-width:700px){#chapters .harbor-directory{background:#062b39bb}}
