@@ -447,12 +447,12 @@ body.scroll-edition[data-page=culture] #culture#culture>.page-heading{
  display:flex;flex-direction:column;justify-content:center;padding-inline:clamp(15px,3vw,46px)!important
 }
 body.scroll-edition[data-page=culture] #culture#culture>#festivalTabs{
- display:flex!important;justify-content:space-between;gap:3px;overflow-x:auto;background:#f5e8d1!important
+ display:grid!important;grid-template-columns:repeat(auto-fit,minmax(min(100%,4.4em),1fr));gap:4px;overflow:visible!important;height:auto!important;max-height:none!important;background:#f5e8d1!important
 }
-body.scroll-edition[data-page=culture] #culture#culture #festivalTabs button{flex:0 0 auto}
+body.scroll-edition[data-page=culture] #culture#culture #festivalTabs button{width:100%;min-width:0;min-height:44px;box-sizing:border-box}
 body.scroll-edition[data-page=culture] #culture #festivalSearch,
 body.scroll-edition[data-page=culture] #culture #festivalSearch>div{
- display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%;gap:8px
+ display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%;gap:0
 }
 body.scroll-edition[data-page=culture] #culture #festivalSearch :is(input,button){width:100%;box-sizing:border-box}
 
@@ -466,3 +466,6 @@ body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]){
 body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) #functionBackdrop{
   bottom:auto;height:max(100%,var(--function-scene-height,100dvh))
 }
+
+#culture #festivalSearch #festivalQuery{margin:0;border-bottom-left-radius:0;border-bottom-right-radius:0}
+#culture #festivalSearch #festivalSearchButton{margin:0;border-top-left-radius:0;border-top-right-radius:0}
