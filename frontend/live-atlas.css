@@ -1,0 +1,18 @@
+body.scroll-edition[data-page=words] main #words#words,body.scroll-edition[data-page=storm] main #storm#storm{background-color:#123841!important}
+#words .object-exhibit{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(230px,1fr);background:#0b353d;border:1px solid #aa9165;margin:12px 0}
+#words .object-exhibit figure{min-height:250px;margin:0;position:relative;background:#16424a url("assets/chapter-bike.webp") center/cover}
+#words .object-exhibit figcaption{position:absolute;bottom:0;left:0;background:#0b313ce8;color:#f6e2b9;padding:5px 12px}
+#words .object-exhibit article{background:#f4e8cf url("assets/paper-grain.svg");color:#342e21;padding:clamp(16px,2vw,32px)}
+#words .object-exhibit h2{font:400 28px TongpinBrush,KaiTi,serif;margin:0}
+#words .object-exhibit dl{display:grid;grid-template-columns:auto 1fr;align-items:baseline}
+#words .object-exhibit :is(dt,dd){margin:0;padding:5px 8px;border-bottom:1px solid #baa780}
+#words .object-exhibit dd{font:500 24px KaiTi,serif}
+body.scroll-edition main #words#words .words-workspace{background:#ece2c9 url("assets/paper-grain.svg")!important;border:1px solid #b99a64!important;color:#263b3b}
+body.scroll-edition main #storm#storm .map-panel{border:3px double #c8ad78!important;background:#e9e5cf!important}
+body.scroll-edition main #storm#storm :is(.signals,.family-care),body.scroll-edition main #culture#culture :is(.writing-panel,.paired-scroll-panel){border:1px solid #aa936c!important;background:#f9efdc url("assets/paper-grain.svg")!important;color:#304041}
+body.scroll-edition main :is(#culture,#words,#storm) :is(input:not([type=checkbox]):not([type=range]),textarea,select){color:#253c3e;background-color:#fffaed;border-color:#b4a07c}
+body.scroll-edition main :is(#culture,#words,#storm) .primary,body.scroll-edition #guide #send{background:#16444b!important;color:#fff0ca!important;border:1px solid #bda16b!important}
+body.scroll-edition #guide .guide-conversation,body.scroll-edition #modal{background:#f9f0df url("assets/paper-grain.svg");color:#293a39;border:1px solid #b39461}
+body.scroll-edition #guide .guide-topics{background:#143b43;color:#f7e7c5}
+body.scroll-edition #modal h2,body.scroll-edition #guide h2{font-family:TongpinBrush,KaiTi,serif}
+@media(max-width:700px){#words .object-exhibit{grid-template-columns:1fr}#words .object-exhibit figure{min-height:165px}}
