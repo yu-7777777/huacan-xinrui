@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const id = culture.dataset.festival;
     const name = tabs.querySelector('.selected')?.textContent.trim() || entry?.name || '节日';
     desk.querySelector('strong').textContent = prompts[id] || '写一件你记得的过节小事。';
-    desk.lastElementChild.querySelector('strong').textContent = name + '习俗';
+    desk.children[2].querySelector('strong').textContent = name + '习俗';
   }
   desk.addEventListener('click', event => {
     const button = event.target.closest('[data-open]');
@@ -20,4 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   new MutationObserver(sync).observe(tabs,{childList:true,subtree:true,attributes:true});
   sync();
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const desk = document.querySelector('.season-desk');
+  for (const [label,selector,cls] of [['共写一笺','#createSection','write'],['寻访节俗','.festival-discovery','search']]) {
+    const b=document.createElement('button');b.textContent=label;b.dataset.open=selector;b.className='desk-'+cls;desk.append(b);
+  }
+  const header=document.querySelector('body>header');
+  header.id='studioRail';
+  const rail=document.createElement('nav');
+  rail.id='studioLinks';
+  for(const [label,route] of [['首页','home'],['篇章目录','chapters'],['节日共叙','culture'],['同物异名','words'],['同一场风','storm'],['同频向导','guideNav'],['资料来源','sourcesBtn']]){
+    const b=document.createElement('button');b.textContent=label;b.onclick=()=>['guideNav','sourcesBtn'].includes(route)?document.getElementById(route).click():window.TongpinNavigate(route);rail.append(b);
+  }
+  header.append(rail);
 });
