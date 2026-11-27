@@ -1,17 +1,16 @@
 #framedDirectory {display:none}
 body.scroll-edition[data-page=chapters]:has(>#framedDirectory)>:is(header,main,#floatingGuide){display:none!important}
 body.scroll-edition[data-page=chapters]>#framedDirectory {
- display:grid;position:fixed;inset:0;z-index:99;background:#092d3a;color:#fff1d2;
- grid-template-rows:minmax(92px,.65fr) repeat(3,minmax(105px,1fr));overflow:auto;height:100dvh
+ position:fixed;inset:0;z-index:99;display:flex;flex-direction:column;align-items:center;
+ box-sizing:border-box;overflow:auto;padding:clamp(14px,3vh,38px) clamp(12px,5vw,90px);
+ background:#092e38 linear-gradient(110deg,#092e38fa,#092e3870);
+ background-image:linear-gradient(110deg,#092e38cc,#092e3870),url("assets/directory-chart.webp");
+ background-size:cover;background-position:center;
 }
-#framedDirectory>header {position:relative!important;inset:auto!important;width:100%!important;height:auto!important;display:grid!important;place-items:center;padding:0!important;background:linear-gradient(90deg,#082c38ec,#082c38aa),url("assets/directory-chart.webp") center 35%/cover!important}
-#framedDirectory h1 {color:#ffe5a8;font:400 clamp(34px,4.6vw,76px)/1.2 TongpinBrush,KaiTi,serif;text-align:center;margin:0}
-#framedDirectory>header button {position:absolute;left:2%;top:50%;transform:translateY(-50%);background:#0c303d;border:1px solid #cdb88c;color:#ffeac4;padding:7px 12px}
-#framedDirectory>button {width:100%;height:100%;min-height:0;overflow:hidden;padding:0;border:1px solid #e8d6a9;border-radius:0;background:#103340;color:#ffedc9;cursor:pointer}
-#framedDirectory>button img {width:100%;height:100%;object-fit:fill;display:block}
-#framedDirectory button:focus-visible {outline:3px solid white;outline-offset:-4px}
-@media(max-width:700px){
- body.scroll-edition[data-page=chapters]>#framedDirectory{grid-template-rows:88px repeat(3,minmax(82px,auto));align-content:start}
- #framedDirectory>button img{height:auto;min-height:82px}
- #framedDirectory>header button{font-size:12px;padding:5px}
-}
+#framedDirectory .directory-sheet {box-sizing:border-box;width:min(100%,1120px,143vh);flex:none;margin-block:auto;padding:0}
+#framedDirectory .directory-heading {display:flex;flex-direction:column;align-items:center;gap:3px;margin-bottom:clamp(12px,2vh,26px)}
+#framedDirectory h1 {margin:0;text-align:center;color:#ffe5b2;font:400 clamp(34px,4vw,60px)/1.25 TongpinBrush,KaiTi,serif}
+#framedDirectory .directory-heading button {align-self:flex-start;position:static;padding:7px 12px;border:1px solid #bba67c;background:#10323e;color:#fff1d7;cursor:pointer}
+#framedDirectory .directory-sheet>button {display:block;width:100%;height:auto;padding:0;margin:0 0 6px;border:1px solid #dbc69b;background:#10333e;border-radius:0;overflow:hidden;cursor:pointer}
+#framedDirectory .directory-sheet>button img {display:block;width:100%;height:auto}
+#framedDirectory button:focus-visible {outline:3px solid #fff2ce;outline-offset:2px}
