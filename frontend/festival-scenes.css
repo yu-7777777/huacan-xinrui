@@ -55,3 +55,42 @@ body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) 
 body.scroll-edition header nav:has(#sourcesBtn){grid-template-rows:repeat(6,minmax(0,1fr))!important}
 body.scroll-edition header nav #sourcesBtn{white-space:normal}
 body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) #floatingGuide{bottom:18px!important}
+body.scroll-edition[data-page=culture] main #culture#culture {
+  background:#f5f0e5 url("assets/paper-grain.svg")!important;
+}
+body.scroll-edition[data-page=culture] main #culture#culture > .page-heading {
+  background:#f4ead7 url("assets/festival-letterdesk.webp") center 52%/cover no-repeat!important;
+  height:auto!important;min-height:clamp(150px,17vw,230px);padding:clamp(22px,3vw,46px)!important;
+}
+body.scroll-edition[data-page=culture] main #culture#culture > .page-heading h1 {
+  font-size:clamp(27px,3.3vw,54px)!important;max-width:67%;margin:0!important;text-shadow:none;
+}
+body.scroll-edition[data-page=culture] main #culture#culture > .page-heading p {
+  font:400 clamp(15px,1.3vw,20px)/1.65 "Microsoft YaHei",sans-serif!important;
+  max-width:60%;margin:8px 0 0!important;color:#464239;
+}
+#culture .festival-header-art,#culture .festival-header-couplet {display:none!important}
+body.scroll-edition[data-page=culture] main #culture#culture > #festivalTabs {
+  background:#fbf7ee!important;padding:10px clamp(10px,2vw,28px)!important;box-sizing:border-box;gap:6px;
+}
+body.scroll-edition[data-page=culture] main #culture#culture > .festival-discovery {
+  box-sizing:border-box;padding:10px clamp(10px,2vw,28px)!important;background:#fbf7ee!important;
+}
+body.scroll-edition[data-page=culture] main #culture #festivalSearch > div {
+  display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;gap:6px;max-width:720px;
+}
+body.scroll-edition[data-page=culture] main #culture #festivalSearch :is(input,button) {
+  min-width:0;border-radius:5px!important;margin:0;
+}
+body.scroll-edition[data-page=culture] main #culture#culture > .festival-story {
+  display:grid!important;grid-template-columns:minmax(0,2fr) minmax(0,3fr)!important;
+  align-items:center;gap:clamp(16px,3vw,44px);padding:clamp(14px,2vw,30px)!important;
+  background:#fffaf0!important;margin-block:18px!important;
+}
+body.scroll-edition main #culture .festival-story > div:last-child {text-align:left!important;min-width:0}
+body.scroll-edition main #culture .festival-story :is(h2,p){text-align:left!important;line-height:1.55}
+body.scroll-edition main #culture #createSection {padding:clamp(12px,2vw,30px)!important;background:#f1e8d7!important}
+@media(max-width:700px){
+  body.scroll-edition[data-page=culture] main #culture#culture > .festival-story {grid-template-columns:1fr!important}
+  body.scroll-edition[data-page=culture] main #culture#culture > .page-heading {background-position:38% center!important}
+}
