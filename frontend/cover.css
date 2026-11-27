@@ -1,0 +1,32 @@
+body[data-page=home] #qingjin {
+  display:block; overflow:auto; color:#24443e;
+  background:#efe8d9 url('assets/paper-grain.svg');
+}
+#qingjin .folio {box-sizing:border-box; max-width:1320px; margin:auto; padding:clamp(20px,4vw,60px)}
+#qingjin .spread {
+  display:grid; grid-template-columns:1fr .94fr; align-items:stretch;
+  background:#fbf5e7 url('assets/realm-words.webp') left bottom/76% auto no-repeat;
+  border:1px solid #c4b597; box-shadow:0 6px 22px #57452e15;
+}
+#qingjin .preface {padding:clamp(26px,4.4vw,70px); text-align:left}
+#qingjin h1 {font:600 clamp(72px,8vw,120px)/1.06 KaiTi,STKaiti,serif; color:#234c46; margin:0}
+#qingjin h2 {font:600 clamp(21px,2.4vw,38px)/1.5 SimSun,serif; margin:16px 0}
+#qingjin p {font:400 clamp(15px,1.2vw,19px)/1.9 "Microsoft YaHei",sans-serif; color:#374b43; max-width:29em}
+#qingjin .moonprint {margin:0; min-height:285px; position:relative; overflow:hidden}
+#qingjin .moonprint img {position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 39%}
+#qingjin .folio button {position:static; cursor:pointer; color:inherit; border-radius:0; font:inherit}
+#qingjin .folio .enter {margin-top:10px; padding:11px 26px; background:#893d2c; color:#fff9eb}
+#qingjin .folio nav {display:grid; position:static; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin:24px 0 0; background:none}
+#qingjin nav button {text-align:left; padding:clamp(16px,2vw,32px); min-height:110px; font-size:15px; border:1px solid #bbac90; background-position:center; background-size:cover; color:#253d34}
+#qingjin [data-cover=culture] {background-image:linear-gradient(90deg,#f9eadc 15%,transparent),url('assets/realm-festival.webp')}
+#qingjin [data-cover=words] {background-image:linear-gradient(90deg,#f3efdf 15%,transparent),url('assets/realm-words.webp')}
+#qingjin [data-cover=storm] {background-image:linear-gradient(90deg,#eceee1 15%,transparent),url('assets/realm-storm.webp')}
+#qingjin strong {display:block; font:600 26px/1.5 SimSun,serif; margin-bottom:4px}
+#qingjin button:hover strong {text-decoration:underline; text-underline-offset:4px}
+#qingjin button:focus-visible {outline:3px solid #913a26; outline-offset:3px}
+@media(max-width:700px){
+  #qingjin .spread {grid-template-columns:1fr}
+  #qingjin .moonprint {min-height:160px}
+  #qingjin .folio nav {grid-template-columns:1fr; gap:10px; margin-top:14px}
+  #qingjin nav button {min-height:84px}
+}
