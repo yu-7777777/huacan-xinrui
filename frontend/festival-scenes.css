@@ -1,0 +1,57 @@
+body.scroll-edition[data-page=culture] #functionBackdrop{visibility:hidden!important}
+body.scroll-edition #culture{position:relative;isolation:isolate;background:transparent!important}
+#culture>.festival-landscape{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.festival-landscape svg{width:100%;height:100%;display:block}
+.scene-glow{animation:scene-breathe 4s ease-in-out infinite alternate}
+.scene-fall{animation:scene-fall 8s linear infinite}
+.scene-rain{animation:scene-rain 2s linear infinite}
+.scene-wave{animation:scene-wave 5s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes scene-breathe{from{opacity:.07}to{opacity:.58}}
+@keyframes scene-fall{0%{opacity:0;transform:translate(0,0)}18%,72%{opacity:.8}100%{opacity:0;transform:translate(-35px,100px) rotate(2deg)}}
+@keyframes scene-rain{0%{opacity:0;transform:translate(0,0)}35%{opacity:.48}100%{opacity:0;transform:translate(-14px,40px)}}
+@keyframes scene-wave{0%{opacity:0;transform:scale(.55)}25%{opacity:.52}100%{opacity:0;transform:scale(1.25)}}
+@media(prefers-reduced-motion:reduce){.festival-landscape svg g{display:none}}
+
+body.scroll-edition #culture #createSection .live-card>small {
+ box-sizing:border-box;width:fit-content;max-width:100%;margin:16px auto 18px;
+ padding:5px clamp(10px,2vw,26px);gap:clamp(6px,1vw,14px);
+ color:#473222;background:linear-gradient(100deg,#fbefdbe8,#fff6e6fa 42%,#fff4e1f7 65%,#faecd6e8);
+ border:1px solid #b3906699;border-radius:4px;box-shadow:0 2px 6px #3c27171c;
+}
+body.scroll-edition #culture #createSection .live-card>small::before,
+body.scroll-edition #culture #createSection .live-card>small::after{
+ width:clamp(8px,2.6vw,38px);background:#b38a57;flex-shrink:1;
+}
+
+body.scroll-edition #culture#culture>.page-heading{position:relative!important;isolation:isolate;overflow:hidden}
+.festival-motion{position:absolute;right:3%;top:10%;width:clamp(70px,22%,300px);height:80%;pointer-events:none;z-index:-1;color:#733b20}
+.festival-motion use{animation:accent-drift 4.2s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
+@keyframes accent-drift{from{transform:translate(-5px,-9px) rotate(-10deg)}to{transform:translate(9px,14px) rotate(10deg)}}
+.festival-motion[data-motion=wave] use{animation-name:accent-water}
+@keyframes accent-water{from{transform:translateX(-12px) rotate(-3deg)}to{transform:translateX(14px) rotate(3deg)}}
+.festival-motion[data-motion=rain] use,.festival-motion[data-motion=snow] use{animation:accent-weather 2.7s linear infinite}
+@keyframes accent-weather{0%{opacity:.1;transform:translate(6px,-18px)}25%,70%{opacity:1}100%{opacity:0;transform:translate(-9px,30px)}}
+@media(prefers-reduced-motion:reduce){.festival-motion use{animation:none}}
+
+#createSection .writing-panel{box-sizing:border-box;width:100%;grid-column:1/-1;background:rgba(255,245,226,.9);border:1px solid #c7aa80;border-radius:12px;padding:clamp(12px,1.5vw,22px)}
+body.scroll-edition #culture #createSection .writing-panel>:is(.coedit-fields,.coedit-toolbar,.coedit-options,.join-box,label,.writing-note){
+ margin:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:8px 0!important
+}
+#createSection .writing-panel>label{display:block;font-size:14px}
+body.scroll-edition #culture #createSection .writing-panel>details{border-top:1px solid #ba9a6c66!important}
+#createSection .writing-note{text-align:center;color:#65513c;line-height:1.6}
+#createSection .writing-panel>details summary{cursor:pointer}
+
+body.scroll-edition #culture #createSection .paired-scroll-panel{
+ box-sizing:border-box;width:calc(100% - clamp(12px,3vw,54px));margin:0 auto 14px;
+ padding:clamp(12px,1.6vw,26px) clamp(4px,1vw,18px) 10px;
+ background:rgba(255,245,224,.48);border:1px solid rgba(163,126,80,.56);border-radius:14px;
+ box-shadow:inset 0 0 0 1px rgba(255,251,240,.36);
+}
+body.scroll-edition #culture #createSection .paired-scroll-panel>.card-downloads{margin:12px auto 0}
+
+body.scroll-edition[data-page] #floatingGuide.guide-fab{box-sizing:border-box;font-size:clamp(16px,1.2vw,20px);line-height:1.25;min-height:48px;min-width:120px;padding:12px 20px}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) main>footer{display:none!important}
+body.scroll-edition header nav:has(#sourcesBtn){grid-template-rows:repeat(6,minmax(0,1fr))!important}
+body.scroll-edition header nav #sourcesBtn{white-space:normal}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) #floatingGuide{bottom:18px!important}
