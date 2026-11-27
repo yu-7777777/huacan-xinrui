@@ -469,3 +469,9 @@ body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) 
 
 #culture #festivalSearch #festivalQuery{margin:0;border-bottom-left-radius:0;border-bottom-right-radius:0}
 #culture #festivalSearch #festivalSearchButton{margin:0;border-top-left-radius:0;border-top-right-radius:0}
+
+body.scroll-edition[data-page] > #draft-retention-note{
+  margin:0;padding:10px 16px;text-align:center;
+  color:#736454!important;background:transparent!important;
+  font:400 14px/1.6 var(--song,serif)!important;text-shadow:none!important;
+}
