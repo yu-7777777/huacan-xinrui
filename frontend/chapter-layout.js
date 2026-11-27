@@ -7,6 +7,19 @@ chapters.append(heading,$('entrances'));
 const back=document.createElement('button');back.type='button';back.className='secondary chapter-back';back.textContent='← 返回首页';back.onclick=()=>window.TongpinNavigate('home');chapters.append(back);$('home').after(chapters);
 $('start').onclick=()=>window.TongpinNavigate('chapters');
 document.querySelector('#home .hero-routes')?.remove();
+const directoryFrame = document.createElement('iframe');
+directoryFrame.className = 'chapter-directory-frame';
+directoryFrame.title = '同频篇章目录';
+directoryFrame.src = 'chapter-directory.html';
+document.body.append(directoryFrame);
+window.addEventListener('message', event => {
+  if (event.origin !== location.origin || event.source !== directoryFrame.contentWindow
+      || event.data?.type !== 'tongpin-directory' || chapters.hidden) return;
+  const action = event.data.action;
+  if (action === 'guide') $('guideNav').click();
+  else if (action === 'sources') $('sourcesBtn').click();
+  else if (['home', 'culture', 'words', 'storm'].includes(action)) window.TongpinNavigate(action);
+});
 // Initialization fetches data asynchronously and may resolve after the new route is built.
 if(location.hash==='#chapters')window.TongpinNavigate('chapters',false);
 const wordsHeading=document.querySelector('#words .page-heading');

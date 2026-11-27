@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>同频 · 篇章目录</title>
+<style>
+@font-face{font-family:Tongpin;src:url(assets/tongpin-brush.woff2) format("woff2");font-display:swap}
+:root{color-scheme:light;--ink:#123832;--night:#082826;--gold:#b18b50;--line:#b18b507d;--paper:#f4e7cd;--song:"Songti SC",SimSun,serif;--brush:Tongpin,STXingkai,KaiTi,serif}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:var(--song);background:radial-gradient(ellipse at 60% 0,#fcf4e2,#ead8b5 115%);display:grid;grid-template-columns:clamp(170px,15vw,248px) minmax(0,1fr);min-height:100dvh}
+a{text-decoration:none;color:inherit}button{font:inherit;color:inherit}a:focus-visible,button:focus-visible{outline:2px solid #c78c3d;outline-offset:4px}
+aside{min-width:0;height:100dvh;position:sticky;top:0;overflow:auto;padding:clamp(20px,3vw,42px) clamp(13px,2vw,28px);color:#eee0bd;background:radial-gradient(ellipse at 20% 90%,#164744,transparent 65%),linear-gradient(150deg,#092623,#061d23);border-right:3px double #c5a366}
+.brand{display:flex;align-items:center;justify-content:center;gap:12px;padding-bottom:27px;border-bottom:1px solid #b18b505c;font:clamp(32px,4vw,57px)/1 var(--brush);color:#f1d399}
+.seal{display:grid;place-items:center;width:32px;height:43px;border:3px double #edd09b;border-radius:4px;background:#8c3627;color:#fff0cc;font:15px/1.05 KaiTi,var(--song);transform:rotate(-6deg)}
+nav{margin-top:26px;position:relative;display:grid;gap:4px}
+nav::before{content:"";position:absolute;left:12px;top:23px;bottom:23px;width:1px;background:linear-gradient(transparent,#c7a878 12% 88%,transparent)}
+nav>a,nav>button{position:relative;display:flex;align-items:center;gap:13px;min-height:46px;width:100%;border:1px solid transparent;background:none;cursor:pointer;text-align:left;padding:6px 4px 6px 9px;font-size:clamp(14px,1.3vw,20px)}
+nav>a::before,nav>button::before{content:"";width:6px;height:6px;flex:0 0 6px;border-radius:50%;background:#bfa370}
+nav [aria-current],nav>a:hover,nav>button:hover{background:linear-gradient(90deg,#bf995027,transparent);color:#ffdf9e}
+nav [aria-current]::before{background:#fff0be;box-shadow:0 0 9px 2px #d7a4558c}
+main{min-width:0;padding:clamp(14px,2.4vw,42px);display:grid;grid-template-rows:auto repeat(3,minmax(149px,1fr)) auto;gap:clamp(10px,1.6vh,20px);min-height:100dvh}
+.hero,.chapter{position:relative;isolation:isolate;overflow:hidden;border:3px double var(--gold);border-radius:11px;background:#f9ecd4;display:grid;align-content:center;padding:clamp(14px,2vw,34px);box-shadow:0 3px 10px #4f32151c}
+.hero{min-height:clamp(130px,19vh,220px);--art:url(assets/directory-classical-harbor.jpg)}
+.hero::before,.chapter::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(90deg,#fbefd9 4%,#fbefd9 22%,#f7e9ceeb 35%,#f7e9ce59 51%,transparent 67%),var(--art);background-size:100% 100%,max(72%, 820px) auto;background-repeat:no-repeat;background-position:center,right center}
+.hero h1{margin:0;font:clamp(30px,3.9vw,72px)/1.2 var(--brush);max-width:65%;letter-spacing:.025em}
+.chapter h2{font:clamp(27px,3vw,52px)/1.13 var(--brush);margin:0 0 6px}
+.chapter p{margin:0 0 10px;max-width:43%;font-size:clamp(13px,1.17vw,19px);line-height:1.4}
+.chapter:nth-of-type(1){--art:url(assets/directory-classical-festival.jpg)}
+.chapter:nth-of-type(2){--art:url(assets/directory-classical-words.jpg)}
+.chapter:nth-of-type(3){--art:url(assets/directory-classical-storm.jpg)}
+.cta{justify-self:start;border:1px solid #b87f4c;box-shadow:inset 0 0 0 2px #e5ac6b35;background:#943e2b;border-radius:5px;color:#fff0d7;padding:.42em 1.15em;font-size:clamp(14px,1.18vw,20px)}
+.cta:hover{background:#793222}.cta span{margin-left:1em}
+footer{text-align:center;font-size:clamp(12px,1vw,16px);letter-spacing:.13em;color:#524c37;padding:.3em 0}
+dialog{width:min(530px,90vw);border:3px double var(--gold);border-radius:12px;background:#f8ebd2;color:var(--ink);padding:24px}dialog::backdrop{background:#061d23a0}dialog form{text-align:right}dialog button{cursor:pointer}dialog a{display:block;text-decoration:underline;margin:12px 0}
+@media(max-width:720px){body{grid-template-columns:1fr}aside{position:static;height:auto;padding:10px;border-right:0;border-bottom:3px double #c5a366;display:grid;grid-template-columns:auto 1fr;gap:10px}.brand{font-size:25px;padding:0;border:0}.seal{display:none}nav{margin:0;display:flex;flex-wrap:wrap;gap:0}nav::before,nav>a::before,nav>button::before{display:none}nav>a,nav>button{width:auto;min-height:32px;font-size:13px;padding:4px 6px}main{min-height:0;padding:10px;grid-template-rows:auto repeat(3,minmax(140px,auto)) auto}.hero h1{max-width:78%}.chapter p{max-width:60%}.hero::before,.chapter::before{background-image:linear-gradient(90deg,#fbefd9 6%,#fbefd9 18%,#f7e9cecf 49%,transparent 88%),var(--art)}}
+aside{
+ background:radial-gradient(ellipse at 20% 93%,#662b2d,transparent 72%),linear-gradient(150deg,#521e26,#35141d);
+}
+.brand{display:block;padding-bottom:22px}
+.brand img{
+ display:block;width:100%;margin:auto;
+ filter:grayscale(1) brightness(.78) contrast(1.85) sepia(.72);
+ mix-blend-mode:screen;
+}
+@media(max-width:720px){
+ .brand{padding:0;align-self:center}
+ .brand img{width:66px}
+}
+.hero{justify-items:center;text-align:center}
+.hero::before{
+ background-image:linear-gradient(90deg,#f8ead3aa,#f9edd6e8 28%,#f9edd6ed 72%,#f8ead3aa),var(--art);
+ background-size:100% 100%,cover;
+ background-position:center;
+}
+.hero h1{max-width:100%;color:#123832}
+.chapter::before{background-size:100% 100%,cover;background-position:center,right center}
+body{grid-template-columns:clamp(118px,14vw,228px) minmax(0,1fr)}
+aside{
+ display:flex;flex-direction:column;gap:0;padding:0;
+ background:linear-gradient(115deg,#e9cfd0,#dcb7bd);
+ border:3px double #ad777b;color:#482d2c;
+}
+.brand{
+ display:grid;place-items:center;padding:0;min-height:clamp(68px,12vh,116px);
+ border-bottom:1px solid #ad777b70;color:#623339;
+}
+.brand-word{
+ font:400 clamp(32px,4.6vw,68px)/1 "STXingkai","华文行楷",KaiTi,var(--brush);
+ letter-spacing:.08em;padding-left:.08em;
+}
+nav{flex:1;margin:0;display:grid;grid-template-rows:repeat(6,minmax(52px,1fr));gap:0;padding:8px 4px}
+nav::before,nav>a::before,nav>button::before{display:none}
+nav>a,nav>button{
+ display:grid;place-items:center;text-align:center;padding:8px 4px;
+ width:100%;font:400 clamp(17px,2.1vw,32px)/1.25 var(--brush);
+ letter-spacing:.045em;overflow-wrap:anywhere;
+}
+nav>a:hover,nav>button:hover{background:#fff0e23d;color:#623339}
+@media(max-width:720px){
+ aside{position:sticky;top:0;height:100dvh}
+ .hero h1{font-size:clamp(22px,4.6vw,32px)}
+}
+@media(max-width:400px){
+ body{grid-template-columns:94px minmax(0,1fr)}
+ nav>a,nav>button{font-size:16px}
+}
+aside{
+ background:linear-gradient(135deg,#a65b4f,#843e37);
+ border-color:#c09a69;color:#fff0d7;
+}
+.brand{color:#ffe5bc;border-bottom-color:#edcc9c65}
+nav>a:hover,nav>button:hover{background:#fff0d726;color:#fff8e8}
+.chapter{color:#fff2d6;background:#193233;border-color:#b89459}
+.chapter::before{
+ background-image:linear-gradient(90deg,#131b1be8 0%,#131b1bbf 23%,#131b1b4d 47%,transparent 66%),var(--art);
+ background-size:100% 100%,cover;
+ background-position:center,right center;
+}
+.chapter h2,.chapter p{text-shadow:0 1px 3px #101616}
+.chapter .cta{background:#8b4235;color:#fff3dc;border-color:#c59764}
+.chapter .cta:hover{background:#a35645}
+@media(max-width:720px){
+ .chapter::before{background-image:linear-gradient(90deg,#131b1be8,#131b1bbf 36%,#131b1b38 66%,transparent),var(--art)}
+}
+.hero::before{
+ background-image:linear-gradient(90deg,#f8ead38a,#f9edd6c9 28%,#f9edd6cf 72%,#f8ead38a),var(--art);
+}
+.hero h1{
+ font-family:"STXingkai","华文行楷",KaiTi,var(--brush);
+ font-weight:400;letter-spacing:.045em;text-shadow:0 1px 4px #fff3da80;
+}
+main{padding-inline-start:0}
+.hero,.chapter{border-start-start-radius:0;border-end-start-radius:0}
+aside{isolation:isolate}
+nav{position:relative;padding-inline:clamp(7px,1.25vw,22px) 4px}
+nav::before{
+ display:block;left:clamp(8px,1vw,17px);top:8.5%;bottom:8.5%;
+ background:linear-gradient(transparent,#f1ce946e 9% 91%,transparent);
+}
+nav>a,nav>button{padding-inline:clamp(6px,1vw,18px) 4px}
+nav>a::before,nav>button::before{
+ display:block;position:absolute;left:calc(clamp(8px,1vw,17px) - clamp(7px,1.25vw,22px) - 4px);
+ top:50%;transform:translateY(-50%);width:7px;height:7px;background:#e8bf85;
+}
+nav>a:hover::before,nav>button:hover::before,
+nav>a:focus-visible::before,nav>button:focus-visible::before{
+ background:#fff0c8;box-shadow:0 0 9px #efba83;
+}
+aside::after{
+ content:"";position:absolute;z-index:-1;pointer-events:none;inset:auto 0 0;
+ height:clamp(52px,11vh,106px);opacity:.55;
+ background:
+  repeating-radial-gradient(ellipse at 16% 160%,transparent 0 8px,#ecc38c 9px 10px,transparent 11px 15px),
+  repeating-radial-gradient(ellipse at 95% 150%,transparent 0 9px,#e2a972 10px 11px,transparent 12px 16px);
+ mask-image:linear-gradient(transparent,#000 84%);
+}
+nav{padding-bottom:clamp(48px,10vh,100px)}
+nav::before{top:7%;bottom:calc(clamp(48px,10vh,100px) + 7%)}
+nav>a,nav>button{
+ display:grid;grid-template-columns:22px minmax(0,1fr);align-items:center;gap:5px;
+}
+.nav-icon{
+ width:22px;height:22px;display:block;
+ background:url(assets/directory-gold-icons.png) right var(--icon-y) / 36px 258px no-repeat;
+ filter:grayscale(1) brightness(.82) contrast(1.9) sepia(.8);mix-blend-mode:screen;
+}
+.nav-icon.home{background:none;font:25px/1 Georgia,serif;filter:none;color:#eac48d}
+.nav-icon.home::after{content:"⌂"}
+.nav-icon.festival{--icon-y:-54px}.nav-icon.words{--icon-y:-97px}
+.nav-icon.storm{--icon-y:-139px}.nav-icon.guide{--icon-y:-181px}.nav-icon.sources{--icon-y:-224px}
+aside::after{
+ height:clamp(54px,13vh,130px);opacity:.72;
+ background:url(assets/directory-gold-waves.png) left center/108% 108% no-repeat;
+ filter:grayscale(1) brightness(.75) contrast(1.8) sepia(.85);
+ mix-blend-mode:screen;mask-image:linear-gradient(transparent,#000 38%);
+}
+.tag-window{position:absolute;inset:0;container-type:size;pointer-events:none;z-index:-1;overflow:hidden}
+.tag-image{position:absolute;right:0;top:50%;transform:translateY(-50%);width:max(100%,calc(100cqh * 12.70));aspect-ratio:2172/171;container-type:inline-size}
+.bike-tag{
+ position:absolute;top:54%;transform:translate(-50%,-50%) rotate(var(--tilt));
+ display:grid;text-align:center;white-space:nowrap;color:#312418;
+ font:400 clamp(11px,1.05cqw,38px)/1.05 "STXingkai","华文行楷",KaiTi,var(--brush);
+}
+.bike-tag small{font:600 .57em/1.6 var(--song);letter-spacing:0}
+.hong-kong{left:83.25%;--tilt:12deg}.macao{left:86.48%;--tilt:-5deg}.taiwan{left:89.15%;--tilt:-10deg}
+@media(max-height:550px){nav{padding-bottom:44px}}
+.bike-tag{
+ top:58%;font-family:"STZhongsong","华文中宋","PMingLiU",var(--song);font-size:clamp(13px,1cqw,36px);font-weight:400;line-height:1.18;
+ color:#24170d;text-shadow:none;
+}
+.bike-tag small{font-family:inherit;font-weight:400}
+.bike-tag.taiwan{font-size:clamp(11px,.85cqw,30px)}
+@media(max-width:720px){
+ nav>a,nav>button{font-size:14px;letter-spacing:0;gap:1px;padding-inline:4px 2px;grid-template-columns:20px minmax(0,1fr)}
+ nav>a span,nav>button span{max-width:100%}
+ .chapter.vocabulary::before{background-image:linear-gradient(90deg,#131b1beb,#131b1bb2 20%,#131b1b18 34%,transparent 44%),var(--art)}
+ .chapter.vocabulary p{max-width:36%}
+}
+@media(min-width:721px){
+ .chapter.vocabulary::before{background-image:linear-gradient(90deg,#131b1be8,#131b1bb6 24%,#131b1b26 49%,transparent 62%),var(--art)}
+}
+.brand img{width:clamp(72px,76%,175px);margin:0 auto}
+main{gap:0}
+.hero,.chapter{border-radius:0}
+.chapter{border-top:0}
+.hero h1{
+ position:relative;padding:.08em .22em .19em;
+ font-family:var(--brush);letter-spacing:.025em;text-shadow:none;
+}
+.hero h1::after{
+ content:"";position:absolute;inset:auto 0 0;height:3px;
+ border-block:1px solid #b78a49a0;
+ mask-image:linear-gradient(90deg,transparent,#000 12% 88%,transparent);
+}
+footer{display:flex;align-items:center;justify-content:center;gap:clamp(8px,1.8vw,26px);padding:.65em 5px .3em}
+footer::before,footer::after{
+ content:"";width:min(12%,100px);height:1px;background:#b38d54;flex-shrink:0;
+}
+@media(max-width:720px){.chapter.vocabulary p{max-width:24%}}
+html,body{height:100%;overflow:hidden}
+body{height:100dvh;min-height:0}
+main{
+ height:100dvh;min-height:0;padding:0;
+ grid-template-rows:minmax(0,.84fr) repeat(3,minmax(0,1fr)) auto;
+}
+.hero,.chapter{min-height:0;padding-block:0}
+aside{height:100dvh;min-height:0;overflow:hidden}
+nav{min-height:0;grid-template-rows:repeat(6,minmax(0,1fr))}
+nav>a,nav>button{min-height:0}
+footer{margin:0;padding:4px 6px;line-height:1.25;font-size:clamp(10px,1.6vh,16px)}
+@media(max-height:690px){
+ .chapter h2{font-size:clamp(19px,4.6vh,32px);margin-bottom:3px}
+ .chapter p{font-size:clamp(11px,2vh,14px);margin-bottom:5px}
+ .chapter .cta{font-size:clamp(11px,2.1vh,15px);padding-block:.28em}
+ .hero h1{font-size:clamp(21px,5.2vh,48px)}
+}
+dialog{max-height:90dvh;overflow:auto}
+.hero::before{
+ background-image:linear-gradient(90deg,#112b3624,#12263070 33%,#12263070 67%,#112b3624),var(--art);
+}
+.hero h1{color:#ffedc4;text-shadow:0 2px 5px #0e2028}
+.hero h1::after{border-color:#e9bd77bc}
+</style>
+<link rel="stylesheet" href="directory-lighting.css"></head>
+<body>
+<aside>
+  <a class="brand" href="index.html#home"><img src="assets/directory-classic-logo.png" alt="同频"></a>
+  <nav aria-label="主导航">
+    <a href="index.html#home"><i class="nav-icon home" aria-hidden="true"></i><span>首页</span></a>
+
+    <a href="index.html#culture"><i class="nav-icon festival" aria-hidden="true"></i><span>节日共叙</span></a>
+    <a href="index.html#words"><i class="nav-icon words" aria-hidden="true"></i><span>同物异名</span></a>
+    <a href="index.html#storm"><i class="nav-icon storm" aria-hidden="true"></i><span>同一场风</span></a>
+    <button type="button" data-dialog="guide"><i class="nav-icon guide" aria-hidden="true"></i><span>同频向导</span></button>
+    <button type="button" data-dialog="sources"><i class="nav-icon sources" aria-hidden="true"></i><span>资料来源与出处</span></button>
+  </nav>
+</aside>
+<main id="directory">
+  <header class="hero"><h1>一卷三章，循声而行</h1></header>
+  <section class="chapter">
+    <h2>节日共叙</h2>
+    <p>一个节日，写下你我不同的生活记忆。</p>
+    <a class="cta" href="index.html#culture">共写一笺 <span aria-hidden="true">→</span></a>
+  </section>
+  <section class="chapter vocabulary">
+    <div class="tag-window">
+      <div class="tag-image">
+        <span class="bike-tag hong-kong"><small>香港</small>單車</span>
+        <span class="bike-tag macao"><small>澳門</small>單車</span>
+        <span class="bike-tag taiwan"><small>台灣地區</small>腳踏車</span>
+      </div>
+    </div>
+    <h2>同物异名</h2>
+    <p>同一事物，各有表达。</p>
+    <a class="cta" href="index.html#words">寻一个词 <span aria-hidden="true">→</span></a>
+  </section>
+  <section class="chapter">
+    <h2>同一场风</h2>
+    <p>读懂各地预警，把关心送给远方的家人。</p>
+    <a class="cta" href="index.html#storm">查看风路 <span aria-hidden="true">→</span></a>
+  </section>
+  <footer>同频 · 从文化共鸣，到风雨共济。</footer>
+</main>
+<script>
+document.addEventListener("click", event => {
+  const control = event.target.closest("a[href], button[data-dialog]");
+  if (!control || window.parent === window) return;
+  const action = control.dataset.dialog || control.hash.slice(1);
+  if (!["home", "culture", "words", "storm", "guide", "sources"].includes(action)) return;
+  event.preventDefault();
+  window.parent.postMessage({ type: "tongpin-directory", action }, location.origin);
+});
+</script></body>
+</html>
