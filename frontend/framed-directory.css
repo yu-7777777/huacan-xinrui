@@ -8,3 +8,8 @@
  #framedDirectory button:hover{background:#ffe5ab0d}
  #framedDirectory button:focus-visible{outline:3px solid #fff2ce;outline-offset:-5px}
 }
+@media(min-width:701px){
+ body.scroll-edition[data-page=chapters]:has(>#framedDirectory.ready):not(:has(#guide:not([hidden]),dialog[open])) > :is(header,main,#floatingGuide){
+   display:none!important
+ }
+}
