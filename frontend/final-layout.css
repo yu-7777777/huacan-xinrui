@@ -477,14 +477,13 @@ body.scroll-edition[data-page] > #draft-retention-note{
 }
 
 #footer-signature{display:contents}
-body[data-page=culture] main>footer #footer-signature{
-  display:inline-flex;align-items:baseline;gap:.55em;align-self:center;
-  max-width:100%;padding:5px 12px;border:1px solid rgba(168,145,108,.45);
-  border-radius:8px;background:rgba(252,244,226,.86);
+body.scroll-edition[data-page=culture] main>footer{
+  width:100%;box-sizing:border-box;background:rgba(252,244,226,.86)!important;
+  border:1px solid rgba(168,145,108,.45);border-radius:8px;align-items:center;
 }
-body.scroll-edition[data-page=culture] main>footer #footer-signature :is(b,span){
-  color:#465852!important;font-size:15px!important;font-weight:400!important;
+body.scroll-edition[data-page=culture] main>footer #sourcesBtn{
+  color:#465852!important;font-weight:400!important;
 }
-body.scroll-edition[data-page=culture] main>footer #footer-signature b{
-  font-size:17px!important;font-weight:600!important;white-space:nowrap;
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) main>footer #footer-signature :is(b,span){
+  font-family:var(--song,serif)!important;color:#465852!important;font-weight:700!important;
 }
