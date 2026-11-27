@@ -10,13 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function sync() {
     const entry = window.TongpinFestivals?.current();
     const id = culture.dataset.festival;
+    if(desk.dataset.selection!==id){delete culture.dataset.detail;desk.dataset.selection=id;}
     const name = tabs.querySelector('.selected')?.textContent.trim() || entry?.name || '节日';
     desk.querySelector('strong').textContent = prompts[id] || '写一件你记得的过节小事。';
     desk.children[2].querySelector('strong').textContent = name + '习俗';
   }
   desk.addEventListener('click', event => {
     const button = event.target.closest('[data-open]');
-    if(button) culture.querySelector(button.dataset.open)?.scrollIntoView({block:'start'});
+    if(button){culture.dataset.detail=button.dataset.open;culture.querySelector(button.dataset.open)?.scrollIntoView({block:'start'});}
   });
   new MutationObserver(sync).observe(tabs,{childList:true,subtree:true,attributes:true});
   sync();

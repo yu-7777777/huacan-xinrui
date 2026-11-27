@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   panel.setAttribute('aria-label', '篇章目录');
   const poster = new Image();
   poster.alt = '';
-  poster.src = 'assets/directory-framed.webp';
+  
   poster.onload = () => panel.classList.add('ready');
+  poster.src = 'assets/directory-framed.webp';
   panel.append(poster);
   function link(label, action, left, top, width, height) {
     const button = document.createElement('button');
