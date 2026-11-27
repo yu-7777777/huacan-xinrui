@@ -1,0 +1,9 @@
+#atlasScene{display:none}
+@media(min-width:701px){
+ body>#atlasScene:not([hidden]){display:block;position:fixed;inset:0;width:100%;height:100dvh;z-index:10000;background:#0d333a}
+ body:has(>#atlasScene:not([hidden]))>:is(header,main,#floatingGuide){visibility:hidden}
+ #atlasScene img{display:block;width:100%;height:100%;object-fit:fill}
+ #atlasScene button{position:absolute;padding:0;border:0;background:transparent;color:transparent;cursor:pointer;box-shadow:none}
+ #atlasScene button:hover{background:#ffe9a609}
+ #atlasScene button:focus-visible{outline:3px solid #ffe3a3;outline-offset:-4px}
+}
