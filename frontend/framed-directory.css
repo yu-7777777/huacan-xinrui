@@ -1,10 +1,17 @@
 #framedDirectory {display:none}
-@media(min-width:701px){
- body.scroll-edition[data-page=chapters]:not(:has(#guide:not([hidden]),dialog[open])) > #framedDirectory.ready {
-   display:block;position:fixed;inset:0;width:100%;height:100dvh;z-index:99;background:#092e38
- }
- #framedDirectory img{display:block;width:100%;height:100%;object-fit:fill}
- #framedDirectory button{position:absolute;background:transparent;border:0;box-shadow:none;color:transparent;cursor:pointer}
- #framedDirectory button:hover{background:#ffe5ab0d}
- #framedDirectory button:focus-visible{outline:3px solid #fff2ce;outline-offset:-5px}
+body.scroll-edition[data-page=chapters]:has(>#framedDirectory)>:is(header,main,#floatingGuide){display:none!important}
+body.scroll-edition[data-page=chapters]>#framedDirectory {
+ display:grid;position:fixed;inset:0;z-index:99;background:#092d3a;color:#fff1d2;
+ grid-template-rows:minmax(92px,.65fr) repeat(3,minmax(105px,1fr));overflow:auto;height:100dvh
+}
+#framedDirectory>header {position:relative!important;inset:auto!important;width:100%!important;height:auto!important;display:grid!important;place-items:center;padding:0!important;background:linear-gradient(90deg,#082c38ec,#082c38aa),url("assets/directory-chart.webp") center 35%/cover!important}
+#framedDirectory h1 {color:#ffe5a8;font:400 clamp(34px,4.6vw,76px)/1.2 TongpinBrush,KaiTi,serif;text-align:center;margin:0}
+#framedDirectory>header button {position:absolute;left:2%;top:50%;transform:translateY(-50%);background:#0c303d;border:1px solid #cdb88c;color:#ffeac4;padding:7px 12px}
+#framedDirectory>button {width:100%;height:100%;min-height:0;overflow:hidden;padding:0;border:1px solid #e8d6a9;border-radius:0;background:#103340;color:#ffedc9;cursor:pointer}
+#framedDirectory>button img {width:100%;height:100%;object-fit:fill;display:block}
+#framedDirectory button:focus-visible {outline:3px solid white;outline-offset:-4px}
+@media(max-width:700px){
+ body.scroll-edition[data-page=chapters]>#framedDirectory{grid-template-rows:88px repeat(3,minmax(82px,auto));align-content:start}
+ #framedDirectory>button img{height:auto;min-height:82px}
+ #framedDirectory>header button{font-size:12px;padding:5px}
 }
