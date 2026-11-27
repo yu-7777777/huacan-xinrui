@@ -94,3 +94,19 @@ body.scroll-edition main #culture #createSection {padding:clamp(12px,2vw,30px)!i
   body.scroll-edition[data-page=culture] main #culture#culture > .festival-story {grid-template-columns:1fr!important}
   body.scroll-edition[data-page=culture] main #culture#culture > .page-heading {background-position:38% center!important}
 }
+
+#culture[data-festival="spring"] {--season-art:url("assets/full-spring.jpg")}
+#culture[data-festival="lantern"] {--season-art:url("assets/full-lantern.jpg")}
+#culture[data-festival="qingming"] {--season-art:url("assets/full-qingming.jpg")}
+#culture[data-festival="dragon"] {--season-art:url("assets/full-dragon.jpg")}
+#culture[data-festival="qixi"] {--season-art:url("assets/full-qixi.jpg")}
+#culture[data-festival="ghost"] {--season-art:url("assets/full-ghost.jpg")}
+#culture[data-festival="mid"] {--season-art:url("assets/festival-letterdesk.webp")}
+#culture[data-festival="double"] {--season-art:url("assets/festival-autumn-clean.jpg")}
+#culture[data-festival="winter"] {--season-art:url("assets/full-winter.jpg")}
+body.scroll-edition[data-page=culture] main #culture#culture {
+  background:linear-gradient(#fbf5e6c9,#f8f1e3e8),var(--season-art,url("assets/festival-letterdesk.webp")) center top/cover fixed!important;
+}
+body.scroll-edition[data-page=culture] main #culture#culture > .page-heading {
+  background:linear-gradient(90deg,#fcf4dfef 0%,#fcf4dfd9 38%,transparent 78%),var(--season-art,url("assets/festival-letterdesk.webp")) center 40%/cover no-repeat!important;
+}
