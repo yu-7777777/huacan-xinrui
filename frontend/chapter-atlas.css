@@ -1,0 +1,39 @@
+.atlas-directory{display:none}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) {
+ --atlas-ink:#0b343c;--atlas-gold:#ecd399;
+}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]):not([data-page=home])>header {
+ background:#092e36 url("assets/directory-chart.webp") left bottom/auto 55% no-repeat!important;
+ border:1px solid #ba9b69!important;padding:14px 6px!important
+}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>header .brand {
+ background:transparent url("assets/tongpin-landmarks.webp") center/76% auto no-repeat!important;
+ border:0!important;height:clamp(65px,12vh,112px)!important
+}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>header .brand>*,
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>header::before,
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>header nav::after{display:none!important}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>header nav:has(#sourcesBtn){grid-template-rows:repeat(7,minmax(0,1fr))!important;background:none!important}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>header nav button {
+ color:#f3dfb2!important;background:transparent!important;text-shadow:none!important;border:0!important
+}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>header nav button.active{background:#375150!important;color:#ffe4a3!important}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) .atlas-directory{display:block}
+body.scroll-edition[data-page=culture] main #culture#culture{background:linear-gradient(#11313ce8,#193438de),#193940 var(--season-art,url(assets/festival-letterdesk.webp)) center/cover!important}
+body #culture[data-festival=mid]{--season-art:url("assets/chapter-desk.webp")}
+body.scroll-edition[data-page=culture] main #culture#culture[data-festival=mid]>.page-heading,
+body.scroll-edition[data-page=words] main #words#words>.page-heading,
+body.scroll-edition[data-page=storm] main #storm#storm>.storm-heading{
+ background:var(--chapter-banner) center/100% 100% no-repeat #10353c!important;
+ border:1px solid #b49d74!important;border-radius:0!important;box-sizing:border-box
+}
+#culture{--chapter-banner:url("assets/chapter-writing.webp")}
+#words{--chapter-banner:url("assets/chapter-object.webp")}
+#storm{--chapter-banner:url("assets/chapter-weather.webp")}
+body.scroll-edition main :is(#culture[data-festival=mid]>.page-heading,#words>.page-heading,#storm>.storm-heading) :is(h1,p,.eyebrow){position:absolute!important;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
+body.scroll-edition main #culture .festival-module-title{color:#ffe1a3}
+body.scroll-edition main #culture .festival-module-title svg{color:#e6be77}
+body.scroll-edition main #culture#createSection,body.scroll-edition main #culture #createSection{background:#704d36 url("assets/chapter-desk.webp") center/auto 100% !important}
+body.scroll-edition[data-page=words] main #words#words{background:linear-gradient(95deg,#103940e8,#173840af),url("assets/chapter-bike.webp") center/cover!important}
+body.scroll-edition[data-page=storm] main #storm#storm{background:linear-gradient(#153844db,#12313cef),url("assets/chapter-wind.webp") center/cover!important}
+@media(max-width:700px){body.scroll-edition main :is(#words#words>.page-heading,#storm#storm>.storm-heading){background-size:auto 100%!important;background-position:left!important}}
