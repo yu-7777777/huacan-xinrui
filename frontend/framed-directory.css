@@ -1,0 +1,10 @@
+#framedDirectory {display:none}
+@media(min-width:701px){
+ body.scroll-edition[data-page=chapters]:not(:has(#guide:not([hidden]),dialog[open])) > #framedDirectory.ready {
+   display:block;position:fixed;inset:0;width:100%;height:100dvh;z-index:99;background:#092e38
+ }
+ #framedDirectory img{display:block;width:100%;height:100%;object-fit:fill}
+ #framedDirectory button{position:absolute;background:transparent;border:0;box-shadow:none;color:transparent;cursor:pointer}
+ #framedDirectory button:hover{background:#ffe5ab0d}
+ #framedDirectory button:focus-visible{outline:3px solid #fff2ce;outline-offset:-5px}
+}
