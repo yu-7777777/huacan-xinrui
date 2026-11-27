@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     current = page;
     scene.hidden = true;
     scene.replaceChildren();
-    if (!pages.includes(page)) return;
+    if (!pages.includes(page) || page === 'culture') return;
     const image = new Image();
     image.alt = names[pages.indexOf(page)];
     image.onload = () => { if (image.parentElement === scene) scene.hidden = false; };
@@ -39,13 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else showControl(null,()=>document.querySelector(i===5?'#guideNav':'#sourcesBtn').click());
       });
     });
-    if(page==='culture'){
-      const festivals=['春节','元宵','清明','端午','七夕','中元','中秋','重阳','冬至'];
-      festivals.forEach((name,i)=>hit(name,27.4+i*7,28,7,8,()=>showControl('#festName',()=>Array.from(document.querySelectorAll('#festivalTabs button')).find(b=>b.textContent.trim()===name)?.click())));
-      hit('共写一笺',18,37,61,61,()=>showControl('#createSection'));
-      hit('寻访节俗',80,36,19,7,()=>showControl('#festivalQuery'));
-      hit('节日小读',80,43,19,53,()=>showControl('.festival-story'));
-    } else if(page==='words'){
+    if(page==='words'){
       hit('四地词签',18,19,81,63,()=>showControl('.words-workspace'));
       ['自行车','出租车','地铁'].forEach((word,i)=>hit(word,25+i*17,84,16,14,()=>showControl('#wordQuery',()=>{
         const input=document.querySelector('#wordQuery');input.value=word;input.form.requestSubmit();

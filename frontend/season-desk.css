@@ -1,0 +1,16 @@
+body.scroll-edition[data-page=culture] main #culture#culture {background:#12393c!important}
+body.scroll-edition[data-page=culture] main #culture#culture>.page-heading {
+  background:linear-gradient(90deg,#092e39ed,#10374388 58%,transparent),var(--season-art,url("assets/festival-letterdesk.webp")) center 38%/cover!important;
+}
+body.scroll-edition[data-page=culture] main #culture#culture[data-festival=mid]>.page-heading {background:#12343b url("assets/chapter-writing.webp") center/cover!important}
+body.scroll-edition[data-page=culture] main #culture#culture>.page-heading :is(h1,span,p){color:#fff1cc!important;text-shadow:0 2px 3px #102e34}
+body.scroll-edition[data-page=culture] main #culture#culture>#festivalTabs,
+body.scroll-edition[data-page=culture] main #culture#culture>.festival-discovery {background:#10393b!important;border-block:1px solid #a98d59}
+body.scroll-edition[data-page=culture] main #culture#culture #festivalTabs button{background:#153e42!important;color:#fff1ce!important;border:1px solid #9c875c!important}
+body.scroll-edition[data-page=culture] main #culture#culture #festivalTabs button.selected{background:#ecd39a!important;color:#352a1d!important}
+#culture .season-desk{display:grid;grid-template-columns:1fr 1fr .76fr;gap:clamp(10px,2vw,32px);padding:clamp(16px,3vw,46px);background:linear-gradient(#563c29ad,#453021bf),url("assets/chapter-desk.webp") center/auto 100%;border-bottom:1px solid #b39465}
+#culture .season-desk button{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:18px;padding:clamp(16px,2.3vw,34px);text-align:left;min-height:190px;border:1px solid #bba278;background:#f5e8cc url("assets/paper-grain.svg");color:#412e20;border-radius:2px;box-shadow:0 5px 9px #22191155}
+#culture .season-desk strong{font:400 clamp(20px,2vw,33px)/1.45 TongpinBrush,KaiTi,serif}
+#culture .season-desk button:last-child{background:linear-gradient(#103441a6,#092b39d9),var(--season-art,url("assets/festival-letterdesk.webp")) center/cover;color:#ffebb9;border-left:6px double #ceb57f}
+#culture .season-desk span{font-size:14px}
+@media(max-width:700px){#culture .season-desk{grid-template-columns:1fr}#culture .season-desk button{min-height:110px;gap:6px}}
