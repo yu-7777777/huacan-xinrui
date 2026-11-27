@@ -110,3 +110,11 @@ body.scroll-edition[data-page=culture] main #culture#culture {
 body.scroll-edition[data-page=culture] main #culture#culture > .page-heading {
   background:linear-gradient(90deg,#fcf4dfef 0%,#fcf4dfd9 38%,transparent 78%),var(--season-art,url("assets/festival-letterdesk.webp")) center 40%/cover no-repeat!important;
 }
+body.scroll-edition main #culture > .festival-module-title {
+  display:flex; align-items:center; gap:.42em; box-sizing:border-box;
+  margin:0; padding:clamp(16px,2vw,28px) clamp(14px,2.3vw,34px) 9px;
+  color:#553c29; text-align:left; font:400 clamp(23px,2.1vw,32px)/1.25 TongpinBrush,KaiTi,STKaiti,serif;
+  letter-spacing:.07em;
+}
+#culture .festival-module-title svg {width:1.02em;height:1.02em;flex:none;color:#9c5035;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linejoin:round;stroke-linecap:round}
+#culture .festival-module-title::after {content:"";width:clamp(24px,5vw,65px);height:1px;background:linear-gradient(90deg,#b29a75,transparent)}
