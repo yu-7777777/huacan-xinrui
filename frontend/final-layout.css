@@ -487,3 +487,46 @@ body.scroll-edition[data-page=culture] main>footer #sourcesBtn{
 body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]) main>footer #footer-signature :is(b,span){
   font-family:var(--song,serif)!important;color:#465852!important;font-weight:700!important;
 }
+
+/* Shared typography for the three chapter introductions. */
+body.scroll-edition[data-page] main :is(#culture#culture,#words#words,#storm#storm) > :is(.page-heading,.storm-heading) :is(h1,h1 span:not(.words-heading-seal)) {
+  font-family: "STXingkai", "华文行楷", KaiTi, cursive !important;
+  font-weight: 400 !important;
+  letter-spacing: .035em;
+}
+body.scroll-edition[data-page] main :is(#culture#culture,#words#words,#storm#storm) > :is(.page-heading,.storm-heading) p {
+  font-family: "STXingkai", "华文行楷", KaiTi, cursive !important;
+  font-weight: 400 !important;
+  font-size: clamp(21px, 2.35vw, 33px) !important;
+  line-height: 1.45;
+  letter-spacing: .025em;
+}
+
+body.scroll-edition[data-page=culture] main #culture#culture > .page-heading {
+  box-sizing: border-box;
+  padding: clamp(20px, 4vw, 60px) !important;
+  min-height: 145px;
+  border-radius: 12px !important;
+  background: linear-gradient(90deg, #fff4dfd9, #fff4dfab 36%, transparent 77%) !important;
+  backdrop-filter: none;
+  border: 0 !important;
+}
+body.scroll-edition[data-page=culture] main #culture#culture > #festivalTabs {
+  overflow-y: hidden !important;
+  overflow-x: auto !important;
+  scrollbar-width: none;
+}
+body.scroll-edition[data-page=culture] #festivalTabs::-webkit-scrollbar { display: none; }
+
+body.scroll-edition[data-page=words] main #words#words > .page-heading {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+body.scroll-edition[data-page=words] main #words > .page-heading::before,
+body.scroll-edition[data-page=words] main #words > .page-heading::after { background: none !important; }
+body.scroll-edition[data-page] main :is(#culture#culture,#words#words,#storm#storm) > :is(.page-heading,.storm-heading) h1 {
+  font-size: clamp(39px, 5.2vw, 78px) !important;
+  line-height: 1.2;
+}
