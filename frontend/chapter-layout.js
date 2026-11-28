@@ -10,7 +10,7 @@ document.querySelector('#home .hero-routes')?.remove();
 const directoryFrame = document.createElement('iframe');
 directoryFrame.className = 'chapter-directory-frame';
 directoryFrame.title = '同频篇章目录';
-directoryFrame.src = 'chapter-directory.html?v=dark-red';
+directoryFrame.src = 'chapter-directory.html?v=backgrounds-fast';
 document.body.append(directoryFrame);
 window.addEventListener('message', event => {
   if (event.origin !== location.origin || event.source !== directoryFrame.contentWindow

@@ -32,7 +32,7 @@ body.scroll-edition[data-page=culture] main #culture#culture #festivalTabs butto
  #culture .season-desk button:nth-child(3){inset:13% 1% 17% 77%;background:linear-gradient(#10333855,#062e3acd),var(--season-art) center/cover;color:#fff2cb}
  #culture .season-desk .desk-write{inset:79% 42% 8% 34%;align-items:center;justify-content:center;background:#143d42;color:#ffe3a9}
  #culture .season-desk .desk-search{inset:2% 1% 90% 76%;padding:2px 10px}
- #culture[data-festival=mid] .season-desk{background:#513923 url("assets/desk-mid-table.webp") center/100% 100% no-repeat}
+ #culture[data-festival=mid] .season-desk{background:#513923 url("assets/desk-mid-table-fast.webp") center/100% 100% no-repeat}
  #culture[data-festival=mid] .season-desk button{opacity:0}
  #culture[data-festival=mid] .season-desk button:focus-visible{opacity:1}
 }

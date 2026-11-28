@@ -1,7 +1,9 @@
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
-const scenery=document.createElement('div');scenery.id='functionBackdrop';scenery.setAttribute('aria-hidden','true');for(const page of ['culture','words','storm']){const img=document.createElement('img');img.src=page==='words'?'assets/words-pavilions.jpg':'assets/function-'+page+'.jpg?v=preview30';img.className='scenery-'+page;img.alt='';img.decoding='async';scenery.append(img);}document.body.prepend(scenery);
-scenery.querySelector('.scenery-storm').src='assets/storm-osmanthus-detail.svg';
+const scenery = document.createElement('div');
+scenery.id = 'functionBackdrop';
+scenery.setAttribute('aria-hidden', 'true');
+document.body.prepend(scenery);
 window.TongpinScrollArt={};for(const key of ['green','ochre']){const img=new Image();img.src='assets/story-scroll-'+key+'.webp';window.TongpinScrollArt[key]=img;}
 async function arrange(){
  while(!$('exampleSources')||!$('downloadCulturePNG')||!document.querySelector('.family-care'))await new Promise(r=>setTimeout(r,80));

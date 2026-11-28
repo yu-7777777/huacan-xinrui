@@ -6,7 +6,7 @@
 #culture[data-festival=qixi] { --festival-focus: 65% 24%; }
 #culture[data-festival=ghost] { --festival-focus: 59% 59%; }
 #culture[data-festival=mid] {
-  --festival-banner-art: url("assets/festival-moon-clean.jpg");
+  --festival-banner-art: url("assets/festival-moon-clean-fast.webp");
   --festival-focus: 62% 45%;
 }
 #culture[data-festival=double] { --festival-focus: 67% 43%; }

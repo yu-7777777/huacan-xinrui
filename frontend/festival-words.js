@@ -9,8 +9,8 @@ function corners(el){if(el.querySelector(':scope>.frame-corner'))return;el.class
 const home=document.querySelector('[data-enter="words"]');home.classList.add('jade-word-entry');home.innerHTML='<div class="chapter-heading"><small>02</small><h2>同物异名</h2></div><p class="entry-context">出行 · 词语示例</p><div class="entry-word-pair"><span>自行车</span><i></i><span>腳踏車</span></div><p class="entry-note">同一事物，各有表达。</p><span class="chapter-action">寻一个词 <i aria-hidden="true">→</i></span>';home.querySelectorAll('.entry-word-pair>span').forEach(corners);
 const regionLabels=['大陆','香港','澳门','台湾地区'],codes=['cn','hk','mo','tw'];let dictionary=[],filter='全部',expanded=false,serial=0;
 const exhibitArt = {
- '自行车':'words-bicycle-exhibit.webp','出租车':'words-taxi.jpg',
- '鼠标':'words-mouse.jpg','打印机':'words-printer.jpg'
+ '自行车':'words-bicycle-exhibit-fast.webp','出租车':'words-taxi-fast.webp',
+ '鼠标':'words-mouse-fast.webp','打印机':'words-printer-fast.webp'
 };
 let exhibitPicker;
 

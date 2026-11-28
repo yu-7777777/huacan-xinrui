@@ -1,4 +1,4 @@
-body.scroll-edition[data-page=culture] #functionBackdrop{visibility:hidden!important}
+body.scroll-edition[data-page=culture] #functionBackdrop{display:none!important}
 body.scroll-edition #culture{position:relative;isolation:isolate;background:transparent!important}
 #culture>.festival-landscape{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
 .festival-landscape svg{width:100%;height:100%;display:block}
@@ -95,15 +95,15 @@ body.scroll-edition main #culture #createSection {padding:clamp(12px,2vw,30px)!i
   body.scroll-edition[data-page=culture] main #culture#culture > .page-heading {background-position:38% center!important}
 }
 
-#culture[data-festival="spring"] {--season-art:url("assets/full-spring.jpg")}
-#culture[data-festival="lantern"] {--season-art:url("assets/full-lantern.jpg")}
-#culture[data-festival="qingming"] {--season-art:url("assets/full-qingming.jpg")}
-#culture[data-festival="dragon"] {--season-art:url("assets/full-dragon.jpg")}
-#culture[data-festival="qixi"] {--season-art:url("assets/full-qixi.jpg")}
-#culture[data-festival="ghost"] {--season-art:url("assets/full-ghost.jpg")}
+#culture[data-festival="spring"] {--season-art:url("assets/full-spring-fast.webp")}
+#culture[data-festival="lantern"] {--season-art:url("assets/full-lantern-fast.webp")}
+#culture[data-festival="qingming"] {--season-art:url("assets/full-qingming-fast.webp")}
+#culture[data-festival="dragon"] {--season-art:url("assets/full-dragon-fast.webp")}
+#culture[data-festival="qixi"] {--season-art:url("assets/full-qixi-fast.webp")}
+#culture[data-festival="ghost"] {--season-art:url("assets/full-ghost-fast.webp")}
 #culture[data-festival="mid"] {--season-art:url("assets/festival-letterdesk.webp")}
-#culture[data-festival="double"] {--season-art:url("assets/festival-autumn-clean.jpg")}
-#culture[data-festival="winter"] {--season-art:url("assets/full-winter.jpg")}
+#culture[data-festival="double"] {--season-art:url("assets/festival-autumn-clean-fast.webp")}
+#culture[data-festival="winter"] {--season-art:url("assets/full-winter-fast.webp")}
 body.scroll-edition[data-page=culture] main #culture#culture {
   background:linear-gradient(#fbf5e6c9,#f8f1e3e8),var(--season-art,url("assets/festival-letterdesk.webp")) center top/cover fixed!important;
 }

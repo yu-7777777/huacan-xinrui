@@ -1,11 +1,11 @@
-#culture[data-festival=spring]{--desk-art:url("assets/desk-spring.webp?v=letters1")}
-#culture[data-festival=lantern]{--desk-art:url("assets/desk-lantern.webp?v=letters1")}
-#culture[data-festival=qingming]{--desk-art:url("assets/desk-qingming.webp?v=letters1")}
-#culture[data-festival=dragon]{--desk-art:url("assets/desk-dragon.webp?v=letters1")}
-#culture[data-festival=qixi]{--desk-art:url("assets/desk-qixi.webp?v=letters1")}
-#culture[data-festival=ghost]{--desk-art:url("assets/desk-ghost.webp?v=letters1")}
-#culture[data-festival=double]{--desk-art:url("assets/desk-double.webp?v=letters1")}
-#culture[data-festival=winter]{--desk-art:url("assets/desk-winter.webp?v=letters1")}
+#culture[data-festival=spring]{--desk-art:url("assets/desk-spring-fast.webp?v=letters1")}
+#culture[data-festival=lantern]{--desk-art:url("assets/desk-lantern-fast.webp?v=letters1")}
+#culture[data-festival=qingming]{--desk-art:url("assets/desk-qingming-fast.webp?v=letters1")}
+#culture[data-festival=dragon]{--desk-art:url("assets/desk-dragon-fast.webp?v=letters1")}
+#culture[data-festival=qixi]{--desk-art:url("assets/desk-qixi-fast.webp?v=letters1")}
+#culture[data-festival=ghost]{--desk-art:url("assets/desk-ghost-fast.webp?v=letters1")}
+#culture[data-festival=double]{--desk-art:url("assets/desk-double-fast.webp?v=letters1")}
+#culture[data-festival=winter]{--desk-art:url("assets/desk-winter-fast.webp?v=letters1")}
 body[data-page=chapters] #framedDirectory{display:block;position:fixed;inset:0;z-index:99;background:#10343d}
 body[data-page=chapters] #framedDirectory img{width:100%;height:100%;object-fit:fill}
 body[data-page=chapters] #framedDirectory button{position:absolute;color:transparent;background:none;border:0}

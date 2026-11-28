@@ -1,8 +1,8 @@
 body.scroll-edition[data-page=words]{
- --word-scene:url("assets/home-harbor-fusion.jpg");
+ --word-scene:url("assets/home-harbor-fusion-fast.webp");
 }
 body.scroll-edition[data-page=storm]{
- --rain-bridge:url("assets/storm-rain-bridge.webp");
+ --rain-bridge:url("assets/storm-rain-bridge-fast.webp");
 }
 body.scroll-edition:is([data-page=words],[data-page=storm]) #functionBackdrop{
  position:fixed;inset:0;height:100dvh;filter:none;
