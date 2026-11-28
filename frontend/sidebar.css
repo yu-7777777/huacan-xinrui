@@ -1,13 +1,14 @@
 :root{
- --rail-red:radial-gradient(ellipse at 14% 4%,#b9676b48,transparent 56%),linear-gradient(154deg,#7c293f,#622135 57%,#431826);
- --rail-gold:#c49c76;
- --rail-text:#f9e1c7;
- --rail-selected:linear-gradient(90deg,#dda98246,#dda98214);
+ --rail-red:#752b32;
+ --rail-gold:#d5ad7b;
+ --rail-text:#fbeddb;
+ --rail-selected:#883d43;
 }
 body>aside,body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>#studioRail{
  background:var(--rail-red)!important;border-color:var(--rail-gold)!important;color:var(--rail-text);
 }
 body>aside .brand{border-bottom-color:#c49c7660}
+body>aside nav::before{background:var(--rail-gold);opacity:.58}
 body>aside nav>a[aria-current="page"]{background:var(--rail-selected);color:#fff0d9;border-block-color:#dda98248}
 body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]){
  --rail:320px!important;
@@ -40,7 +41,7 @@ body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>
 }
 #studioRail #studioLinks::before{
  content:"";display:block;position:absolute;top:6%;bottom:17%;left:13px;width:1px;
- background:linear-gradient(transparent,#f1ce946e 9% 91%,transparent);
+ background:var(--rail-gold);opacity:.58;
 }
 body.scroll-edition #studioRail #studioLinks button{
  position:relative!important;display:grid!important;grid-template-columns:23px minmax(0,1fr);align-items:center;

@@ -1,9 +1,16 @@
 body.scroll-edition[data-page=culture] main #culture#culture {background:#12393c!important}
+#culture[data-festival=mid]{--festival-banner-art:url("assets/festival-mid-scene.webp")}
 body.scroll-edition[data-page=culture] main #culture#culture>.page-heading {
-  background:linear-gradient(90deg,#092e39ed,#10374388 58%,transparent),var(--season-art,url("assets/festival-letterdesk.webp")) center 38%/cover!important;
+  container-type:inline-size;
+  background:linear-gradient(90deg,#092e39ed,#10374388 58%,transparent),var(--festival-banner-art,var(--season-art,url("assets/festival-letterdesk.webp"))) center 38%/cover!important;
 }
-body.scroll-edition[data-page=culture] main #culture#culture[data-festival=mid]>.page-heading {background:#12343b url("assets/chapter-writing.webp") center/cover!important}
 body.scroll-edition[data-page=culture] main #culture#culture>.page-heading :is(h1,span,p){color:#fff1cc!important;text-shadow:0 2px 3px #102e34}
+body.scroll-edition[data-page=culture] main #culture#culture>.page-heading h1{
+ font-size:clamp(30px,min(5.55vw,8.4cqw),84px)!important;max-width:100%;
+}
+body.scroll-edition[data-page=culture] main #culture#culture>.page-heading p{
+ font-size:clamp(17px,1.57vw,24px)!important;max-width:100%;
+}
 body.scroll-edition[data-page=culture] main #culture#culture>#festivalTabs,
 body.scroll-edition[data-page=culture] main #culture#culture>.festival-discovery {background:#10393b!important;border-block:1px solid #a98d59}
 body.scroll-edition[data-page=culture] main #culture#culture #festivalTabs button{background:#153e42!important;color:#fff1ce!important;border:1px solid #9c875c!important}
@@ -17,7 +24,6 @@ body.scroll-edition[data-page=culture] main #culture#culture #festivalTabs butto
 #studioLinks{display:none}
 @media(min-width:701px){
  body.scroll-edition[data-page=culture] main #culture#culture>.page-heading{height:auto!important;min-height:0!important;aspect-ratio:1391/264}
- body.scroll-edition[data-page=culture] main #culture#culture[data-festival=mid]>.page-heading{background-image:url("assets/desk-mid-window.webp")!important;background-size:100% 100%!important}
  #culture>.festival-module-title:has(+#festivalTabs){display:none!important}
  #culture .season-desk{position:relative;display:block;aspect-ratio:1391/603;padding:0}
  #culture .season-desk button{position:absolute;min-height:0;box-sizing:border-box}
