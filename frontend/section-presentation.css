@@ -1,0 +1,134 @@
+body.scroll-edition[data-page=words]{
+ --word-scene:url("assets/home-harbor-fusion.jpg");
+}
+body.scroll-edition[data-page=storm]{
+ --rain-bridge:url("assets/storm-rain-bridge.webp");
+}
+body.scroll-edition:is([data-page=words],[data-page=storm]) #functionBackdrop{
+ position:fixed;inset:0;height:100dvh;filter:none;
+ background:linear-gradient(#0b243660,#0b2436ad),var(--word-scene,var(--rain-bridge)) center/cover no-repeat #102839!important;
+}
+body.scroll-edition:is([data-page=words],[data-page=storm]) #functionBackdrop img:is(.scenery-words,.scenery-storm){visibility:hidden!important}
+body.scroll-edition:is([data-page=words],[data-page=storm]) #functionBackdrop::before,
+body.scroll-edition:is([data-page=words],[data-page=storm]) #functionBackdrop::after{display:none!important}
+body.scroll-edition[data-page=words] main #words#words,
+body.scroll-edition[data-page=storm] main #storm#storm{background:transparent!important}
+body.scroll-edition[data-page=words] main #words#words>.page-heading{
+ background:linear-gradient(90deg,#08242af0,#08242aa8 41%,transparent 90%),var(--word-scene) center 67%/cover no-repeat!important;
+ border:1px solid #b79768!important;border-radius:8px!important;
+}
+#words#words .page-heading :is(.wooden-type,.words-reeds,.words-heading-seal),
+body[data-page=words] #words>.page-heading::after{display:none!important}
+body.scroll-edition[data-page=words] main #words#words>.page-heading :is(h1,p,.eyebrow){
+ color:#fff1d8!important;text-shadow:0 2px 4px #041821;
+}
+body.scroll-edition[data-page=words] main #words#words .words-workspace{
+ background:rgba(250,241,224,.83)!important;
+}
+#words .exhibit-picker{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;padding:4px;
+ margin:6px 0;background:#0c313b;border:1px solid #b99e79;border-radius:4px;
+}
+#words .exhibit-picker button{
+ min-height:36px;padding:3px;color:#fff1d4;background:transparent;border:0;border-radius:3px;
+ font-size:clamp(12px,1.3vw,18px);white-space:nowrap;
+}
+#words .exhibit-picker button[aria-pressed=true]{color:#15383a;background:#e2c798}
+#words .exhibit-picker button:focus-visible{outline:2px solid #f8e4b7;outline-offset:-2px}
+#words #regionalResults:has(.bike-exhibit){
+ display:grid;width:min(100%,1320px);margin-inline:auto;padding:0;gap:0;align-items:start;
+ grid-template-columns:minmax(0,3fr) minmax(0,2fr);grid-template-rows:auto auto auto 1fr;
+ overflow:hidden;border:1px solid #b99e79;border-radius:6px;background:rgba(250,241,224,.48);
+}
+#words #regionalResults[hidden]{display:none}
+#words #regionalResults:has(.bike-exhibit)>.word-section-title{
+ position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);
+}
+#words #regionalResults .bike-exhibit{
+ grid-area:1/1/5/2;width:100%;margin:0;background:#10333c;
+}
+#words .bike-exhibit img{
+ display:block;width:100%;height:auto;max-height:clamp(200px,30vw,426px);object-fit:contain;
+}
+#words .bike-exhibit .exhibit-picker{margin:0;border:0;border-radius:0}
+#words .exhibit-heading{
+ grid-area:1/2;margin:clamp(13px,2vw,32px) clamp(14px,2.4vw,38px) 5px;
+ font:400 clamp(21px,2.1vw,33px)/1.25 TongpinBrush,KaiTi,serif;color:#263b34;
+}
+#words #regionalResults:has(.bike-exhibit)>:is(.regional-result-grid,.regional-result-note,.result-origin,.regional-context){
+ grid-column:2;margin-inline:clamp(14px,2.4vw,38px);
+}
+#words #regionalResults:has(.bike-exhibit)>.regional-result-grid{display:grid;grid-template-columns:1fr;gap:0}
+#words #regionalResults:has(.bike-exhibit) .regional-result-card{
+ display:grid;grid-template-columns:minmax(70px,24%) minmax(0,1fr);align-items:baseline;gap:8px;min-height:0;
+ border:0;border-bottom:1px solid #b49b6f;border-radius:0;background:transparent;box-shadow:none;
+ padding:clamp(6px,.85vw,15px) 0!important;text-align:left;
+}
+#words #regionalResults:has(.bike-exhibit) .regional-result-card :is(small,strong){margin:0;padding:0;color:#263b34}
+#words #regionalResults:has(.bike-exhibit) .regional-result-card small{
+ justify-content:start;background:none;border:0;white-space:nowrap;font-size:clamp(12px,1.1vw,16px);
+}
+#words #regionalResults:has(.bike-exhibit) .regional-result-card strong{
+ font:400 clamp(20px,3vw,48px)/1.15 STXingkai,"华文行楷",KaiTi,var(--song);
+}
+#words #regionalResults:has(.bike-exhibit) .regional-result-card :is(.frame-corner,.result-divider){display:none}
+#words #regionalResults:has(.bike-exhibit)>.regional-result-note{background:transparent!important;padding-inline:0}
+#words #regionalResults:has(.bike-exhibit)>.result-origin{padding-bottom:10px}
+
+body.scroll-edition[data-page=storm] main #storm#storm>.storm-heading{
+ box-sizing:border-box;min-height:clamp(235px,23vw,415px);padding:clamp(25px,4vw,65px);
+ background:linear-gradient(90deg,#091c31ab,transparent 70%),var(--rain-bridge) center 58%/cover no-repeat #102839!important;
+ border:1px solid #bda989!important;border-radius:8px;
+}
+body.scroll-edition[data-page=storm] main #storm#storm#storm>.storm-heading :is(h1,h1 span,p){
+ color:#fff1d9!important;text-shadow:0 2px 5px #081923;font-family:STZhongsong,"Songti SC",SimSun,serif!important;
+}
+body.scroll-edition[data-page=storm] main #storm#storm#storm>.storm-heading h1{
+ font-size:clamp(30px,4.8vw,73px)!important;font-weight:600!important;letter-spacing:.045em;
+}
+body.scroll-edition[data-page=storm] main #storm#storm>.storm-heading p{
+ max-width:min(100%,33em);font-size:clamp(16px,1.65vw,25px)!important;
+}
+body.scroll-edition[data-page=storm] #storm#storm #stormCard{
+ color:#fff0d5!important;border-color:#d9bb89!important;background:#122a37bf!important;
+}
+body.scroll-edition[data-page=storm] main #storm#storm :is(.storm-grid,.panel,.storm-reference-panel,.storm-lesson-fold,.family-care,.storm-names,.latest-storm){
+ background:rgba(249,241,225,.81)!important;color:#28342e;
+}
+body.scroll-edition[data-page=storm] main #storm#storm :is(.name-grid>div,.family-messages section){
+ background:rgba(255,249,236,.55)!important;
+}
+#storm#storm :is(.panel,.storm-names,.family-care,.storm-lesson-fold,.storm-reference-panel) :is(h2,h3,summary,.eyebrow,.signal-title,.name-grid b){
+ color:#163930!important;font-weight:700;
+}
+#storm#storm :is(.signal-name,.warning-summary b,.metrics b,.metrics strong){color:#783024!important;font-weight:750}
+#storm#storm :is(.signal-metadata,.signal-meaning,.metrics span,.name-grid small,#nameNote,#track-reading-note,.signals .note,.region-fact-scope){
+ color:#433a30!important;line-height:1.6;
+}
+#storm#storm #caseLibraryNote{color:#f1e6d5!important;background:#0c273c;padding:.5em .75em;border-radius:4px}
+#storm#storm #caseLibraryNote b{color:#f5d392!important;font-weight:700}
+#storm#storm :is(.storm-picker,.pill){color:#153e36!important;font-weight:700}
+body.scroll-edition #storm#storm .learn > .eyebrow{
+ display:flex;align-items:center;gap:.75em;width:max-content;max-width:100%;margin:0 0 .8em;
+ color:#7c293f!important;font:700 clamp(15px,1.35vw,20px)/1.4 var(--song);letter-spacing:.14em;
+}
+#storm .learn > .eyebrow::before{
+ content:"";width:21px;height:9px;flex:none;border-block:1px solid #a87843;
+ border-radius:55% 35%;transform:skewX(-25deg);
+}
+#storm .learn > .eyebrow::after{content:"";width:clamp(18px,6vw,75px);height:1px;background:linear-gradient(90deg,#a87843,transparent)}
+#storm#storm .learn > h2{font-size:clamp(23px,1.75vw,29px)}
+#storm#storm #lessonCards small{font-size:15px;color:#514236}
+#storm#storm .learn > :is(p,label),#storm#storm #lessonCase,#storm#storm #lessonCards :is(p,a){
+ font-size:clamp(17px,1.24vw,19px);
+}
+#storm#storm #lessonCards b{font-size:clamp(23px,1.65vw,28px);color:#783024}
+@media(max-width:810px){
+ #words #regionalResults:has(.bike-exhibit){display:flex;flex-direction:column;align-items:stretch}
+ #words .bike-exhibit img{height:auto;max-height:clamp(170px,42vw,275px)}
+ body.scroll-edition[data-page=storm] main #storm#storm>.storm-heading{background-position:center,67% center!important}
+}
+@media(max-width:440px){
+ #words .exhibit-picker{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.scroll-edition[data-page=storm] main #storm#storm>.storm-heading{padding:22px 12px}
+}

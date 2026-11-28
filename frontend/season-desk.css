@@ -15,19 +15,7 @@ body.scroll-edition[data-page=culture] main #culture#culture #festivalTabs butto
 #culture .season-desk span{font-size:14px}
 @media(max-width:700px){#culture .season-desk{grid-template-columns:1fr}#culture .season-desk button{min-height:110px;gap:6px}}
 #studioLinks{display:none}
-body[data-page=culture]{--rail-scene:url("assets/rail-culture.webp")}
-body[data-page=words]{--rail-scene:url("assets/rail-words.webp")}
-body[data-page=storm]{--rail-scene:url("assets/rail-storm.webp")}
 @media(min-width:701px){
- body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]):not([data-page=home]){--rail:16.8vw!important}
- body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>#studioRail{
- background:#0a3039 var(--rail-scene) center/100% 100% no-repeat!important;padding:0!important;border:0!important
- }
- body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>#studioRail>:not(#studioLinks),
- body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>#studioRail::after{display:none!important}
- body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>#studioRail #studioLinks{display:grid!important;position:absolute!important;inset:17.6% 0 26.8%!important;grid-template-rows:repeat(7,1fr);margin:0!important;padding:0!important;width:100%!important;height:auto!important;background:transparent!important}
- body.scroll-edition[data-page] #studioRail #studioLinks button{display:block!important;color:transparent!important;background:transparent!important;border:none!important;text-shadow:none!important}
- body.scroll-edition[data-page] #studioRail #studioLinks button:focus-visible{outline:2px solid #ffe7ad!important}
  body.scroll-edition[data-page=culture] main #culture#culture>.page-heading{height:auto!important;min-height:0!important;aspect-ratio:1391/264}
  body.scroll-edition[data-page=culture] main #culture#culture[data-festival=mid]>.page-heading{background-image:url("assets/desk-mid-window.webp")!important;background-size:100% 100%!important}
  #culture>.festival-module-title:has(+#festivalTabs){display:none!important}
@@ -42,4 +30,3 @@ body[data-page=storm]{--rail-scene:url("assets/rail-storm.webp")}
  #culture[data-festival=mid] .season-desk button{opacity:0}
  #culture[data-festival=mid] .season-desk button:focus-visible{opacity:1}
 }
-@media(max-width:700px){body.scroll-edition[data-page]:not([data-page=home])>#studioRail nav button{color:#ffebbf!important}}

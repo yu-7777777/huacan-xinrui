@@ -8,8 +8,62 @@ new MutationObserver(updateFestival).observe($('festName'),{childList:true,subtr
 function corners(el){if(el.querySelector(':scope>.frame-corner'))return;el.classList.add('ornate-frame');for(const c of ['tl','tr','bl','br']){const n=document.createElement('span');n.className='frame-corner '+c;n.setAttribute('aria-hidden','true');el.append(n);}}
 const home=document.querySelector('[data-enter="words"]');home.classList.add('jade-word-entry');home.innerHTML='<div class="chapter-heading"><small>02</small><h2>同物异名</h2></div><p class="entry-context">出行 · 词语示例</p><div class="entry-word-pair"><span>自行车</span><i></i><span>腳踏車</span></div><p class="entry-note">同一事物，各有表达。</p><span class="chapter-action">寻一个词 <i aria-hidden="true">→</i></span>';home.querySelectorAll('.entry-word-pair>span').forEach(corners);
 const regionLabels=['大陆','香港','澳门','台湾地区'],codes=['cn','hk','mo','tw'];let dictionary=[],filter='全部',expanded=false,serial=0;
+const exhibitArt = {
+ '自行车':'words-bicycle-exhibit.webp','出租车':'words-taxi.jpg',
+ '鼠标':'words-mouse.jpg','打印机':'words-printer.jpg'
+};
+let exhibitPicker;
+
+function createExhibitPicker() {
+ const picker = document.createElement('div');
+ picker.className = 'exhibit-picker';
+ picker.setAttribute('role','group');
+ picker.setAttribute('aria-label','四地词签示例');
+ for (const label of Object.keys(exhibitArt)) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.textContent = label;
+  button.setAttribute('aria-pressed','false');
+  button.addEventListener('click', () => {
+   const entry = find(label);
+   if (!entry) return;
+   ++serial;
+   $('wordSubmit').disabled = false;
+   $('wordAnswer').hidden = true;
+   $('wordQuery').value = label;
+   const result = sample(entry);
+   renderResult(result.query,result.terms,result.note);
+   button.focus({preventScroll:true});
+  });
+  picker.append(button);
+ }
+ return picker;
+}
+
+function showExhibit(result, query) {
+ const art = exhibitArt[find(query)?.left];
+ for (const button of exhibitPicker.children) {
+  button.setAttribute('aria-pressed',String(art === exhibitArt[button.textContent]));
+ }
+ if (!art) {
+  result.before(exhibitPicker);
+  return;
+ }
+ const heading = document.createElement('h3');
+ heading.className = 'exhibit-heading';
+ heading.textContent = '四地词签';
+ const exhibit = document.createElement('figure');
+ exhibit.className = 'bike-exhibit';
+ const image = document.createElement('img');
+ image.src = 'assets/' + art;
+ image.alt = find(query).left;
+ exhibit.append(image,exhibitPicker);
+ result.querySelector('.regional-result-grid').before(exhibit,heading);
+}
+
 function renderResult(query,terms,note,notes=[],origin='词语示例'){
  const result=$('regionalResults');result.hidden=false;result.innerHTML='<h2 class="word-section-title">查询结果：<span>'+E(query)+'</span></h2><div class="regional-result-grid">'+regionLabels.map((label,n)=>'<article class="regional-result-card"><small>'+label+'</small><div class="result-divider"></div><strong>'+E(terms[n]||'结合语境确认')+'</strong>'+(notes[n]?'<p>'+E(notes[n])+'</p>':'')+'</article>').join('')+'</div><p class="regional-result-note">'+E(note||'使用习惯因语境和个人而异。')+'</p><small class="result-origin">'+E(origin)+'</small>';result.querySelectorAll('.regional-result-card').forEach(corners);compactContexts(result);
+ showExhibit(result,query);
 }
 function compactContexts(result){const rows=[...result.querySelectorAll('.regional-result-card>p')];if(!rows.length)return;const details=document.createElement('details');details.className='regional-context';const summary=document.createElement('summary');summary.textContent='\u56db\u5730\u7528\u6cd5\u4e0e\u8bed\u5883';details.append(summary);for(const p of rows){const label=p.closest('.regional-result-card').querySelector('small').textContent;const b=document.createElement('b');b.textContent=label+' \u00b7 ';p.prepend(b);details.append(p);}result.append(details);}
 function sample(w){return {query:w.left,terms:w.regions||[w.left,w.left,w.left,w.right],note:w.note||'使用习惯因语境和个人而异。'};}
@@ -43,6 +97,7 @@ async function init(){
  const source='https://github.com/BYVoid/OpenCC';
  dictionary.push({left:'面包',right:'麵包',context:'饮食',regions:['面包','麵包','麵包','麵包'],note,source},{left:'牛奶',right:'牛奶',context:'饮食',regions:['牛奶','牛奶','牛奶','牛奶'],note,source},{left:'手机',right:'手機',context:'日常',regions:['手机','手機','手機','手機'],note,source});
  const result=document.createElement('section');result.id='regionalResults';result.setAttribute('aria-live','polite');$('wordFilters').after(result);
+ exhibitPicker = createExhibitPicker();
  const examplesHeading=document.createElement('h2');examplesHeading.className='word-section-title example-heading';examplesHeading.textContent='更多词语示例';$('wordCards').before(examplesHeading);
  const more=document.createElement('button');more.id='moreWordExamples';more.type='button';more.className='secondary';more.textContent='展开更多词语示例';more.onclick=()=>{expanded=true;examples();};$('wordCards').after(more);
  const notePanel=document.querySelector('.word-note');if(notePanel){const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='词语说明与来源';details.append(summary,...notePanel.childNodes);notePanel.append(details);}

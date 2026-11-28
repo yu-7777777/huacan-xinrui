@@ -1,0 +1,79 @@
+:root{
+ --rail-red:radial-gradient(ellipse at 14% 4%,#b9676b48,transparent 56%),linear-gradient(154deg,#7c293f,#622135 57%,#431826);
+ --rail-gold:#c49c76;
+ --rail-text:#f9e1c7;
+ --rail-selected:linear-gradient(90deg,#dda98246,#dda98214);
+}
+body>aside,body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>#studioRail{
+ background:var(--rail-red)!important;border-color:var(--rail-gold)!important;color:var(--rail-text);
+}
+body>aside .brand{border-bottom-color:#c49c7660}
+body>aside nav>a[aria-current="page"]{background:var(--rail-selected);color:#fff0d9;border-block-color:#dda98248}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]){
+ --rail:320px!important;
+}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>#studioRail{
+ padding:0!important;overflow:auto;isolation:isolate;
+}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>#studioRail::after{
+ content:"";display:block!important;position:absolute;z-index:-1;pointer-events:none;inset:auto 0 0;
+ height:clamp(54px,13vh,130px);opacity:.68;
+ background:url("assets/directory-gold-waves.png") left center/108% 108% no-repeat;
+ filter:grayscale(1) brightness(.75) contrast(1.8) sepia(.85);mix-blend-mode:screen;
+ mask-image:linear-gradient(transparent,#000 38%);
+}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>#studioRail .brand{
+ position:relative;flex:0 0 auto;display:block!important;width:100%;min-height:clamp(58px,13vh,112px);
+ background:transparent!important;
+ border-bottom:1px solid #c49c7660!important;
+}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>#studioRail .brand::after{
+ content:"";position:absolute;inset:0;background:url("assets/directory-classic-logo.png") center/auto 68% no-repeat;
+ filter:grayscale(1) brightness(.85) contrast(1.85) sepia(.82);
+ mix-blend-mode:screen;pointer-events:none;
+}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>#studioRail nav:not(#studioLinks){display:none!important}
+body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>#studioRail #studioLinks{
+ display:grid!important;position:relative!important;inset:auto!important;flex:1;align-content:stretch;
+ grid-template-rows:repeat(7,minmax(0,1fr));gap:0!important;width:100%!important;min-height:310px;
+ margin:0!important;padding:5px 5px clamp(28px,9vh,95px) 14px!important;background:transparent!important;
+}
+#studioRail #studioLinks::before{
+ content:"";display:block;position:absolute;top:6%;bottom:17%;left:13px;width:1px;
+ background:linear-gradient(transparent,#f1ce946e 9% 91%,transparent);
+}
+body.scroll-edition #studioRail #studioLinks button{
+ position:relative!important;display:grid!important;grid-template-columns:23px minmax(0,1fr);align-items:center;
+ width:100%;min-height:0;text-align:center;padding:4px 3px 4px 13px!important;
+ color:var(--rail-text)!important;border:1px solid transparent!important;border-radius:0;
+ font:400 clamp(13px,1.9vw,29px)/1.2 TongpinBrush,KaiTi,serif;text-shadow:none!important;
+}
+body.scroll-edition #studioRail #studioLinks button::before{
+ content:"";position:absolute;top:50%;left:-5px;width:7px;height:7px;transform:translateY(-50%);
+ border-radius:50%;background:#e8bf85;
+}
+body.scroll-edition #studioRail #studioLinks button:is(:hover,:focus-visible,[aria-current="page"]){
+ background:var(--rail-selected)!important;color:#fff0d9!important;border-block-color:#dda98248!important;
+}
+#studioLinks .nav-icon{
+ width:22px;height:22px;display:block;background:url("assets/directory-gold-icons.png") right var(--icon-y)/36px 258px no-repeat;
+ filter:grayscale(1) brightness(.82) contrast(1.9) sepia(.8);mix-blend-mode:screen;
+}
+#studioLinks :is(.home,.chapters){background:none;font:25px/1 Georgia,serif;filter:none;color:#eac48d}
+#studioLinks .home::after{content:"⌂"}
+#studioLinks .chapters::after{content:"▤"}
+#studioLinks .festival{--icon-y:-54px}
+#studioLinks .words{--icon-y:-97px}
+#studioLinks .storm{--icon-y:-139px}
+#studioLinks .guide{--icon-y:-181px}
+#studioLinks .sources{--icon-y:-224px}
+@media(max-width:1100px){
+ body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]){--rail:clamp(116px,28vw,320px)!important}
+}
+@media(max-width:660px){
+ body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm]){--rail:clamp(94px,25vw,160px)!important}
+}
+@media(max-width:440px){
+ body.scroll-edition #studioRail #studioLinks button{grid-template-columns:1fr;padding-inline:4px!important}
+ #studioLinks .nav-icon{display:none}
+}
