@@ -38,6 +38,9 @@ body.scroll-edition[data-page=culture] main #culture#culture #createSection
 }
 
 /* Both guide views share one conversation and the same header. */
+body.scroll-edition[data-page] #floatingGuide#floatingGuide {
+  bottom: calc(54px + env(safe-area-inset-bottom)) !important;
+}
 body.scroll-edition[data-page] #guide#guide:not([hidden]) {
   position: fixed !important;
   max-height: none !important;
@@ -55,9 +58,9 @@ body.scroll-edition[data-page] #guide#guide:not([hidden]) {
   box-shadow: 0 13px 40px #071e3466;
 }
 body.scroll-edition[data-page] #guide#guide.compact-guide:not([hidden]) {
-  inset: auto calc(18px + env(safe-area-inset-right)) calc(83px + env(safe-area-inset-bottom)) auto !important;
+  inset: auto calc(18px + env(safe-area-inset-right)) calc(114px + env(safe-area-inset-bottom)) auto !important;
   width: min(400px, calc(100vw - 36px)) !important;
-  height: min(392px, calc(100dvh - 104px - env(safe-area-inset-bottom))) !important;
+  height: min(392px, calc(100dvh - 130px - env(safe-area-inset-bottom))) !important;
 }
 body.scroll-edition[data-page] #guide#guide:not(.compact-guide):not([hidden]) {
   inset: max(16px, env(safe-area-inset-top)) 0 auto !important;
@@ -240,7 +243,7 @@ body.scroll-edition #guide#guide .guide-body {
 @media (max-height: 440px) {
   body.scroll-edition[data-page] #guide#guide.compact-guide:not([hidden]) {
     inset: 9px calc(12px + env(safe-area-inset-right)) auto auto !important;
-    height: calc(100dvh - 65px - env(safe-area-inset-bottom)) !important;
+    height: calc(100dvh - 119px - env(safe-area-inset-bottom)) !important;
     padding: 8px 12px !important;
   }
 }
