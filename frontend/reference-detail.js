@@ -10,10 +10,18 @@ const cube=document.createElement('img');cube.className='wooden-type';cube.src='
 document.querySelector('.scroll-chapters i').textContent='';
 const facets=[['culture','共写一笺'],['words','寻一个词'],['storm','看一场风']];
 for(const [page,label] of facets){const b=document.querySelector('[data-enter="'+page+'"]');b.setAttribute('aria-label',label+'：'+b.querySelector('h2').textContent);}
-const small=document.createElement('div');small.className='guide-welcome';small.innerHTML='<span class="guide-seal" aria-hidden="true">同频</span><p>你好，想从哪个问题开始？</p>';$('messages').before(small);
+const greeting = document.createElement('div');
+greeting.className = 'guide-start';
+greeting.innerHTML = '<p>你好，想从哪个问题开始？</p><button type="button" class="guide-prompt">中秋有哪些不同的过法？</button>';
+$('messages').before(greeting);
+$('question').placeholder = '写下你想问的问题';
+greeting.querySelector('button').onclick = event => {
+  $('question').value = event.currentTarget.textContent;
+  $('chatForm').requestSubmit();
+};
 const messages=$('messages');
 async function copyText(text,button){try{await navigator.clipboard.writeText(text);button.textContent='已复制';setTimeout(()=>button.textContent='复制这段话',1800);}catch{button.textContent='请选中文字复制';}}
-function enrich(){document.querySelector('.guide-welcome').hidden=messages.children.length>0;
+function enrich(){greeting.hidden=messages.children.length>0;
 for(const message of messages.querySelectorAll('.msg:not(.user)')){
  const text=[...message.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent).join('').trim();
  if(!text||/^(正在|检索等待|连接中断)/.test(text)||message.querySelector('.answer-actions'))continue;

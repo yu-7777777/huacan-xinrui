@@ -30,21 +30,36 @@ $('saveVoice').onclick=async()=>{if(!room){$('saveResult').textContent='请先�
 function exportCard(text,name){modal('<div class="eyebrow">检查内容与出处，再带走</div><h2>'+E(name)+'</h2><div class="export-card">'+E(text)+'</div><div class="room-controls"><button class="primary" id="png">下载PNG</button><button class="secondary" id="txt">下载文字</button></div>');const dl=(blob,ext)=>{let a=document.createElement('a'),u=URL.createObjectURL(blob);a.href=u;a.download='同频-'+name+'.'+ext;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};$('txt').onclick=()=>dl(new Blob([text],{type:'text/plain;charset=utf-8'}),'txt');$('png').onclick=()=>{let c=document.createElement('canvas');c.width=1000;let x=c.getContext('2d');x.font='24px Microsoft YaHei';let lines=[];for(let s of text.split('\n')){let row='';for(let ch of s){if(x.measureText(row+ch).width>850){lines.push(row);row='';}row+=ch;}lines.push(row);}c.height=Math.max(1000,180+lines.length*39);x.fillStyle='#faf2e2';x.fillRect(0,0,c.width,c.height);x.fillStyle='#a44d3d';x.font='32px SimSun';x.fillText('同频 · 山海相望 心意相通',65,85);x.fillStyle='#245f5d';x.font='24px Microsoft YaHei';lines.forEach((s,n)=>x.fillText(s,65,155+n*39));c.toBlob(b=>dl(b,'png'),'image/png');};}
 $('cultureCard').onclick=()=>{if(!room){$('saveResult').textContent='请先创建卡片并保存故事。';return;}let f=F.find(x=>x.id===room.festival);exportCard(`文化共叙卡 · ${f.name}\n${room.approvedA&&room.approvedB?'双方已确认各自内容':'草稿 · 尚未双方确认'}${local?' / 本机试做':''}\n\n第一位：${room.titleA||'未写标题'}\n${room.voiceA||'尚未保存故事'}\n\n第二位：${room.titleB||'未写标题'}\n${room.voiceB||'尚未保存故事'}\n\n节日背景：${f.intro}\n资料来源：${f.source}\n个人故事不作为地区习俗的统计结论。${dirty?'\n提示：本次卡片仅包括已保存内容。':''}`,'文化共叙卡');};
 $('stormCard').onclick=()=>{let s=stormInfo(),r=s?.regions.find(x=>x.code===reg);if(s)exportCard(`历史学习卡 · ${s.name} / ${s.year}\n地区：${r?.name||''}\n\n${(r?.events||[]).map(e=>date(e.time)+' '+e.action+' '+e.signal).join('\n')||'暂无已核实记录，不等于未发布。'}\n\n${plain[reg]}\n历史资料，不是当前预警或出行建议。\n来源：${r?.source||'暂无对应来源'}\n轨迹：NOAA IBTrACS v04r01，main轨迹。`,'台风历史卡');};
-for (const id of ['guideNav','floatingGuide']) {
-  $(id).onclick=()=>{
-    const guide=$('guide');
-    guide.classList.toggle('compact-guide',id==='floatingGuide');
-    guide.hidden=false;
-    if(id==='floatingGuide') $('question').focus({preventScroll:true});
-  };
+const guide = $('guide');
+const guideClose = $('closeGuide');
+const floatingGuide = $('floatingGuide');
+let guideOpener;
+
+function openGuide(opener) {
+  guideOpener = opener;
+  guide.classList.toggle('compact-guide', opener === floatingGuide);
+  guide.hidden = false;
+  guideClose.focus({preventScroll:true});
 }
-$('closeGuide').onclick=()=>{
-  const guide=$('guide');
-  const opener=guide.classList.contains('compact-guide')?'floatingGuide':'guideNav';
-  guide.hidden=true;
-  guide.classList.remove('compact-guide');
-  $(opener).focus({preventScroll:true});
+
+floatingGuide.onclick = () => openGuide(floatingGuide);
+$('guideNav').onclick = () => {
+  const directory = document.querySelector('.chapter-directory-frame');
+  const opener = document.body.dataset.page === 'chapters'
+    ? directory?.contentDocument?.querySelector('[data-dialog="guide"]')
+    : document.querySelector('#studioLinks [data-route="guideNav"]');
+  openGuide(opener || $('guideNav'));
 };
+guideClose.onclick = () => {
+  guide.hidden = true;
+  guide.classList.remove('compact-guide');
+  guideOpener?.focus({preventScroll:true});
+};
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && !guide.hidden && !document.querySelector('dialog[open]')) {
+    guideClose.click();
+  }
+});
 function msg(s,user=false){let d=document.createElement('div');d.className='msg'+(user?' user':'');d.textContent=s;$('messages').append(d);return d;}
 async function ask(q){msg(q,true);if(q.includes('播放')&&q.includes('小犬')){chooseStorm('KOINU');$('stormSelect').value='KOINU';page('storm');msg('已打开小犬历史路线。点击播放查看全过程；这是本地快捷操作。');return;}let m=msg('正在查阅资料…');$('send').disabled=true;try{let r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q,webSearch:$('webSearch').checked}),signal:AbortSignal.timeout(120000)}),d=await r.json();m.textContent=d.error||d.answer;if(d.citations?.length){let list=document.createElement('div');list.className='guide-sources';for(let c of d.citations){let a=document.createElement('a');a.href=c.url;a.target='_blank';a.rel='noopener';a.textContent=c.title;list.append(a);}m.append(list);}}catch(e){m.textContent=e.name==='AbortError'||e.name==='TimeoutError'?'检索等待超时，请稍后重试；联网查询通常比普通问答耗时更长。':'连接中断，请稍后重试。';}finally{$('send').disabled=false;}}$('chatForm').onsubmit=e=>{e.preventDefault();let q=$('question').value.trim();if(q){$('question').value='';ask(q);}};document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>ask(b.dataset.q));
 $('sourcesBtn').onclick=()=>modal('<h2>资料与使用说明</h2><p>九个节日／节气，18条中文与英文2024年序列来自Wikimedia API。语言不等于读者所在地。12组词汇包含大陆、香港、澳门、台湾地区表达，词汇对应与各地用例来源在卡片中列出。</p><p>116场命名台风主轨迹来自NOAA IBTrACS；预警按各地官方记录列事件。没有资料不等于没有预警。</p><p>在线卡片由服务端保存，七天有效。每位参与者只能编辑自己的内容；当前站点公开可访问，卡片内容仍由邀请凭证保护。草稿状态在导出时保留。</p><a href="https://www.ncei.noaa.gov/products/international-best-track-archive" target="_blank" rel="noopener">台风数据说明 ↗</a>');
