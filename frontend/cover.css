@@ -53,3 +53,52 @@ body[data-page=home] #qingjin{
  #qingjin .preface .cover-title{width:clamp(112px,40dvh,176px)}
  #qingjin .folio .enter{bottom:10dvh;min-height:38px}
 }
+
+#qingjin .folio.harbor-cover {
+  padding-top: clamp(30px, 11dvh, 112px);
+  background: #101d2c;
+}
+#qingjin .harbor-cover .harbor-scene {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  pointer-events: none;
+}
+#qingjin .harbor-cover::before {
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 27%, #10192d7a, transparent 45%),
+    linear-gradient(180deg, #0a182b21, transparent 35% 76%, #0c202b81);
+}
+#qingjin .harbor-cover .cover-title {
+  width: clamp(185px, min(32vw, 52dvh), 480px);
+}
+#qingjin .harbor-cover .preface p {
+  font-weight: 700;
+  color: #fff1d8;
+  text-shadow: 0 1px 2px #06131f, 0 2px 5px #06131f, 0 3px 12px #06131fcc;
+}
+#qingjin .harbor-cover .enter {
+  bottom: clamp(26px, 9dvh, 90px);
+  min-inline-size: min(calc(100% - 24px), clamp(206px, 16vw, 278px));
+  min-height: clamp(52px, 8dvh, 62px);
+  justify-content: center;
+  font-size: clamp(17px, 1.4vw, 23px);
+  background: #11252dd9;
+  border-color: #d0af7f;
+  box-shadow: inset 0 0 0 3px #0e202645, 0 8px 30px #06182155;
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  #qingjin .harbor-cover .harbor-scene {
+    transform: translate3d(var(--harbor-x, 0px), var(--harbor-y, 0px), 0) scale(1.055);
+    transition: transform 420ms cubic-bezier(.2,.7,.3,1);
+  }
+}
+@media (max-height: 420px) {
+  #qingjin .folio.harbor-cover { padding-top: 13px; }
+  #qingjin .harbor-cover .cover-title { width: clamp(108px, 43dvh, 180px); }
+  #qingjin .harbor-cover .enter { bottom: 6dvh; min-height: 44px; }
+}

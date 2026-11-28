@@ -43,3 +43,30 @@ new ResizeObserver(() => {
   const bottom = chapterMain.getBoundingClientRect().bottom - body.getBoundingClientRect().top + body.scrollTop;
   body.style.setProperty('--function-scene-height', Math.ceil(bottom) + 'px');
 }).observe(chapterMain);
+
+{
+  const harborCover = document.querySelector('.harbor-cover');
+  const harborMotion = matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+  let frame = 0;
+
+  harborCover.addEventListener('pointermove', event => {
+    if (event.pointerType !== 'mouse' || !harborMotion.matches) return;
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      const bounds = harborCover.getBoundingClientRect();
+      const x = ((event.clientX - bounds.left) / bounds.width * 2 - 1) * Math.min(19, bounds.width * .019);
+      const y = ((event.clientY - bounds.top) / bounds.height * 2 - 1) * Math.min(12, bounds.height * .02);
+      harborCover.style.setProperty('--harbor-x', x.toFixed(1) + 'px');
+      harborCover.style.setProperty('--harbor-y', y.toFixed(1) + 'px');
+    });
+  });
+
+  function recenterHarbor() {
+    cancelAnimationFrame(frame);
+    harborCover.style.removeProperty('--harbor-x');
+    harborCover.style.removeProperty('--harbor-y');
+  }
+
+  harborCover.addEventListener('pointerleave', recenterHarbor);
+  harborMotion.addEventListener('change', recenterHarbor);
+}
