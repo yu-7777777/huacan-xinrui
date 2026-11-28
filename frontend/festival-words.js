@@ -54,10 +54,19 @@ function showExhibit(result, query) {
  heading.textContent = '四地词签';
  const exhibit = document.createElement('figure');
  exhibit.className = 'bike-exhibit';
+ const frame = document.createElement('div');
+ frame.className = 'exhibit-image';
+ if (art !== exhibitArt['自行车']) {
+  frame.classList.add('panorama');
+  frame.style.setProperty('--exhibit-photo', 'url("assets/' + art + '")');
+  if (art === exhibitArt['鼠标']) frame.style.setProperty('--photo-height', '68cqw');
+  if (art === exhibitArt['打印机']) frame.style.setProperty('--photo-height', '55cqw');
+ }
  const image = document.createElement('img');
  image.src = 'assets/' + art;
  image.alt = find(query).left;
- exhibit.append(image,exhibitPicker);
+ frame.append(image);
+ exhibit.append(frame,exhibitPicker);
  result.querySelector('.regional-result-grid').before(exhibit,heading);
 }
 

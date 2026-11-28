@@ -47,8 +47,20 @@ body.scroll-edition[data-page=words] main #words#words .words-workspace{
 #words #regionalResults .bike-exhibit{
  grid-area:1/1/5/2;width:100%;margin:0;background:#10333c;
 }
-#words .bike-exhibit img{
- display:block;width:100%;height:auto;max-height:clamp(200px,30vw,426px);object-fit:contain;
+#words .exhibit-image{
+ position:relative;display:grid;place-items:center;isolation:isolate;overflow:hidden;
+ width:100%;aspect-ratio:855/589;max-height:clamp(200px,30vw,426px);container-type:inline-size;
+}
+#words .exhibit-image img{
+ position:absolute;width:100%;height:100%;object-fit:contain;
+}
+#words .exhibit-image.panorama::before{
+ content:"";position:absolute;inset:-20px;z-index:-1;
+ background:var(--exhibit-photo) center/cover no-repeat;filter:blur(18px) brightness(.65);
+}
+#words .exhibit-image.panorama img{
+ height:min(100%,var(--photo-height,42cqw));object-fit:cover;
+ mask-image:linear-gradient(transparent,#000 9% 91%,transparent);
 }
 #words .bike-exhibit .exhibit-picker{margin:0;border:0;border-radius:0}
 #words .exhibit-heading{
@@ -123,9 +135,14 @@ body.scroll-edition #storm#storm .learn > .eyebrow{
  font-size:clamp(17px,1.24vw,19px);
 }
 #storm#storm #lessonCards b{font-size:clamp(23px,1.65vw,28px);color:#783024}
+#storm#storm .quiz-panel{
+ background:linear-gradient(115deg,#e5caa4,#eedabd);border-color:#ae8254;
+ box-shadow:inset 3px 0 #9a553b;
+}
+#storm#storm #quizProgress{color:#68472f;font-weight:700}
 @media(max-width:810px){
  #words #regionalResults:has(.bike-exhibit){display:flex;flex-direction:column;align-items:stretch}
- #words .bike-exhibit img{height:auto;max-height:clamp(170px,42vw,275px)}
+ #words .exhibit-image{max-height:clamp(170px,42vw,275px)}
  body.scroll-edition[data-page=storm] main #storm#storm>.storm-heading{background-position:center,67% center!important}
 }
 @media(max-width:440px){
