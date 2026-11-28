@@ -28,7 +28,7 @@ body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>
  border-bottom:1px solid #c49c7660!important;
 }
 body.scroll-edition:is([data-page=culture],[data-page=words],[data-page=storm])>#studioRail .brand::after{
- content:"";position:absolute;inset:0;background:url("assets/directory-classic-logo.png") center/auto 68% no-repeat;
+ content:"";position:absolute;inset:0;background:url("assets/directory-classic-logo.png") center/min(84%,235px) auto no-repeat;
  filter:grayscale(1) brightness(.85) contrast(1.85) sepia(.82);
  mix-blend-mode:screen;pointer-events:none;
 }

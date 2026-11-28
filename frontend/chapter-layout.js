@@ -10,7 +10,7 @@ document.querySelector('#home .hero-routes')?.remove();
 const directoryFrame = document.createElement('iframe');
 directoryFrame.className = 'chapter-directory-frame';
 directoryFrame.title = '同频篇章目录';
-directoryFrame.src = 'chapter-directory.html';
+directoryFrame.src = 'chapter-directory.html?v=rail-logo';
 document.body.append(directoryFrame);
 window.addEventListener('message', event => {
   if (event.origin !== location.origin || event.source !== directoryFrame.contentWindow
@@ -23,7 +23,13 @@ window.addEventListener('message', event => {
 // Initialization fetches data asynchronously and may resolve after the new route is built.
 if(location.hash==='#chapters')window.TongpinNavigate('chapters',false);
 const wordsHeading=document.querySelector('#words .page-heading');
-wordsHeading.querySelector('h1').textContent='说法不同，也能相互理解。';
+const wordsTitle = wordsHeading.querySelector('h1');
+wordsTitle.replaceChildren(...['说法不同，', '也能相互理解'].map(text => {
+  const phrase = document.createElement('span');
+  phrase.className = 'words-title-part';
+  phrase.textContent = text;
+  return phrase;
+}));
 const seal=document.createElement('span');seal.className='words-heading-seal';seal.textContent='同\n频';seal.setAttribute('aria-hidden','true');wordsHeading.querySelector('h1').prepend(seal);
 const reeds=document.createElement('img');reeds.src='assets/words-reeds.svg';reeds.alt='';reeds.className='words-reeds';reeds.setAttribute('aria-hidden','true');wordsHeading.append(reeds);
 const sources=document.createElement('details');sources.id='exampleSources';sources.innerHTML='<summary>示例词语的资料与语境</summary><div></div>';$('wordCards').after(sources);

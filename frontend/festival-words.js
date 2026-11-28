@@ -82,6 +82,9 @@ async function search(){
  if(known){const d=sample(known);renderResult(q,d.terms,d.note,[],'已有词语示例 · AI正在补充语境');}
  else renderResult(q,['整理中…','整理中…','整理中…','整理中…'],'正在整理四地表达，请稍候。',[],'DeepSeek 查询中');
  out.hidden=true;$('wordSubmit').disabled=true;
+ const results = $('regionalResults');
+ results.style.scrollMarginTop = $('wordSearch').offsetHeight + 12 + 'px';
+ results.scrollIntoView({block:'start'});
  try{const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({mode:'words',structured:true,question:q,webSearch:false}),signal:AbortSignal.timeout(90000)}),data=await response.json();if(requestId!==serial)return;
  let result=data.regionalExpressions;
  if(!result&&data.answer){try{const parsed=JSON.parse(data.answer.replace(/^```(?:json)?\s*|\s*```$/g,''));if(codes.every(c=>typeof parsed.regions?.[c]?.term==='string'))result=parsed;}catch{}}

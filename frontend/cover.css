@@ -11,7 +11,11 @@ body[data-page=home] #qingjin{
  background:radial-gradient(ellipse at 50% 33%,#06192c85,transparent 48%),
  linear-gradient(180deg,#04121f72,#04121f24 37%,transparent 65%,#04121fab);
 }
-#qingjin .preface h1{margin:0}
+#qingjin .preface .cover-title{
+ display:grid;place-items:center;width:clamp(215px,min(37vw,49dvh),520px);
+ max-width:100%;aspect-ratio:2.1;margin:0 auto;
+}
+#qingjin .preface .cover-title img{width:100%;height:100%;object-fit:contain}
 #qingjin .preface img{
  display:block;width:clamp(215px,min(37vw,49dvh),520px);max-width:100%;height:auto;margin:auto;
  filter:saturate(.78) brightness(1.10) drop-shadow(0 2px 7px #05131e9c);
@@ -46,6 +50,6 @@ body[data-page=home] #qingjin{
 @media(max-width:400px){#qingjin .preface p{letter-spacing:.04em;gap:6px}}
 @media(max-height:420px){
  #qingjin .folio{padding-top:clamp(9px,6dvh,24px)}
- #qingjin .preface img{width:clamp(115px,41dvh,175px)}
+ #qingjin .preface .cover-title{width:clamp(112px,40dvh,176px)}
  #qingjin .folio .enter{bottom:10dvh;min-height:38px}
 }

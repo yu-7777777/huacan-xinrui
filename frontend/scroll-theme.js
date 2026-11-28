@@ -32,7 +32,9 @@ function decorate(){
  if(document.querySelector('.live-card')){const c=document.querySelector('.live-card');if(!c.querySelector('.joining-seal')){const s=document.createElement('span');s.className='joining-seal';s.setAttribute('aria-hidden','true');s.textContent='合';c.querySelector('.voices').append(s);}done++;}
  if($('wordSearch')){if(!$('wordSuggestions')){const row=document.createElement('div');row.id='wordSuggestions';row.className='word-suggestions';row.innerHTML='<span>推荐词语</span>'+['自行车','软件','早餐','出租车'].map(w=>'<button type="button">'+w+'</button>').join('');row.querySelectorAll('button').forEach(b=>b.onclick=()=>{$('wordQuery').value=b.textContent;$('wordQuery').focus();});$('wordSearch').append(row);}done++;}
  const names=document.querySelector('.storm-names');if(names){const grid=document.querySelector('.storm-grid');if(grid&&grid.nextElementSibling!==names)grid.after(names);done++;}
- if(document.querySelector('.latest-storm')){const storm=$('storm'),heading=storm.querySelector('.storm-heading'),latest=storm.querySelector('.latest-storm');if(heading.nextElementSibling!==latest)heading.after(latest);done++;}
+ if(document.querySelector('.latest-storm')){const storm=$('storm'),heading=storm.querySelector('.storm-heading'),latest=storm.querySelector('.latest-storm');const result = $('latestResult');
+if (heading.nextElementSibling !== latest) heading.after(latest);
+if (result && latest.nextElementSibling !== result) latest.after(result);done++;}
  if(done===4)return true;return false;
 }
 const observer=new MutationObserver(()=>{if(decorate())observer.disconnect();});observer.observe(document.body,{childList:true,subtree:true});decorate();setTimeout(()=>observer.disconnect(),30000);

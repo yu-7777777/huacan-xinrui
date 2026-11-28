@@ -132,3 +132,44 @@ body.scroll-edition #storm#storm .learn > .eyebrow{
  #words .exhibit-picker{grid-template-columns:repeat(2,minmax(0,1fr))}
  body.scroll-edition[data-page=storm] main #storm#storm>.storm-heading{padding:22px 12px}
 }
+/* Keep the search controls usable while their results scroll normally. */
+body.scroll-edition[data-page=words] main #words#words>.page-heading{container-type:inline-size}
+body.scroll-edition[data-page=words] main #words#words>.page-heading h1{
+ font-size:clamp(21px,6cqw,66px)!important;
+}
+#words .words-title-part{display:inline-block;white-space:nowrap}
+body.scroll-edition[data-page=words] #words .words-workspace #wordSearch{
+ position:sticky;top:0;z-index:12;
+ padding:9px 13px 11px;margin:0 0 12px;
+ background:#f4ebda;border:1px solid #c7aa81;border-radius:7px;box-shadow:0 4px 12px #0c243026;
+}
+body.scroll-edition[data-page=words] #words .words-workspace #wordSearch>label{margin-bottom:5px}
+body.scroll-edition[data-page=words] #words .words-workspace #wordSearch>div:first-of-type{
+ display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:8px;
+}
+body.scroll-edition[data-page=words] #words #wordQuery{width:100%;min-width:0}
+#words #wordSubmit{white-space:nowrap}
+body.scroll-edition[data-page=storm] main #storm#storm .latest-storm{
+ position:sticky;top:0;z-index:12;margin-bottom:12px;
+ border-color:#c7aa81;border-radius:7px;background:#f4ebda!important;box-shadow:0 4px 12px #0c243026;
+}
+body.scroll-edition[data-page=storm] main #storm#storm #latestForm{
+ display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;
+}
+body.scroll-edition[data-page=storm] #storm #latestQuery{min-width:0;width:100%}
+#storm #latestButton{white-space:nowrap}
+#storm #latestResult:not([hidden]),body.scroll-edition[data-page=culture] #culture>#festivalSearchResult:not([hidden]){
+ margin:0 0 12px;padding:12px 16px;border:1px solid #c7aa81;border-radius:7px;
+ color:#3e3025;overflow-wrap:anywhere;
+}
+body.scroll-edition[data-page=culture] main #culture#culture>.festival-discovery{
+ position:sticky!important;top:0!important;z-index:12!important;
+ box-shadow:0 4px 12px #0c243040;
+}
+body.scroll-edition[data-page=culture] #culture>#festivalSearchResult{background:#f4ebda}
+@media(max-width:520px){
+ body.scroll-edition[data-page=words] #words .words-workspace #wordSearch{padding-inline:7px}
+ body.scroll-edition[data-page=words] #words #wordSubmit{font-size:12px;padding-inline:6px}
+ body.scroll-edition[data-page=storm] main #storm#storm #latestForm{gap:5px;padding:5px}
+ body.scroll-edition[data-page=storm] #storm #latestButton{font-size:12px;padding-inline:5px}
+}
